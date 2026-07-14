@@ -20,7 +20,7 @@ export const siteConfig = {
     'split PDF',
     'compress PDF',
     'convert PDF',
-    'free PDF tools',
+    'professional PDF tools',
     'online PDF editor',
     'browser-based PDF',
     'private PDF processing',

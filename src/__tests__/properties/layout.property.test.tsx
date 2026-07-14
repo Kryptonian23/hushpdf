@@ -62,6 +62,18 @@ describe('Layout Property Tests', () => {
    * SHALL contain the brand name "HushPDF" in the header or title area.
    */
   describe('Property 2: Brand Consistency', () => {
+    it('keeps the only layout source link at the bottom of the footer', () => {
+      const { unmount: unmountHeader } = render(<Header locale="en" />);
+      expect(document.querySelectorAll('a[href="/en/source"]')).toHaveLength(0);
+      unmountHeader();
+
+      const { unmount: unmountFooter } = render(<Footer locale="en" />);
+      const sourceLinks = document.querySelectorAll('a[href="/en/source"]');
+      expect(sourceLinks).toHaveLength(1);
+      expect(screen.getByTestId('footer-source-link')).toBe(sourceLinks[0]);
+      unmountFooter();
+    });
+
     it('Header component displays HushPDF brand name for all locales', () => {
       fc.assert(
         fc.property(

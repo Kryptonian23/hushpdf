@@ -2,15 +2,15 @@
   "metadata": {
     "home": {
       "title": "HushPDF - Alat PDF Profesional",
-      "description": "Gratis, Pribadi & Berbasis Browser. Gabung, edit, dan ubah file PDF secara online tanpa mengunggah ke server."
+      "description": "Alat PDF profesional dan privat berbasis browser. Edit, konversi, dan lindungi dokumen tanpa mengunggah ke server."
     },
     "tools": {
       "title": "Semua Alat PDF",
-      "description": "Jelajahi lebih dari 67 alat PDF profesional. Gabungkan, pisahkan, kompres, konversi, edit, dan amankan file PDF Anda secara gratis."
+      "description": "Alat profesional untuk menggabungkan, membagi, mengompres, mengonversi, mengedit, dan melindungi PDF di perangkat Anda."
     },
     "about": {
       "title": "Tentang",
-      "description": "Pelajari tentang HushPDF - toolkit PDF gratis, pribadi, dan kuat. Semua proses terjadi di browser Anda."
+      "description": "Pelajari HushPDF, ruang kerja PDF profesional yang mengutamakan privasi dan pemrosesan lokal."
     },
     "faq": {
       "title": "Pertanyaan yang Sering Diajukan",
@@ -30,13 +30,13 @@
       "splitPdf": "pisah PDF",
       "compressPdf": "kompres PDF",
       "convertPdf": "konversi PDF",
-      "freePdfTools": "alat PDF gratis",
+      "freePdfTools": "alat PDF privat",
       "onlinePdfEditor": "editor PDF online"
     }
   },
   "common": {
     "brand": "HushPDF",
-    "tagline": "Alat PDF Profesional - Gratis & Pribadi",
+    "tagline": "Alat PDF profesional dengan privasi bawaan",
     "navigation": {
       "home": "Rumah",
       "tools": "Alat",
@@ -44,7 +44,8 @@
       "about": "Tentang",
       "faq": "FAQ",
       "privacy": "Pribadi",
-      "contact": "Hubungi"
+      "contact": "Hubungi",
+      "pricing": "Harga"
     },
     "buttons": {
       "upload": "Unggah File",
@@ -921,7 +922,7 @@
   },
   "toolsPage": {
     "title": "Alat PDF Profesional",
-    "subtitle": "{count}+ alat gratis, aman, dan mudah digunakan untuk semua kebutuhan PDF Anda.",
+    "subtitle": "{count}+ alat profesional dan aman untuk pekerjaan PDF privat.",
     "filters": "Filter",
     "allTools": "Semua Alat",
     "clearAll": "Bersihkan semua",
@@ -951,15 +952,15 @@
       "general": {
         "whatIs": {
           "question": "Apa itu HushPDF?",
-          "answer": "HushPDF adalah toolkit PDF gratis yang berfokus pada privasi yang berjalan sepenuhnya di browser Anda. Kami menawarkan 80+ alat profesional untuk mengedit, mengonversi, menggabung, memisah, dan mengamankan file PDF tanpa mengunggahnya ke server mana pun."
+          "answer": "HushPDF adalah ruang kerja PDF yang mengutamakan privasi dan berjalan di browser. Tersedia 80+ alat profesional tanpa mengunggah dokumen ke server."
         },
         "isFree": {
-          "question": "Apakah HushPDF benar-benar gratis?",
-          "answer": "Ya, HushPDF sepenuhnya gratis untuk digunakan. Tidak ada biaya tersembunyi, tidak ada tingkat premium, dan tidak diperlukan pendaftaran. Semua fitur tersedia untuk semua orang."
+          "question": "Bagaimana harga HushPDF akan bekerja?",
+          "answer": "HushPDF sedang menyiapkan paket berbayar Personal, Professional, dan Teams dengan uji coba privat tujuh hari. Kode sumber tetap tersedia di bawah GNU AGPLv3."
         },
         "account": {
-          "question": "Apakah saya perlu membuat akun?",
-          "answer": "Tidak, Anda tidak perlu membuat akun atau mendaftar untuk menggunakan HushPDF. Cukup kunjungi situs web dan langsung gunakan alat apa pun."
+          "question": "Apakah saya memerlukan akun?",
+          "answer": "Saat penagihan diluncurkan, akun diperlukan untuk memulai uji coba atau memakai langganan resmi. PDF tetap diproses secara lokal."
         }
       },
       "privacy": {
@@ -1031,10 +1032,10 @@
   },
   "aboutPage": {
     "title": "Tentang {brand}",
-    "description": "{brand} adalah perangkat PDF gratis yang berfokus pada privasi yang berjalan sepenuhnya di browser Anda. Dengan {count}+ alat profesional, Anda dapat mengedit, mengonversi, menggabungkan, membagi, dan mengamankan file PDF Anda tanpa pernah mengunggahnya ke server.",
+    "description": "{brand} adalah ruang kerja PDF profesional dan privat di browser. Dengan {count}+ alat, Anda dapat bekerja tanpa mengunggah dokumen ke server.",
     "mission": {
       "title": "Misi Kami",
-      "p1": "Kami percaya bahwa setiap orang harus memiliki akses ke alat PDF yang kuat tanpa mengorbankan privasi mereka atau membayar biaya langganan yang mahal. Itulah mengapa kami menciptakan {brand} – perangkat PDF komprehensif yang mengutamakan privasi Anda.",
+      "p1": "Kami percaya perangkat lunak PDF profesional harus melindungi dokumen sensitif sejak awal. Karena itu {brand} berfokus pada pemrosesan lokal, alat andal, dan janji privasi yang jelas.",
       "p2": "Tidak seperti layanan PDF tradisional yang mengharuskan Anda mengunggah file ke server jarak jauh, {brand} memproses semuanya secara lokal di browser Anda. Dokumen sensitif Anda tidak pernah meninggalkan perangkat Anda, memberi Anda kendali penuh atas data Anda.",
       "p3": "Baik Anda seorang pelajar, profesional, atau pengguna kasual, {brand} menyediakan semua alat yang Anda butuhkan untuk bekerja dengan PDF secara efisien dan aman."
     },
@@ -1053,8 +1054,8 @@
         "description": "Tersedia dalam 9 bahasa dan berfungsi di perangkat apa pun dengan browser modern. Tidak diperlukan instalasi."
       },
       "free": {
-        "title": "Gratis Selamanya",
-        "description": "HushPDF sepenuhnya gratis untuk digunakan tanpa biaya tersembunyi, tidak diperlukan pendaftaran, dan tidak ada batasan penggunaan."
+        "title": "Nilai profesional",
+        "description": "Alat terpelihara, aplikasi desktop bertanda tangan, otomatisasi, dan dukungan andal."
       },
       "openSource": {
         "title": "Sumber Terbuka",
@@ -1177,10 +1178,11 @@
   },
   "home": {
     "hero": {
-      "title": "Alat PDF Profesional",
-      "highlight": "Alat Profesional",
-      "subtitle": "Pemrosesan PDF gratis, pribadi, dan kuat di browser Anda",
-      "cta": "Mulai Sekarang"
+      "title": "Alat PDF profesional.",
+      "highlight": "Tanpa unggahan.",
+      "subtitle": "Edit, konversi, lindungi, dan otomatisasi PDF sensitif langsung di perangkat Anda.",
+      "cta": "Jelajahi HushPDF",
+      "pricingCta": "Lihat paket"
     },
     "features": {
       "privacy": {
@@ -1188,8 +1190,8 @@
         "description": "Semua pemrosesan terjadi di browser Anda. File Anda tidak pernah meninggalkan perangkat Anda."
       },
       "free": {
-        "title": "Sepenuhnya Gratis",
-        "description": "Tanpa registrasi, tanpa batasan, tanpa biaya tersembunyi."
+        "title": "Dibuat untuk profesional",
+        "description": "Alat andal, otomatisasi, dan pengalaman desktop yang terpelihara."
       },
       "powerful": {
         "title": "Alat yang Kuat",
@@ -1216,7 +1218,7 @@
     },
     "stats": {
       "pdfTools": "Alat PDF",
-      "freeToUse": "Gratis Digunakan",
+      "freeToUse": "Privasi sejak desain",
       "languages": "Bahasa",
       "filesUploaded": "File Diunggah"
     },

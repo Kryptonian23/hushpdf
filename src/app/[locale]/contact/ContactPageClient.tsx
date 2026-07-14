@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { MessageSquare, Github, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { MessageSquare, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/Button';
@@ -26,16 +26,6 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
     subject: '',
     message: '',
   });
-
-  const contactMethods = [
-    {
-      icon: Github,
-      title: 'Source & license',
-      description: 'View source availability, license terms, and upstream attribution.',
-      action: 'Open source information',
-      href: `/${locale}/source`,
-    },
-  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -65,41 +55,6 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
               <p className="text-[hsl(var(--color-muted-foreground))]">
                 {t('hero.description')}
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Methods */}
-        <section className="py-12">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {contactMethods.map((method, index) => {
-                const Icon = method.icon;
-                return (
-                  <a
-                    key={index}
-                    href={method.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <Card className="p-6 h-full text-center" hover>
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[hsl(var(--color-primary)/0.1)] mb-4">
-                        <Icon className="h-6 w-6 text-[hsl(var(--color-primary))]" />
-                      </div>
-                      <h3 className="font-semibold text-[hsl(var(--color-foreground))] mb-2">
-                        {method.title}
-                      </h3>
-                      <p className="text-sm text-[hsl(var(--color-muted-foreground))] mb-4">
-                        {method.description}
-                      </p>
-                      <span className="text-sm font-medium text-[hsl(var(--color-primary))]">
-                        {method.action}
-                      </span>
-                    </Card>
-                  </a>
-                );
-              })}
             </div>
           </div>
         </section>

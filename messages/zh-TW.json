@@ -2,15 +2,15 @@
   "metadata": {
     "home": {
       "title": "HushPDF - 專業 PDF 工具",
-      "description": "免費、私密、基於瀏覽器。線上合併、編輯 PDF 檔案，無需上傳到伺服器。"
+      "description": "專業、私密、以瀏覽器為基礎的 PDF 工具。無需上傳伺服器即可編輯、轉換和保護文件。"
     },
     "tools": {
       "title": "所有 PDF 工具",
-      "description": "瀏覽 67+ 款專業 PDF 工具。免費合併、分割、壓縮、轉換、編輯和保護您的 PDF 檔案。"
+      "description": "直接在裝置上合併、分割、壓縮、轉換、編輯和保護 PDF 的專業工具。"
     },
     "about": {
       "title": "關於我們",
-      "description": "瞭解 HushPDF - 您免費、私密且強大的 PDF 工具箱。所有處理都在您的瀏覽器中進行。"
+      "description": "了解 HushPDF：在裝置上處理文件、隱私優先的專業 PDF 工作空間。"
     },
     "faq": {
       "title": "常見問題",
@@ -30,13 +30,13 @@
       "splitPdf": "分割 PDF",
       "compressPdf": "壓縮 PDF",
       "convertPdf": "轉換 PDF",
-      "freePdfTools": "免費 PDF 工具",
+      "freePdfTools": "私密 PDF 工具",
       "onlinePdfEditor": "線上 PDF 編輯器"
     }
   },
   "common": {
     "brand": "HushPDF",
-    "tagline": "專業PDF工具 - 免費且私密",
+    "tagline": "專業 PDF 工具，隱私優先",
     "navigation": {
       "home": "首頁",
       "tools": "工具",
@@ -44,7 +44,8 @@
       "about": "關於",
       "faq": "常見問題",
       "privacy": "隱私",
-      "contact": "聯絡我們"
+      "contact": "聯絡我們",
+      "pricing": "價格"
     },
     "buttons": {
       "upload": "上傳檔案",
@@ -921,7 +922,7 @@
   },
   "toolsPage": {
     "title": "專業 PDF 工具",
-    "subtitle": "{count}+ 款免費、安全且易於使用的工具，滿足您所有的 PDF 需求。",
+    "subtitle": "{count}+ 個專業、安全且易用的私密 PDF 工具。",
     "filters": "篩選",
     "allTools": "所有工具",
     "clearAll": "清除全部",
@@ -951,15 +952,15 @@
       "general": {
         "whatIs": {
           "question": "HushPDF 是什麼？",
-          "answer": "HushPDF 是一個免費、注重隱私的 PDF 工具包，完全在您的瀏覽器中執行。它提供 67+ 個專業工具，用於編輯、轉換、合併、分割和加密 PDF 檔案，而無需將其上傳到任何伺服器。"
+          "answer": "HushPDF 是直接在瀏覽器中運作的隱私優先 PDF 工作空間。無需將文件上傳伺服器，即可使用 80 多種專業工具。"
         },
         "isFree": {
-          "question": "HushPDF 真的免費嗎？",
-          "answer": "是的，HushPDF 完全免費使用。沒有隱藏費用，沒有高階會員，也無需註冊。所有功能對每個人開放。"
+          "question": "HushPDF 將如何定價？",
+          "answer": "HushPDF 正在準備 Personal、Professional 與 Teams 付費方案，並提供七天私密試用。對應原始碼繼續依 GNU AGPLv3 提供。"
         },
         "account": {
-          "question": "我需要建立帳戶嗎？",
-          "answer": "不需要，您無需建立帳戶或註冊即可使用 HushPDF。只需訪問網站即可立即開始使用任何工具。"
+          "question": "我需要帳戶嗎？",
+          "answer": "計費上線後，開始試用或使用 HushPDF 官方訂閱需要帳戶。PDF 文件仍會在裝置上本機處理。"
         }
       },
       "privacy": {
@@ -1031,10 +1032,10 @@
   },
   "aboutPage": {
     "title": "關於 {brand}",
-    "description": "{brand} 是一個免費、注重隱私的 PDF 工具包，完全在您的瀏覽器中執行。擁有 {count}+ 個專業工具，您可以編輯、轉換、合併、分割和保護您的 PDF 檔案，而無需將其上傳到任何伺服器。",
+    "description": "{brand} 是在瀏覽器中運作的專業隱私優先 PDF 工作空間。使用 {count}+ 種工具，無需將文件上傳伺服器。",
     "mission": {
       "title": "我們的使命",
-      "p1": "我們相信，每個人都應該能夠使用強大的 PDF 工具，而無需犧牲隱私或支付昂貴的訂閱費用。這就是為什麼我們建立了 {brand} —— 一個將您的隱私放在首位的綜合 PDF 工具包。",
+      "p1": "我們認為專業 PDF 軟體應從設計上保護敏感文件。因此 {brand} 專注於本機處理、可靠工具與清楚的隱私承諾。",
       "p2": "與要求您將檔案上傳到遠端伺服器的傳統 PDF 服務不同，{brand} 在您的瀏覽器中本地處理所有內容。您的敏感文件從未離開您的裝置，讓您完全控制您的資料。",
       "p3": "無論您是學生、專業人士還是普通使用者，{brand} 都為您提供高效、安全地處理 PDF 所需的所有工具。"
     },
@@ -1053,8 +1054,8 @@
         "description": "提供 9 種語言版本，可在任何帶有現代瀏覽器的裝置上工作。無需安裝。"
       },
       "free": {
-        "title": "永久免費",
-        "description": "HushPDF 完全免費使用，沒有隱藏費用，無需註冊，也不限制使用次數。"
+        "title": "專業價值",
+        "description": "持續維護的工具、簽署桌面版本、工作流程自動化與可靠支援。"
       },
       "openSource": {
         "title": "開源透明",
@@ -1177,10 +1178,11 @@
   },
   "home": {
     "hero": {
-      "title": "專業PDF工具",
-      "highlight": "專業工具",
-      "subtitle": "在瀏覽器中免費、隱私、強大的PDF處理",
-      "cta": "開始使用"
+      "title": "專業 PDF 工具。",
+      "highlight": "零上傳。",
+      "subtitle": "直接在裝置上編輯、轉換、保護和自動化敏感 PDF。",
+      "cta": "探索 HushPDF",
+      "pricingCta": "查看方案"
     },
     "features": {
       "privacy": {
@@ -1188,8 +1190,8 @@
         "description": "所有處理都在您的瀏覽器中進行。您的檔案永遠不會離開您的裝置。"
       },
       "free": {
-        "title": "完全免費",
-        "description": "無需註冊，無限制，無隱藏費用。"
+        "title": "為專業人士打造",
+        "description": "可靠工具、工作流程自動化和持續維護的桌面體驗。"
       },
       "powerful": {
         "title": "強大工具",
@@ -1216,7 +1218,7 @@
     },
     "stats": {
       "pdfTools": "PDF 工具",
-      "freeToUse": "免費使用",
+      "freeToUse": "隱私源於設計",
       "languages": "支援語言",
       "filesUploaded": "檔案上傳"
     },

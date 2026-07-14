@@ -127,6 +127,13 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                     <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                   </Button>
                 </Link>
+                <Link href={`/${locale}/pricing`}>
+                  <Button variant="outline" size="lg" className="h-11 px-8 text-base">
+                    {t('home.hero.pricingCta')}
+                  </Button>
+                </Link>
+              </div>
+              <div className="mt-4 flex justify-center">
                 <div className="flex items-center gap-2 text-sm text-[hsl(var(--color-muted-foreground))] bg-[hsl(var(--color-background)/0.5)] px-4 py-2 rounded-full border border-[hsl(var(--color-border))] backdrop-blur-sm">
                   <Lock className="h-4 w-4 text-green-500" aria-hidden="true" />
                   <span>{t('common.footer.privacyBadge')}</span>

@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
     return {
         title: `${formattedCategory} Tools - HushPDF`,
-        description: `Free online ${formattedCategory} tools. Secure, fast, and easy to use.`,
+        description: `Professional ${formattedCategory} tools with private, on-device processing.`,
     };
 }
 
