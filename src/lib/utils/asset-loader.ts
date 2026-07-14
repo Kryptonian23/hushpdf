@@ -22,7 +22,7 @@ export interface FetchProgress {
 
 export type ProgressCallback = (progress: FetchProgress) => void;
 
-const CACHE_NAME = 'pdfcraft-wasm-cache-v1';
+const CACHE_NAME = 'hushpdf-wasm-cache-v1';
 
 /**
  * Check if the asset is in browser Cache Storage.

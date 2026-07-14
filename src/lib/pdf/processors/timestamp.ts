@@ -128,10 +128,10 @@ export class TimestampPDFProcessor extends BasePDFProcessor {
       
       const attrs = [{
         name: 'commonName',
-        value: `PDFCraft Trusted TSA Authority (${tsaName})`
+        value: `HushPDF Trusted TSA Authority (${tsaName})`
       }, {
         name: 'organizationName',
-        value: 'PDFCraft Secure Group'
+        value: 'HushPDF Secure Group'
       }];
       cert.setSubject(attrs);
       cert.setIssuer(attrs);

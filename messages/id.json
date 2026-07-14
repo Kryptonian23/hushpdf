@@ -1,7 +1,7 @@
 {
   "metadata": {
     "home": {
-      "title": "PDFCraft - Alat PDF Profesional",
+      "title": "HushPDF - Alat PDF Profesional",
       "description": "Gratis, Pribadi & Berbasis Browser. Gabung, edit, dan ubah file PDF secara online tanpa mengunggah ke server."
     },
     "tools": {
@@ -10,19 +10,19 @@
     },
     "about": {
       "title": "Tentang",
-      "description": "Pelajari tentang PDFCraft - toolkit PDF gratis, pribadi, dan kuat. Semua proses terjadi di browser Anda."
+      "description": "Pelajari tentang HushPDF - toolkit PDF gratis, pribadi, dan kuat. Semua proses terjadi di browser Anda."
     },
     "faq": {
       "title": "Pertanyaan yang Sering Diajukan",
-      "description": "Temukan jawaban untuk pertanyaan umum tentang PDFCraft. Pelajari cara menggunakan alat PDF kami secara efektif."
+      "description": "Temukan jawaban untuk pertanyaan umum tentang HushPDF. Pelajari cara menggunakan alat PDF kami secara efektif."
     },
     "privacy": {
       "title": "Kebijakan Privasi",
-      "description": "Kebijakan privasi PDFCraft. File Anda tidak pernah meninggalkan perangkat Anda - semua proses terjadi secara lokal di browser Anda."
+      "description": "Kebijakan privasi HushPDF. File Anda tidak pernah meninggalkan perangkat Anda - semua proses terjadi secara lokal di browser Anda."
     },
     "contact": {
       "title": "Hubungi Kami",
-      "description": "Hubungi tim PDFCraft. Kami ingin mendengar pendapat Anda."
+      "description": "Hubungi tim HushPDF. Kami ingin mendengar pendapat Anda."
     },
     "keywords": {
       "pdfTools": "alat PDF",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
+    "brand": "HushPDF",
     "tagline": "Alat PDF Profesional - Gratis & Pribadi",
     "navigation": {
       "home": "Rumah",
@@ -83,8 +83,8 @@
       "loading": "Memuat..."
     },
     "footer": {
-      "footer": "© 2025 PDFCraft. Hak cipta dilindungi undang-undang.",
-      "copyright": "© {year} PDFCraft. Hak cipta dilindungi undang-undang.",
+      "footer": "© 2025 HushPDF. Hak cipta dilindungi undang-undang.",
+      "copyright": "© {year} HushPDF. Hak cipta dilindungi undang-undang.",
       "privacyBadge": "100% Pribadi - File tidak pernah meninggalkan perangkat Anda",
       "madeWith": "Dibuat dengan <Heart /> dan <Nextjs />"
     },
@@ -129,7 +129,7 @@
       "finish": "Selesai",
       "skip": "Lewati",
       "stepOf": "dari",
-      "welcomeTitle": "Selamat Datang di PDFCraft!",
+      "welcomeTitle": "Selamat Datang di HushPDF!",
       "welcomeMessage": "Apakah Anda ingin tur singkat untuk mempelajari cara menggunakan alat PDF kami? Hanya butuh satu menit.",
       "helpButton": "Tur Bantuan"
     },
@@ -504,7 +504,7 @@
       "bronzeWax": "Perunggu Merah Kuno",
       "enableDoubleKey": "Aktifkan Dekripsi Kunci Ganda Sertifikat (Kunci Kuat 256-bit)",
       "decryptPasswordHelp": "Atur Kata Sandi Kunci Dekripsi PFX",
-      "passwordPlaceholder": "Kata sandi bawaan: pdfcraft",
+      "passwordPlaceholder": "Kata sandi bawaan: hushpdf",
       "sealCoordinates": "Koordinat Segel: X: {x}px, Y: {y}px",
       "clickToReposition": "Klik di mana saja untuk memindahkan posisi segel lilin"
     },
@@ -950,16 +950,16 @@
     "sections": {
       "general": {
         "whatIs": {
-          "question": "Apa itu PDFCraft?",
-          "answer": "PDFCraft adalah toolkit PDF gratis yang berfokus pada privasi yang berjalan sepenuhnya di browser Anda. Kami menawarkan 80+ alat profesional untuk mengedit, mengonversi, menggabung, memisah, dan mengamankan file PDF tanpa mengunggahnya ke server mana pun."
+          "question": "Apa itu HushPDF?",
+          "answer": "HushPDF adalah toolkit PDF gratis yang berfokus pada privasi yang berjalan sepenuhnya di browser Anda. Kami menawarkan 80+ alat profesional untuk mengedit, mengonversi, menggabung, memisah, dan mengamankan file PDF tanpa mengunggahnya ke server mana pun."
         },
         "isFree": {
-          "question": "Apakah PDFCraft benar-benar gratis?",
-          "answer": "Ya, PDFCraft sepenuhnya gratis untuk digunakan. Tidak ada biaya tersembunyi, tidak ada tingkat premium, dan tidak diperlukan pendaftaran. Semua fitur tersedia untuk semua orang."
+          "question": "Apakah HushPDF benar-benar gratis?",
+          "answer": "Ya, HushPDF sepenuhnya gratis untuk digunakan. Tidak ada biaya tersembunyi, tidak ada tingkat premium, dan tidak diperlukan pendaftaran. Semua fitur tersedia untuk semua orang."
         },
         "account": {
           "question": "Apakah saya perlu membuat akun?",
-          "answer": "Tidak, Anda tidak perlu membuat akun atau mendaftar untuk menggunakan PDFCraft. Cukup kunjungi situs web dan langsung gunakan alat apa pun."
+          "answer": "Tidak, Anda tidak perlu membuat akun atau mendaftar untuk menggunakan HushPDF. Cukup kunjungi situs web dan langsung gunakan alat apa pun."
         }
       },
       "privacy": {
@@ -968,8 +968,8 @@
           "answer": "Tidak, file Anda tidak pernah diunggah ke server mana pun. Semua pemrosesan PDF terjadi secara lokal di browser Anda menggunakan JavaScript dan WebAssembly. File Anda tidak pernah meninggalkan perangkat Anda."
         },
         "safe": {
-          "question": "Apakah aman menggunakan PDFCraft dengan dokumen sensitif?",
-          "answer": "Ya, PDFCraft dirancang dengan mempertimbangkan privasi. Karena semua pemrosesan terjadi secara lokal di browser Anda, dokumen sensitif Anda tetap berada di perangkat Anda dan tidak pernah dikirimkan melalui internet."
+          "question": "Apakah aman menggunakan HushPDF dengan dokumen sensitif?",
+          "answer": "Ya, HushPDF dirancang dengan mempertimbangkan privasi. Karena semua pemrosesan terjadi secara lokal di browser Anda, dokumen sensitif Anda tetap berada di perangkat Anda dan tidak pernah dikirimkan melalui internet."
         },
         "storage": {
           "question": "Apa yang terjadi pada file saya setelah diproses?",
@@ -979,7 +979,7 @@
       "features": {
         "operations": {
           "question": "Operasi PDF apa saja yang dapat saya lakukan?",
-          "answer": "PDFCraft menawarkan 67+ alat termasuk: gabungkan, bagi, kompres, konversi (ke/dari gambar, teks, JSON), edit, anotasi, tanda tangan, tambah tanda air, enkripsi/dekripsi, OCR, dan banyak lagi."
+          "answer": "HushPDF menawarkan 67+ alat termasuk: gabungkan, bagi, kompres, konversi (ke/dari gambar, teks, JSON), edit, anotasi, tanda tangan, tambah tanda air, enkripsi/dekripsi, OCR, dan banyak lagi."
         },
         "merge": {
           "question": "Bisakah saya menggabungkan beberapa file PDF?",
@@ -987,17 +987,17 @@
         },
         "images": {
           "question": "Bisakah saya mengonversi gambar ke PDF?",
-          "answer": "Ya, PDFCraft mendukung pengonversian berbagai format gambar (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) ke PDF. Anda dapat mengonversi satu atau beberapa gambar sekaligus."
+          "answer": "Ya, HushPDF mendukung pengonversian berbagai format gambar (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) ke PDF. Anda dapat mengonversi satu atau beberapa gambar sekaligus."
         },
         "edit": {
           "question": "Bisakah saya mengedit teks dalam PDF?",
-          "answer": "PDFCraft menyediakan alat anotasi and pengeditan termasuk menyorot, menambahkan teks, bentuk, gambar, dan tanda tangan. Untuk pengeditan teks lengkap, alat Editor PDF menawarkan kemampuan anotasi yang komprehensif."
+          "answer": "HushPDF menyediakan alat anotasi and pengeditan termasuk menyorot, menambahkan teks, bentuk, gambar, dan tanda tangan. Untuk pengeditan teks lengkap, alat Editor PDF menawarkan kemampuan anotasi yang komprehensif."
         }
       },
       "technical": {
         "browsers": {
           "question": "Browser apa saja yang didukung?",
-          "answer": "PDFCraft berfungsi di semua browser modern termasuk Chrome, Firefox, Safari, dan Edge. Kami merekomendasikan penggunaan versi terbaru browser Anda untuk pengalaman terbaik."
+          "answer": "HushPDF berfungsi di semua browser modern termasuk Chrome, Firefox, Safari, dan Edge. Kami merekomendasikan penggunaan versi terbaru browser Anda untuk pengalaman terbaik."
         },
         "sizeLimit": {
           "question": "Apakah ada batasan ukuran file?",
@@ -1008,14 +1008,14 @@
           "answer": "Karena semua pemrosesan terjadi di browser Anda, kinerja bergantung pada kemampuan perangkat Anda. File besar memerlukan lebih banyak memori dan daya pemrosesan. Untuk hasil terbaik, tutup tab browser dan aplikasi lain."
         },
         "offline": {
-          "question": "Apakah PDFCraft berfungsi offline?",
-          "answer": "Saat ini, PDFCraft memerlukan koneksi internet untuk memuat aplikasi. Namun, setelah dimuat, pemrosesan PDF itu sendiri terjadi secara lokal dan tidak memerlukan koneksi."
+          "question": "Apakah HushPDF berfungsi offline?",
+          "answer": "Saat ini, HushPDF memerlukan koneksi internet untuk memuat aplikasi. Namun, setelah dimuat, pemrosesan PDF itu sendiri terjadi secara lokal dan tidak memerlukan koneksi."
         }
       },
       "languages": {
         "supported": {
           "question": "Bahasa apa saja yang didukung?",
-          "answer": "PDFCraft tersedia dalam 9 bahasa: Inggris, Jepang, Korea, Spanyol, Prancis, Jerman, Mandarin, Portugis, dan Arab (dengan dukungan RTL)."
+          "answer": "HushPDF tersedia dalam 9 bahasa: Inggris, Jepang, Korea, Spanyol, Prancis, Jerman, Mandarin, Portugis, dan Arab (dengan dukungan RTL)."
         },
         "change": {
           "question": "Bagaimana cara mengubah bahasa?",
@@ -1046,7 +1046,7 @@
       },
       "fast": {
         "title": "Cepat & Efisien",
-        "description": "Didukung oleh teknologi web modern, PDFCraft menghadirkan pemrosesan PDF yang sangat cepat tanpa memerlukan unggahan atau unduhan."
+        "description": "Didukung oleh teknologi web modern, HushPDF menghadirkan pemrosesan PDF yang sangat cepat tanpa memerlukan unggahan atau unduhan."
       },
       "accessible": {
         "title": "Dapat Diakses di Mana Saja",
@@ -1054,7 +1054,7 @@
       },
       "free": {
         "title": "Gratis Selamanya",
-        "description": "PDFCraft sepenuhnya gratis untuk digunakan tanpa biaya tersembunyi, tidak diperlukan pendaftaran, dan tidak ada batasan penggunaan."
+        "description": "HushPDF sepenuhnya gratis untuk digunakan tanpa biaya tersembunyi, tidak diperlukan pendaftaran, dan tidak ada batasan penggunaan."
       },
       "openSource": {
         "title": "Sumber Terbuka",
@@ -1092,7 +1092,7 @@
       "email": {
         "title": "Email",
         "description": "Kirimkan email kepada kami dan kami akan membalas dalam 24-48 jam.",
-        "action": "contact@pdfcraft.app"
+        "action": "contact@hushpdf.app"
       },
       "github": {
         "title": "GitHub",
@@ -1102,7 +1102,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "Ikuti kami untuk pembaruan dan pengumuman.",
-        "action": "@pdfcraft"
+        "action": "@hushpdf"
       }
     },
     "form": {
@@ -1233,7 +1233,7 @@
   "workflow": {
     "title": "Pembangun Alur Kerja PDF",
     "subtitle": "Buat pipa pemrosesan PDF khusus dengan menghubungkan alat-alat",
-    "metaTitle": "Pembuat Alur Kerja PDF - PDFCraft",
+    "metaTitle": "Pembuat Alur Kerja PDF - HushPDF",
     "metaDescription": "Buat pipa pemrosesan PDF khusus dengan menghubungkan alat secara visual. Bangun, simpan, dan gunakan kembali alur kerja Anda.",
     "toolbox": "Kotak Alat",
     "dragToAdd": "Seret alat untuk menambahkan ke alur kerja",

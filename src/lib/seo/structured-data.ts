@@ -319,7 +319,7 @@ export function generateOrganizationSchema(): OrganizationSchema {
     name: siteConfig.name,
     url: siteConfig.url,
     logo: `${siteConfig.url}/images/logo.png`,
-    sameAs: siteConfig.links.github ? [siteConfig.links.github] : [],
+    sameAs: [],
   };
 }
 

@@ -54,3 +54,35 @@ Object.defineProperty(window, 'ResizeObserver', {
   writable: true,
   value: MockResizeObserver,
 });
+
+// jsdom does not currently implement PointerEvent. Using MouseEvent as a
+// foundation preserves coordinates/buttons while exposing pointer identity for
+// drag-and-drop tests.
+class MockPointerEvent extends MouseEvent {
+  pointerId: number;
+
+  constructor(type: string, init: PointerEventInit = {}) {
+    super(type, init);
+    this.pointerId = init.pointerId ?? 0;
+  }
+}
+
+Object.defineProperty(window, 'PointerEvent', {
+  writable: true,
+  value: MockPointerEvent,
+});
+
+// Prevent jsdom from attempting real navigation when download components click
+// a temporary anchor element.
+Object.defineProperty(HTMLAnchorElement.prototype, 'click', {
+  configurable: true,
+  value: vi.fn(),
+});
+
+// Return an unavailable 2D context by default instead of invoking jsdom's
+// noisy, unimplemented canvas path. Canvas-specific tests can replace this
+// mock with the context behavior they need.
+Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
+  configurable: true,
+  value: vi.fn(() => null),
+});

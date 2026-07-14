@@ -1,7 +1,7 @@
 {
   "metadata": {
     "home": {
-      "title": "PDFCraft - Herramientas PDF Profesionales",
+      "title": "HushPDF - Herramientas PDF Profesionales",
       "description": "Gratis, privado y basado en navegador. Combina y edita archivos PDF en línea sin subirlos a servidores."
     },
     "tools": {
@@ -10,19 +10,19 @@
     },
     "about": {
       "title": "Acerca de Nosotros",
-      "description": "Conoce PDFCraft - tu kit de herramientas PDF gratuito, privado y potente. Todo el procesamiento ocurre en tu navegador."
+      "description": "Conoce HushPDF - tu kit de herramientas PDF gratuito, privado y potente. Todo el procesamiento ocurre en tu navegador."
     },
     "faq": {
       "title": "Preguntas Frecuentes",
-      "description": "Encuentra respuestas a preguntas comunes sobre PDFCraft. Aprende a usar nuestras herramientas PDF de manera efectiva."
+      "description": "Encuentra respuestas a preguntas comunes sobre HushPDF. Aprende a usar nuestras herramientas PDF de manera efectiva."
     },
     "privacy": {
       "title": "Política de Privacidad",
-      "description": "Política de privacidad de PDFCraft. Tus archivos nunca salen de tu dispositivo - todo el procesamiento ocurre localmente en tu navegador."
+      "description": "Política de privacidad de HushPDF. Tus archivos nunca salen de tu dispositivo - todo el procesamiento ocurre localmente en tu navegador."
     },
     "contact": {
       "title": "Contáctanos",
-      "description": "Ponte en contacto con el equipo de PDFCraft. Nos encantaría saber de ti."
+      "description": "Ponte en contacto con el equipo de HushPDF. Nos encantaría saber de ti."
     },
     "keywords": {
       "pdfTools": "herramientas PDF",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
+    "brand": "HushPDF",
     "tagline": "Herramientas PDF Profesionales - Gratis y Privadas",
     "navigation": {
       "home": "Inicio",
@@ -83,8 +83,8 @@
       "loading": "Cargando..."
     },
     "footer": {
-      "footer": "© 2025 PDFCraft. Todos los derechos reservados.",
-      "copyright": "© {year} PDFCraft. Todos los derechos reservados.",
+      "footer": "© 2025 HushPDF. Todos los derechos reservados.",
+      "copyright": "© {year} HushPDF. Todos los derechos reservados.",
       "privacyBadge": "100% Privado - Los archivos nunca salen de tu dispositivo",
       "madeWith": "Hecho con <Heart /> y <Nextjs />"
     },
@@ -129,7 +129,7 @@
       "finish": "Finalizar",
       "skip": "Omitir",
       "stepOf": "de",
-      "welcomeTitle": "¡Bienvenido a PDFCraft!",
+      "welcomeTitle": "¡Bienvenido a HushPDF!",
       "welcomeMessage": "¿Te gustaría un tour rápido para aprender a usar nuestras herramientas PDF? Solo toma un minuto.",
       "helpButton": "Tour de Ayuda"
     },
@@ -504,7 +504,7 @@
       "bronzeWax": "Bronce carmesí antiguo",
       "enableDoubleKey": "Habilitar cifrado de doble clave de certificado (Bloqueo fuerte de 256 bits)",
       "decryptPasswordHelp": "Establecer contraseña de clave de descifrado PFX",
-      "passwordPlaceholder": "Contraseña predeterminada: pdfcraft",
+      "passwordPlaceholder": "Contraseña predeterminada: hushpdf",
       "sealCoordinates": "Coordenadas del sello: X: {x}px, Y: {y}px",
       "clickToReposition": "Haga clic en cualquier lugar para reposicionar el sello de lacre"
     },
@@ -950,16 +950,16 @@
     "sections": {
       "general": {
         "whatIs": {
-          "question": "¿Qué es PDFCraft?",
-          "answer": "PDFCraft is a free, privacy-focused PDF toolkit that runs entirely in your browser. It offers 67+ professional tools for editing, converting, merging, splitting, and securing PDF files without uploading them to any server."
+          "question": "¿Qué es HushPDF?",
+          "answer": "HushPDF is a free, privacy-focused PDF toolkit that runs entirely in your browser. It offers 67+ professional tools for editing, converting, merging, splitting, and securing PDF files without uploading them to any server."
         },
         "isFree": {
-          "question": "¿PDFCraft es realmente gratuito?",
-          "answer": "Sí, PDFCraft es de uso completamente gratuito. No hay costos ocultos, niveles premium y no es necesario registrarse. Todas las funciones están disponibles para todos."
+          "question": "¿HushPDF es realmente gratuito?",
+          "answer": "Sí, HushPDF es de uso completamente gratuito. No hay costos ocultos, niveles premium y no es necesario registrarse. Todas las funciones están disponibles para todos."
         },
         "account": {
           "question": "¿Necesito crear una cuenta?",
-          "answer": "No, no es necesario crear una cuenta ni registrarse para utilizar PDFCraft. Simplemente visite el sitio web y comience a utilizar cualquier herramienta de inmediato."
+          "answer": "No, no es necesario crear una cuenta ni registrarse para utilizar HushPDF. Simplemente visite el sitio web y comience a utilizar cualquier herramienta de inmediato."
         }
       },
       "privacy": {
@@ -968,8 +968,8 @@
           "answer": "No, sus archivos nunca se cargan en ningún servidor. Todo el procesamiento de PDF se realiza localmente en su navegador mediante JavaScript y WebAssembly. Tus archivos nunca salen de tu dispositivo."
         },
         "safe": {
-          "question": "¿Es seguro utilizar PDFCraft con documentos confidenciales?",
-          "answer": "Sí, PDFCraft está diseñado teniendo en cuenta la privacidad. Dado que todo el procesamiento se realiza localmente en su navegador, sus documentos confidenciales permanecen en su dispositivo y nunca se transmiten a través de Internet."
+          "question": "¿Es seguro utilizar HushPDF con documentos confidenciales?",
+          "answer": "Sí, HushPDF está diseñado teniendo en cuenta la privacidad. Dado que todo el procesamiento se realiza localmente en su navegador, sus documentos confidenciales permanecen en su dispositivo y nunca se transmiten a través de Internet."
         },
         "storage": {
           "question": "¿Qué sucede con mis archivos después del procesamiento?",
@@ -979,7 +979,7 @@
       "features": {
         "operations": {
           "question": "¿Qué operaciones de PDF puedo realizar?",
-          "answer": "PDFCraft ofrece más de 67 herramientas que incluyen: fusionar, dividir, comprimir, convertir (a/desde imágenes, texto, JSON), editar, anotar, firmar, agregar marcas de agua, cifrar/descifrar, OCR y muchas más."
+          "answer": "HushPDF ofrece más de 67 herramientas que incluyen: fusionar, dividir, comprimir, convertir (a/desde imágenes, texto, JSON), editar, anotar, firmar, agregar marcas de agua, cifrar/descifrar, OCR y muchas más."
         },
         "merge": {
           "question": "¿Puedo fusionar varios archivos PDF?",
@@ -987,17 +987,17 @@
         },
         "images": {
           "question": "¿Puedo convertir imágenes a PDF?",
-          "answer": "Sí, PDFCraft admite la conversión de varios formatos de imagen (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) a PDF. Puede convertir una o varias imágenes a la vez."
+          "answer": "Sí, HushPDF admite la conversión de varios formatos de imagen (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) a PDF. Puede convertir una o varias imágenes a la vez."
         },
         "edit": {
           "question": "¿Puedo editar texto en un PDF?",
-          "answer": "PDFCraft proporciona herramientas de anotación y edición que incluyen resaltar, agregar texto, formas, imágenes y firmas. Para la edición de texto completo, la herramienta PDF Editor ofrece capacidades integrales de anotación."
+          "answer": "HushPDF proporciona herramientas de anotación y edición que incluyen resaltar, agregar texto, formas, imágenes y firmas. Para la edición de texto completo, la herramienta PDF Editor ofrece capacidades integrales de anotación."
         }
       },
       "technical": {
         "browsers": {
           "question": "¿Qué navegadores son compatibles?",
-          "answer": "PDFCraft funciona en todos los navegadores modernos, incluidos Chrome, Firefox, Safari y Edge. Recomendamos utilizar la última versión de su navegador para obtener la mejor experiencia."
+          "answer": "HushPDF funciona en todos los navegadores modernos, incluidos Chrome, Firefox, Safari y Edge. Recomendamos utilizar la última versión de su navegador para obtener la mejor experiencia."
         },
         "sizeLimit": {
           "question": "¿Existe un límite de tamaño de archivo?",
@@ -1008,14 +1008,14 @@
           "answer": "Dado que todo el procesamiento se realiza en su navegador, el rendimiento depende de las capacidades de su dispositivo. Los archivos grandes requieren más memoria y potencia de procesamiento. Para obtener mejores resultados, cierre otras pestañas y aplicaciones del navegador."
         },
         "offline": {
-          "question": "¿PDFCraft funciona sin conexión?",
-          "answer": "Actualmente, PDFCraft requiere una conexión a Internet para cargar la aplicación. Sin embargo, una vez cargado, el procesamiento del PDF se realiza localmente y no requiere conexión."
+          "question": "¿HushPDF funciona sin conexión?",
+          "answer": "Actualmente, HushPDF requiere una conexión a Internet para cargar la aplicación. Sin embargo, una vez cargado, el procesamiento del PDF se realiza localmente y no requiere conexión."
         }
       },
       "languages": {
         "supported": {
           "question": "¿Qué idiomas son compatibles?",
-          "answer": "PDFCraft está disponible en 9 idiomas: inglés, japonés, coreano, español, francés, alemán, chino, portugués y árabe (con soporte RTL)."
+          "answer": "HushPDF está disponible en 9 idiomas: inglés, japonés, coreano, español, francés, alemán, chino, portugués y árabe (con soporte RTL)."
         },
         "change": {
           "question": "¿Cómo cambio el idioma?",
@@ -1046,7 +1046,7 @@
       },
       "fast": {
         "title": "Rápido y eficiente",
-        "description": "Impulsado por tecnologías web modernas, PDFCraft ofrece un procesamiento de PDF ultrarrápido sin necesidad de cargas ni descargas."
+        "description": "Impulsado por tecnologías web modernas, HushPDF ofrece un procesamiento de PDF ultrarrápido sin necesidad de cargas ni descargas."
       },
       "accessible": {
         "title": "Accesible en todas partes",
@@ -1054,7 +1054,7 @@
       },
       "free": {
         "title": "Gratis para siempre",
-        "description": "PDFCraft es de uso completamente gratuito, sin costos ocultos, sin necesidad de registro y sin límites de uso."
+        "description": "HushPDF es de uso completamente gratuito, sin costos ocultos, sin necesidad de registro y sin límites de uso."
       },
       "openSource": {
         "title": "Código abierto",
@@ -1092,7 +1092,7 @@
       "email": {
         "title": "Correo electrónico",
         "description": "Envíenos un correo electrónico y responderemos dentro de 24-48 horas.",
-        "action": "contacto@pdfcraft.app"
+        "action": "contacto@hushpdf.app"
       },
       "github": {
         "title": "GitHub",
@@ -1102,7 +1102,7 @@
       "twitter": {
         "title": "Gorjeo",
         "description": "Síganos para actualizaciones y anuncios.",
-        "action": "@pdfcraft"
+        "action": "@hushpdf"
       }
     },
     "form": {
@@ -1233,7 +1233,7 @@
   "workflow": {
     "title": "Editor de Flujo de Trabajo PDF",
     "subtitle": "Cree pipelines de procesamiento PDF personalizados conectando herramientas",
-    "metaTitle": "Creador de flujos de trabajo PDF - PDFCraft",
+    "metaTitle": "Creador de flujos de trabajo PDF - HushPDF",
     "metaDescription": "Cree pipelines de procesamiento PDF personalizados conectando herramientas visualmente. Construya, guarde y reutilice sus flujos de trabajo.",
     "toolbox": "Caja de Herramientas",
     "dragToAdd": "Arrastre herramientas para agregar al flujo de trabajo",

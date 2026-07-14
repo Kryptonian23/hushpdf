@@ -19,7 +19,7 @@ export function BatchBarcodeInjectorTool({ className = '' }: BatchBarcodeInjecto
   const t = useTranslations('common');
   const [file, setFile] = useState<File | null>(null);
   const [barcodeType, setBarcodeType] = useState<'qr' | 'code128'>('qr');
-  const [value, setValue] = useState('https://pdfcraft.org');
+  const [value, setValue] = useState('https://example.com');
   const [xPos, setXPos] = useState(50);
   const [yPos, setYPos] = useState(50);
   const [width, setWidth] = useState(80);
@@ -192,7 +192,7 @@ export function BatchBarcodeInjectorTool({ className = '' }: BatchBarcodeInjecto
                       type="text"
                       value={value}
                       onChange={(e) => setValue(e.target.value)}
-                      placeholder="e.g. https://pdfcraft.org"
+                      placeholder="e.g. https://example.com"
                       className="w-full bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl p-3"
                     />
                   </div>

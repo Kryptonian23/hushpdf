@@ -28,7 +28,7 @@ export class PdfSpineBookbinderProcessor extends BasePDFProcessor {
       paperGsm: 80,
       coverWidthPt: 595.27,
       coverHeightPt: 841.89,
-      bookTitle: 'PDFCraft Bound Book',
+      bookTitle: 'HushPDF Bound Book',
       ...(options as Partial<PdfSpineBookbinderOptions>),
     };
 

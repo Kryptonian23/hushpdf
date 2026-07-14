@@ -19,7 +19,7 @@ export function PdfSpineBookbinderTool({ className = '' }: PdfSpineBookbinderToo
   const t = useTranslations('common');
   const [pageCount, setPageCount] = useState(100);
   const [paperGsm, setPaperGsm] = useState<80 | 100 | 120 | 150>(80);
-  const [bookTitle, setBookTitle] = useState('PDFCraft Design');
+  const [bookTitle, setBookTitle] = useState('HushPDF Design');
 
   const [status, setStatus] = useState<ProcessingStatus>('idle');
   const [progress, setProgress] = useState(0);

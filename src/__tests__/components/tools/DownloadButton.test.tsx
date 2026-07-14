@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/react';
+import { act, render, screen, fireEvent, cleanup } from '@testing-library/react';
 import { DownloadButton } from '@/components/tools/DownloadButton';
 
 // Mock next-intl
@@ -167,7 +167,9 @@ describe('DownloadButton', () => {
       fireEvent.click(screen.getByRole('button'));
       
       // Fast-forward timers
-      vi.advanceTimersByTime(600);
+      act(() => {
+        vi.advanceTimersByTime(600);
+      });
       
       expect(mockOnDownloadComplete).toHaveBeenCalled();
       

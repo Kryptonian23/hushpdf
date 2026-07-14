@@ -65,7 +65,7 @@ describe('BatchBarcodeInjectorProcessor', () => {
   it('should inject barcodes into PDF successfully', async () => {
     const result = await injectBatchBarcodes([mockFile], {
       barcodeType: 'qr',
-      value: 'PDFCraft',
+      value: 'HushPDF',
       x: 100,
       y: 100,
       width: 50,

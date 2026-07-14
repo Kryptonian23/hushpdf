@@ -84,7 +84,7 @@ export function CertCryptorTool() {
               sealPage: 0,
               sealX: pdfX,
               sealY: pdfY,
-              pfxPassword: pfxPassword || 'pdfcraft',
+              pfxPassword: pfxPassword || 'hushpdf',
               encryptWithCert,
             },
             (p) => setProgress(Math.max(50, p))

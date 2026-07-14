@@ -1,17 +1,17 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.services.pdfcraft;
+  cfg = config.services.hushpdf;
 in
 {
-  options.services.pdfcraft = {
-    enable = lib.mkEnableOption "PDFCraft - Professional PDF Tools";
+  options.services.hushpdf = {
+    enable = lib.mkEnableOption "HushPDF - Professional PDF Tools";
 
     package = lib.mkOption {
       type = lib.types.package;
-      default = pkgs.pdfcraft;
-      defaultText = lib.literalExpression "pkgs.pdfcraft";
-      description = "The PDFCraft package to use.";
+      default = pkgs.hushpdf;
+      defaultText = lib.literalExpression "pkgs.hushpdf";
+      description = "The HushPDF package to use.";
     };
 
     port = lib.mkOption {
@@ -24,21 +24,21 @@ in
   config = lib.mkIf cfg.enable {
     nixpkgs.overlays = [
       (final: prev: {
-        pdfcraft = final.callPackage ./package.nix { };
+        hushpdf = final.callPackage ./package.nix { };
       })
     ];
 
-    systemd.user.services.pdfcraft = {
+    systemd.user.services.hushpdf = {
       Unit = {
-        Description = "PDFCraft PDF Tools";
+        Description = "HushPDF PDF Tools";
         After = [ "network.target" ];
       };
 
       Service = {
-        ExecStart = "${cfg.package}/bin/pdfcraft";
+        ExecStart = "${cfg.package}/bin/hushpdf";
         Restart = "on-failure";
         Environment = [
-          "PDFCRAFT_PORT=${toString cfg.port}"
+          "HUSHPDF_PORT=${toString cfg.port}"
         ];
       };
 

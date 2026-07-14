@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Mail, MessageSquare, Github, Twitter, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { MessageSquare, Github, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/Button';
@@ -29,25 +29,11 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
 
   const contactMethods = [
     {
-      icon: Mail,
-      title: t('methods.email.title'),
-      description: t('methods.email.description'),
-      action: t('methods.email.action'),
-      href: 'mailto:contact@pdfcraft.gitu.net',
-    },
-    {
       icon: Github,
-      title: t('methods.github.title'),
-      description: t('methods.github.description'),
-      action: t('methods.github.action'),
-      href: 'https://github.com/PDFCraftTool/pdfcraft',
-    },
-    {
-      icon: Twitter,
-      title: t('methods.twitter.title'),
-      description: t('methods.twitter.description'),
-      action: t('methods.twitter.action'),
-      href: 'https://x.com/PDFCraftTool',
+      title: 'Source & license',
+      description: 'View source availability, license terms, and upstream attribution.',
+      action: 'Open source information',
+      href: `/${locale}/source`,
     },
   ];
 
@@ -60,12 +46,8 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
     e.preventDefault();
     setFormStatus('submitting');
 
-    // Simulate form submission (in a real app, this would send to an API)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    // For demo purposes, always succeed
-    setFormStatus('success');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    // Contact delivery will be connected after a public domain is selected.
+    setFormStatus('error');
   };
 
   return (
@@ -239,7 +221,7 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
                       <div className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
                         <AlertCircle className="h-5 w-5 flex-shrink-0" />
                         <p className="text-sm">
-                          {t('form.error')}
+                          Contact delivery is not connected in this development build. Add a public support channel before launch.
                         </p>
                       </div>
                     )}

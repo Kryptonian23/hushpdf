@@ -73,6 +73,12 @@ bentopdf-main
 # Comparison/debug files
 comparisons.txt
 
+# Local translation and analysis workspace
+scratch/
+
+# Replaced upstream visual assets retained only as a local reference
+docs/legacy-assets/
+
 # LibreOffice WASM decompressed files (large, generated from .gz)
 public/libreoffice-wasm/soffice.wasm
 public/libreoffice-wasm/soffice.data
