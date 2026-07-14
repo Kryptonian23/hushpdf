@@ -2098,7 +2098,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "pdfcraft"
+name = "hushpdf"
 version = "0.1.0"
 dependencies = [
  "serde",

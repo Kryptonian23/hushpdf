@@ -78,7 +78,7 @@ export class DeepSanitizeProcessor extends BasePDFProcessor {
           infoDict.set(pdfLib.PDFName.of('Subject'), pdfLib.PDFString.of(''));
           infoDict.set(pdfLib.PDFName.of('Keywords'), pdfLib.PDFString.of(''));
           infoDict.set(pdfLib.PDFName.of('Creator'), pdfLib.PDFString.of(''));
-          infoDict.set(pdfLib.PDFName.of('Producer'), pdfLib.PDFString.of('PDFCraft Sanitizer'));
+          infoDict.set(pdfLib.PDFName.of('Producer'), pdfLib.PDFString.of('HushPDF Sanitizer'));
           infoDict.set(pdfLib.PDFName.of('CreationDate'), pdfLib.PDFString.of('D:19700101000000Z'));
           infoDict.set(pdfLib.PDFName.of('ModDate'), pdfLib.PDFString.of('D:19700101000000Z'));
           findings.push('Standard Document Info fields (Title, Author, Creation Date)');

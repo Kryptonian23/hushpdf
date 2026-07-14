@@ -26,7 +26,7 @@ export interface BatchBarcodeOptions {
 
 const DEFAULT_OPTIONS: BatchBarcodeOptions = {
   barcodeType: 'qr',
-  value: 'https://pdfcraft.org',
+  value: 'https://example.com',
   x: 50,
   y: 50,
   width: 80,

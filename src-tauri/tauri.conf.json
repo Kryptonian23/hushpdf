@@ -1,7 +1,7 @@
 {
-  "productName": "PDFCraft",
+  "productName": "HushPDF",
   "version": "0.1.0",
-  "identifier": "com.pdfcraft.app",
+  "identifier": "app.hushpdf.desktop",
   "build": {
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build",
@@ -11,7 +11,7 @@
   "app": {
     "windows": [
       {
-        "title": "PDFCraft",
+        "title": "HushPDF",
         "width": 1200,
         "height": 800
       }

@@ -1,16 +1,18 @@
 /**
  * Site configuration
  */
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '');
+
 export const siteConfig = {
-  name: 'PDFCraft',
-  description: 'Professional PDF Tools - Free, Private & Browser-Based. Merge, split, compress, convert, and edit PDF files online without uploading to servers.',
-  url: 'https://pdfcraft.devtoolcafe.com',
+  name: 'HushPDF',
+  description: 'Private PDF tools with zero file uploads. Edit, convert, secure, and automate PDFs directly on your device.',
+  url: configuredSiteUrl || 'http://localhost:3000',
   ogImage: '/images/og-image.png',
   links: {
-    github: 'https://github.com/PDFCraftTool/pdfcraft',
-    twitter: 'https://twitter.com/pdfcraft',
+    upstream: 'https://github.com/PDFCraftTool/pdfcraft',
+    source: process.env.NEXT_PUBLIC_SOURCE_URL || 'https://github.com/Kryptonian23/hushpdf',
   },
-  creator: 'PDFCraft Team',
+  creator: 'HushPDF contributors',
   keywords: [
     'PDF tools',
     'PDF editor',
@@ -22,12 +24,14 @@ export const siteConfig = {
     'online PDF editor',
     'browser-based PDF',
     'private PDF processing',
+    'no upload PDF tools',
+    'local PDF processing',
+    'offline PDF tools',
   ],
   // SEO-related settings
   seo: {
-    titleTemplate: '%s | PDFCraft',
-    defaultTitle: 'PDFCraft - Professional PDF Tools',
-    twitterHandle: '@pdfcraft',
+    titleTemplate: '%s | HushPDF',
+    defaultTitle: 'HushPDF - Private PDF Tools With Zero Uploads',
     locale: 'en_US',
   },
 };

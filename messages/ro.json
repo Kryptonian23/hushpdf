@@ -1,7 +1,7 @@
 {
   "metadata": {
     "home": {
-      "title": "PDFCraft - Instrumente PDF Profesionale",
+      "title": "HushPDF - Instrumente PDF Profesionale",
       "description": "Gratuit, Privat și Bazat pe Browser. Combină, editează și modifică fișiere PDF online fără a le încărca pe servere."
     },
     "tools": {
@@ -10,19 +10,19 @@
     },
     "about": {
       "title": "Despre",
-      "description": "Află mai multe despre PDFCraft - setul tău de instrumente PDF gratuit, privat și puternic. Toată procesarea are loc în browser-ul tău."
+      "description": "Află mai multe despre HushPDF - setul tău de instrumente PDF gratuit, privat și puternic. Toată procesarea are loc în browser-ul tău."
     },
     "faq": {
       "title": "Întrebări Frecvente",
-      "description": "Găsește răspunsuri la întrebări comune despre PDFCraft. Învață cum să folosești eficient instrumentele noastre PDF."
+      "description": "Găsește răspunsuri la întrebări comune despre HushPDF. Învață cum să folosești eficient instrumentele noastre PDF."
     },
     "privacy": {
       "title": "Politica de Confidențialitate",
-      "description": "Politica de confidențialitate PDFCraft. Fișierele tale nu părăsesc niciodată dispozitivul - toată procesarea are loc local în browser."
+      "description": "Politica de confidențialitate HushPDF. Fișierele tale nu părăsesc niciodată dispozitivul - toată procesarea are loc local în browser."
     },
     "contact": {
       "title": "Contactează-ne",
-      "description": "Ia legătura cu echipa PDFCraft. Ne-ar plăcea să auzim de la tine."
+      "description": "Ia legătura cu echipa HushPDF. Ne-ar plăcea să auzim de la tine."
     },
     "keywords": {
       "pdfTools": "instrumente PDF",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
+    "brand": "HushPDF",
     "tagline": "Instrumente PDF Profesionale - Gratuite și Private",
     "navigation": {
       "home": "Acasă",
@@ -83,8 +83,8 @@
       "loading": "Se încarcă..."
     },
     "footer": {
-      "footer": "© 2025 PDFCraft. Toate drepturile rezervate.",
-      "copyright": "© {year} PDFCraft. Toate drepturile rezervate.",
+      "footer": "© 2025 HushPDF. Toate drepturile rezervate.",
+      "copyright": "© {year} HushPDF. Toate drepturile rezervate.",
       "privacyBadge": "100% Privat - Fișierele nu părăsesc niciodată dispozitivul",
       "madeWith": "Creat cu <Heart /> și <Nextjs />"
     },
@@ -129,7 +129,7 @@
       "finish": "Finalizează",
       "skip": "Omite",
       "stepOf": "din",
-      "welcomeTitle": "Bine ai venit la PDFCraft!",
+      "welcomeTitle": "Bine ai venit la HushPDF!",
       "welcomeMessage": "Dorești un tur scurt pentru a învăța cum să folosești instrumentele noastre PDF? Durează doar un minut.",
       "helpButton": "Tur de Ajutor"
     },
@@ -504,7 +504,7 @@
       "bronzeWax": "Bronz stacojiu antic",
       "enableDoubleKey": "Activați criptarea cu cheie dublă a certificatului (Blocare puternică pe 256 de biți)",
       "decryptPasswordHelp": "Setați parola cheii de decriptare PFX",
-      "passwordPlaceholder": "Parola implicită: pdfcraft",
+      "passwordPlaceholder": "Parola implicită: hushpdf",
       "sealCoordinates": "Coordonate sigiliu: X: {x}px, Y: {y}px",
       "clickToReposition": "Faceți clic oriunde pentru a repoziționa sigiliul de ceară"
     },
@@ -950,16 +950,16 @@
     "sections": {
       "general": {
         "whatIs": {
-          "question": "Ce este PDFCraft?",
-          "answer": "PDFCraft este un set de instrumente PDF gratuit, axat pe confidențialitate, care rulează în întregime în browser-ul tău. Oferă peste 80 de instrumente profesionale pentru editarea, convertirea, combinarea, divizarea și securizarea fișierelor PDF fără a le încărca pe niciun server."
+          "question": "Ce este HushPDF?",
+          "answer": "HushPDF este un set de instrumente PDF gratuit, axat pe confidențialitate, care rulează în întregime în browser-ul tău. Oferă peste 80 de instrumente profesionale pentru editarea, convertirea, combinarea, divizarea și securizarea fișierelor PDF fără a le încărca pe niciun server."
         },
         "isFree": {
-          "question": "Este PDFCraft într-adevăr gratuit?",
-          "answer": "Da, PDFCraft este complet gratuit. Nu există costuri ascunse, nici abonamente premium și nu este necesară înregistrarea. Toate funcționalitățile sunt disponibile pentru toată lumea."
+          "question": "Este HushPDF într-adevăr gratuit?",
+          "answer": "Da, HushPDF este complet gratuit. Nu există costuri ascunse, nici abonamente premium și nu este necesară înregistrarea. Toate funcționalitățile sunt disponibile pentru toată lumea."
         },
         "account": {
           "question": "Trebuie să creez un cont?",
-          "answer": "Nu, nu trebuie să vă creați un cont sau să vă înregistrați pentru a utiliza PDFCraft. Pur și simplu vizitați site-ul web și începeți să utilizați orice instrument imediat."
+          "answer": "Nu, nu trebuie să vă creați un cont sau să vă înregistrați pentru a utiliza HushPDF. Pur și simplu vizitați site-ul web și începeți să utilizați orice instrument imediat."
         }
       },
       "privacy": {
@@ -968,8 +968,8 @@
           "answer": "Nu, fișierele dumneavoastră nu sunt încărcate niciodată pe niciun server. Toată procesarea PDF are loc local în browserul dumneavoastră folosind JavaScript și WebAssembly. Fișierele dumneavoastră nu părăsesc niciodată dispozitivul."
         },
         "safe": {
-          "question": "Este sigur să folosesc PDFCraft pentru documente confidențiale?",
-          "answer": "Da, PDFCraft este conceput cu gândul la confidențialitate. Deoarece toată procesarea are loc local în browserul dumneavoastră, documentele dumneavoastră confidențiale rămân pe dispozitiv și nu sunt transmise niciodată prin internet."
+          "question": "Este sigur să folosesc HushPDF pentru documente confidențiale?",
+          "answer": "Da, HushPDF este conceput cu gândul la confidențialitate. Deoarece toată procesarea are loc local în browserul dumneavoastră, documentele dumneavoastră confidențiale rămân pe dispozitiv și nu sunt transmise niciodată prin internet."
         },
         "storage": {
           "question": "Ce se întâmplă cu fișierele mele după procesare?",
@@ -979,7 +979,7 @@
       "features": {
         "operations": {
           "question": "Ce operațiuni PDF pot efectua?",
-          "answer": "PDFCraft oferă peste 67 de instrumente, inclusiv: îmbinare, divizare, compresie, conversie (în/din imagini, text, JSON), editare, adnotare, semnare, adăugare filigran, criptare/decriptare, OCR și multe altele."
+          "answer": "HushPDF oferă peste 67 de instrumente, inclusiv: îmbinare, divizare, compresie, conversie (în/din imagini, text, JSON), editare, adnotare, semnare, adăugare filigran, criptare/decriptare, OCR și multe altele."
         },
         "merge": {
           "question": "Pot îmbina mai multe fișiere PDF?",
@@ -987,17 +987,17 @@
         },
         "images": {
           "question": "Pot converti imagini în PDF?",
-          "answer": "Da, PDFCraft acceptă conversia diferitelor formate de imagine (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) în PDF. Puteți converti una sau mai multe imagini deodată."
+          "answer": "Da, HushPDF acceptă conversia diferitelor formate de imagine (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) în PDF. Puteți converti una sau mai multe imagini deodată."
         },
         "edit": {
           "question": "Pot edita textul într-un PDF?",
-          "answer": "PDFCraft oferă instrumente de adnotare și editare, inclusiv evidențierea, adăugarea de text, forme, imagini și semnături. Pentru editarea completă a textului, instrumentul PDF Editor oferă capacități extinse de adnotare."
+          "answer": "HushPDF oferă instrumente de adnotare și editare, inclusiv evidențierea, adăugarea de text, forme, imagini și semnături. Pentru editarea completă a textului, instrumentul PDF Editor oferă capacități extinse de adnotare."
         }
       },
       "technical": {
         "browsers": {
           "question": "Ce browsere sunt acceptate?",
-          "answer": "PDFCraft funcționează pe toate browserele moderne, inclusiv Chrome, Firefox, Safari și Edge. Vă recomandăm să utilizați cea mai recentă versiune a browserului dumneavoastră pentru cea mai bună experiență."
+          "answer": "HushPDF funcționează pe toate browserele moderne, inclusiv Chrome, Firefox, Safari și Edge. Vă recomandăm să utilizați cea mai recentă versiune a browserului dumneavoastră pentru cea mai bună experiență."
         },
         "sizeLimit": {
           "question": "Există o limită de dimensiune a fișierului?",
@@ -1008,14 +1008,14 @@
           "answer": "Deoarece toată procesarea are loc în browser, performanța depinde de capacitățile dispozitivului dumneavoastră. Fișierele mari necesită mai multă memorie și putere de procesare. Pentru cele mai bune rezultate, închideți alte file de browser și aplicații."
         },
         "offline": {
-          "question": "PDFCraft funcționează offline?",
-          "answer": "În prezent, PDFCraft necesită o conexiune la internet pentru a încărca aplicația. Cu toate acestea, odată încărcată, procesarea PDF în sine are loc local și nu necesită o conexiune."
+          "question": "HushPDF funcționează offline?",
+          "answer": "În prezent, HushPDF necesită o conexiune la internet pentru a încărca aplicația. Cu toate acestea, odată încărcată, procesarea PDF în sine are loc local și nu necesită o conexiune."
         }
       },
       "languages": {
         "supported": {
           "question": "Ce limbi sunt acceptate?",
-          "answer": "PDFCraft este disponibil în 9 limbi: engleză, japoneză, coreeană, spaniolă, franceză, germană, chineză, portugheză și arabă (cu suport RTL)."
+          "answer": "HushPDF este disponibil în 9 limbi: engleză, japoneză, coreeană, spaniolă, franceză, germană, chineză, portugheză și arabă (cu suport RTL)."
         },
         "change": {
           "question": "Cum schimb limba?",
@@ -1046,7 +1046,7 @@
       },
       "fast": {
         "title": "Rapid și eficient",
-        "description": "Bazat pe tehnologii web moderne, PDFCraft oferă o procesare ultra-rapidă a PDF-urilor fără a fi nevoie de încărcări sau descărcări."
+        "description": "Bazat pe tehnologii web moderne, HushPDF oferă o procesare ultra-rapidă a PDF-urilor fără a fi nevoie de încărcări sau descărcări."
       },
       "accessible": {
         "title": "Accesibil de pretutindeni",
@@ -1054,7 +1054,7 @@
       },
       "free": {
         "title": "Gratuit pentru totdeauna",
-        "description": "PDFCraft este complet gratuit, fără costuri ascunse, fără înregistrare obligatorie și fără limite de utilizare."
+        "description": "HushPDF este complet gratuit, fără costuri ascunse, fără înregistrare obligatorie și fără limite de utilizare."
       },
       "openSource": {
         "title": "Open Source",
@@ -1092,7 +1092,7 @@
       "email": {
         "title": "E-mail",
         "description": "Trimite-ne un e-mail și îți vom răspunde în 24-48 de ore.",
-        "action": "contact@pdfcraft.app"
+        "action": "contact@hushpdf.app"
       },
       "github": {
         "title": "GitHub",
@@ -1102,7 +1102,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "Urmărește-ne pentru noutăți și anunțuri.",
-        "action": "@pdfcraft"
+        "action": "@hushpdf"
       }
     },
     "form": {
@@ -1233,7 +1233,7 @@
   "workflow": {
     "title": "Constructor de Fluxuri de Lucru PDF",
     "subtitle": "Creează fluxuri personalizate de procesare PDF prin conectarea instrumentelor",
-    "metaTitle": "PDF Workflow Builder - PDFCraft",
+    "metaTitle": "PDF Workflow Builder - HushPDF",
     "metaDescription": "Creează fluxuri personalizate de procesare PDF conectând vizual instrumentele. Construiește, salvează și reutilizează fluxurile tale de lucru.",
     "toolbox": "Cutie de Instrumente",
     "dragToAdd": "Trage instrumentele pentru a le adăuga în fluxul de lucru",

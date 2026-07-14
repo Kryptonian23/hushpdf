@@ -14,7 +14,7 @@ export const dynamic = 'force-static';
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: siteConfig.name,
-    short_name: 'PDFCraft',
+    short_name: 'HushPDF',
     description: siteConfig.description,
     start_url: '/',
     display: 'standalone',
@@ -24,9 +24,9 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ['productivity', 'utilities'],
     icons: [
       {
-        src: '/favicon.svg',
-        sizes: 'any',
-        type: 'image/svg+xml',
+        src: '/favicon.png',
+        sizes: '32x32',
+        type: 'image/png',
         purpose: 'any',
       },
       {

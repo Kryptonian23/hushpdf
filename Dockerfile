@@ -1,5 +1,5 @@
 # =============================================================================
-# PDFCraft Production Dockerfile
+# HushPDF Production Dockerfile
 # Multi-stage build for optimized image size
 # Optimized with BuildKit cache mounts for faster builds
 # =============================================================================
@@ -36,19 +36,19 @@ RUN --mount=type=cache,target=/root/.npm \
 # -----------------------------------------------------------------------------
 FROM nginx:1.25-alpine AS production
 
-# Add labels for GitHub Container Registry
-LABEL org.opencontainers.image.source="https://github.com/PDFCraftTool/pdfcraft"
-LABEL org.opencontainers.image.description="PDFCraft - Professional PDF Tools, Free, Private & Browser-Based"
+# Image metadata
+LABEL org.opencontainers.image.source="https://github.com/Kryptonian23/hushpdf"
+LABEL org.opencontainers.image.description="HushPDF - private PDF tools with zero uploads"
 LABEL org.opencontainers.image.licenses="AGPL-3.0"
-LABEL org.opencontainers.image.title="PDFCraft"
-LABEL org.opencontainers.image.vendor="PDFCraftTool"
+LABEL org.opencontainers.image.title="HushPDF"
+LABEL org.opencontainers.image.vendor="HushPDF contributors"
 
 # Copy custom nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY security-headers.conf /etc/nginx/security-headers.conf
 
 # Copy the static export from builder stage
-COPY --from=builder /app/out /website/pdfcraft
+COPY --from=builder /app/out /website/hushpdf
 
 # Expose port 80
 EXPOSE 80

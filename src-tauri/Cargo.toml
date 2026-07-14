@@ -1,8 +1,8 @@
 [package]
-name = "pdfcraft"
+name = "hushpdf"
 version = "0.1.0"
-description = "PDFCraft Desktop Application"
-authors = ["PDFCraft"]
+description = "HushPDF private desktop PDF tools"
+authors = ["HushPDF contributors"]
 edition = "2021"
 
 [build-dependencies]

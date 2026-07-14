@@ -202,7 +202,7 @@ export class PDFToCBZProcessor extends BasePDFProcessor {
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
     <dc:title>${escapeXml(bookTitle)}</dc:title>
     <dc:creator opf:role="aut">${escapeXml(cbzOptions.writer || 'Unknown Writer')}</dc:creator>
-    <dc:publisher>${escapeXml(cbzOptions.publisher || 'PDFCraft')}</dc:publisher>
+    <dc:publisher>${escapeXml(cbzOptions.publisher || 'HushPDF')}</dc:publisher>
     <dc:language>zh</dc:language>
     <meta name="calibre:series" content="${escapeXml(cbzOptions.series || bookTitle)}"/>
     <meta name="calibre:series_index" content="${escapeXml(cbzOptions.number || '1')}"/>
@@ -213,12 +213,12 @@ export class PDFToCBZProcessor extends BasePDFProcessor {
       // 3. Compile ComicBookInfo JSON string as ZIP global Comment
       const now = new Date();
       const comicBookInfo = {
-        appID: 'PDFCraft/1.0',
+        appID: 'HushPDF/1.0',
         lastModified: now.toISOString(),
         'comicBookInfo/1.0': {
           series: cbzOptions.series || bookTitle,
           title: bookTitle,
-          publisher: cbzOptions.publisher || 'PDFCraft',
+          publisher: cbzOptions.publisher || 'HushPDF',
           publicationMonth: now.getMonth() + 1,
           publicationYear: now.getFullYear(),
           issue: cbzOptions.number || '1',

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* PDFCraft Design System - CSS Variables for Theming */
+/* HushPDF Design System - CSS Variables for Theming */
 :root {
   /* Primary Colors - Deep Blue/Indigo for trust and modern tech feel */
   --color-primary: 226 71% 55%; /* #3b82f6 - slightly more vibrant */

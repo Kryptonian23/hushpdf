@@ -1,7 +1,7 @@
 {
   "metadata": {
     "home": {
-      "title": "PDFCraft - プロフェッショナルPDFツール",
+      "title": "HushPDF - プロフェッショナルPDFツール",
       "description": "無料、プライベート、ブラウザベース。サーバーにアップロードせずにPDFファイルをオンラインで結合・編集。"
     },
     "tools": {
@@ -10,19 +10,19 @@
     },
     "about": {
       "title": "私たちについて",
-      "description": "PDFCraftについて - 無料でプライベートな強力なPDFツールキット。すべての処理はブラウザ内で行われます。"
+      "description": "HushPDFについて - 無料でプライベートな強力なPDFツールキット。すべての処理はブラウザ内で行われます。"
     },
     "faq": {
       "title": "よくある質問",
-      "description": "PDFCraftに関するよくある質問の回答。PDFツールを効果的に使用する方法をご覧ください。"
+      "description": "HushPDFに関するよくある質問の回答。PDFツールを効果的に使用する方法をご覧ください。"
     },
     "privacy": {
       "title": "プライバシーポリシー",
-      "description": "PDFCraftプライバシーポリシー。ファイルはデバイスから離れることはありません - すべての処理はローカルブラウザで行われます。"
+      "description": "HushPDFプライバシーポリシー。ファイルはデバイスから離れることはありません - すべての処理はローカルブラウザで行われます。"
     },
     "contact": {
       "title": "お問い合わせ",
-      "description": "PDFCraftチームにお問い合わせください。ご意見をお待ちしております。"
+      "description": "HushPDFチームにお問い合わせください。ご意見をお待ちしております。"
     },
     "keywords": {
       "pdfTools": "PDFツール",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
+    "brand": "HushPDF",
     "tagline": "プロフェッショナルPDFツール - 無料＆プライベート",
     "navigation": {
       "home": "家",
@@ -83,8 +83,8 @@
       "loading": "読み込み中..."
     },
     "footer": {
-      "footer": "© 2025 PDFCraft. All rights reserved.",
-      "copyright": "© {year} PDFCraft. All rights reserved.",
+      "footer": "© 2025 HushPDF. All rights reserved.",
+      "copyright": "© {year} HushPDF. All rights reserved.",
       "privacyBadge": "100%プライベート - ファイルはデバイスから離れません",
       "madeWith": "<Heart /> と <Nextjs /> で作成"
     },
@@ -129,7 +129,7 @@
       "finish": "完了",
       "skip": "スキップ",
       "stepOf": "/",
-      "welcomeTitle": "PDFCraftへようこそ！",
+      "welcomeTitle": "HushPDFへようこそ！",
       "welcomeMessage": "PDFツールの使い方を学ぶクイックツアーはいかがですか？1分程度で完了します。",
       "helpButton": "ヘルプツアー"
     },
@@ -504,7 +504,7 @@
       "bronzeWax": "アンティーククリムゾンブロンズ",
       "enableDoubleKey": "証明書のダブルキー暗号化を有効化 (256ビット強力ロック)",
       "decryptPasswordHelp": "PFX復号キーのパスワードを設定",
-      "passwordPlaceholder": "デフォルトのパスワード: pdfcraft",
+      "passwordPlaceholder": "デフォルトのパスワード: hushpdf",
       "sealCoordinates": "印影座標: X: {x}px, Y: {y}px",
       "clickToReposition": "任意の場所をクリックしてシーリングワックスを再配置します"
     },
@@ -950,16 +950,16 @@
     "sections": {
       "general": {
         "whatIs": {
-          "question": "PDFCraftとは何ですか？",
-          "answer": "PDFCraftは、ブラウザ上で完全に動作する、プライバシーに配慮した無料のPDFツールキットです。PDFの編集、変換、結合、分割、暗号化など、{count}種類以上のプロフェッショナルなツールを、サーバーにファイルをアップロードすることなく提供します。"
+          "question": "HushPDFとは何ですか？",
+          "answer": "HushPDFは、ブラウザ上で完全に動作する、プライバシーに配慮した無料のPDFツールキットです。PDFの編集、変換、結合、分割、暗号化など、{count}種類以上のプロフェッショナルなツールを、サーバーにファイルをアップロードすることなく提供します。"
         },
         "isFree": {
-          "question": "PDFCraftは本当に無料ですか？",
-          "answer": "はい、PDFCraftは完全に無料でご利用いただけます。隠れた費用や有料プラン、会員登録などは一切ありません。すべての機能をすべての人にご利用いただけます。"
+          "question": "HushPDFは本当に無料ですか？",
+          "answer": "はい、HushPDFは完全に無料でご利用いただけます。隠れた費用や有料プラン、会員登録などは一切ありません。すべての機能をすべての人にご利用いただけます。"
         },
         "account": {
           "question": "アカウントを作成する必要がありますか？",
-          "answer": "いいえ、PDFCraftを使用するためにアカウントを作成したり登録したりする必要はありません。ウェブサイトにアクセスするだけで、すぐに任意のツールをご利用いただけます。"
+          "answer": "いいえ、HushPDFを使用するためにアカウントを作成したり登録したりする必要はありません。ウェブサイトにアクセスするだけで、すぐに任意のツールをご利用いただけます。"
         }
       },
       "privacy": {
@@ -968,8 +968,8 @@
           "answer": "いいえ、お客様のファイルがサーバーにアップロードされることは一切ありません。すべてのPDF処理は、JavaScriptとWebAssemblyを使用してお客様のブラウザ内でローカルに行われます。ファイルがデバイスから送信されることはありません。"
         },
         "safe": {
-          "question": "機密性の高いドキュメントでPDFCraftを使用しても安全ですか？",
-          "answer": "はい、PDFCraftはプライバシーを最優先に設計されています。すべての処理がブラウザ内でローカルに実行されるため、機密ドキュメントはデバイス内に残り、インターネットを介して送信されることはありません。"
+          "question": "機密性の高いドキュメントでHushPDFを使用しても安全ですか？",
+          "answer": "はい、HushPDFはプライバシーを最優先に設計されています。すべての処理がブラウザ内でローカルに実行されるため、機密ドキュメントはデバイス内に残り、インターネットを介して送信されることはありません。"
         },
         "storage": {
           "question": "処理完了後、ファイルはどうなりますか？",
@@ -979,7 +979,7 @@
       "features": {
         "operations": {
           "question": "どのようなPDF操作を実行できますか？",
-          "answer": "PDFCraftは、結合、分割、圧縮、各種変換（画像・テキスト・JSONへの/からの変換）、編集、注釈、署名、透かし追加、暗号化/復号化、OCRなど、67以上のツールを提供しています。"
+          "answer": "HushPDFは、結合、分割、圧縮、各種変換（画像・テキスト・JSONへの/からの変換）、編集、注釈、署名、透かし追加、暗号化/復号化、OCRなど、67以上のツールを提供しています。"
         },
         "merge": {
           "question": "複数のPDFファイルを結合できますか？",
@@ -987,17 +987,17 @@
         },
         "images": {
           "question": "画像をPDFに変換できますか？",
-          "answer": "はい、PDFCraftはさまざまな画像形式（JPG、PNG、WebP、BMP、TIFF、SVG、HEIC）のPDFへの変換に対応しています。1枚だけでなく、複数の画像を一度に変換することも可能です。"
+          "answer": "はい、HushPDFはさまざまな画像形式（JPG、PNG、WebP、BMP、TIFF、SVG、HEIC）のPDFへの変換に対応しています。1枚だけでなく、複数の画像を一度に変換することも可能です。"
         },
         "edit": {
           "question": "PDF内のテキストを直接編集することはできますか？",
-          "answer": "PDFCraftは、ハイライト、テキストの追加、図形、画像、署名の挿入などの注釈・編集ツールを提供しています。詳細な注釈やマークアップ機能には、「PDF編集」ツールをご利用ください。"
+          "answer": "HushPDFは、ハイライト、テキストの追加、図形、画像、署名の挿入などの注釈・編集ツールを提供しています。詳細な注釈やマークアップ機能には、「PDF編集」ツールをご利用ください。"
         }
       },
       "technical": {
         "browsers": {
           "question": "サポートされているブラウザは何ですか？",
-          "answer": "PDFCraftは、Chrome、Firefox、Safari、Edgeを含むすべての主要なモダンブラウザに対応しています。快適にご利用いただくために、ブラウザの最新バージョンをご使用いただくことをお勧めします。"
+          "answer": "HushPDFは、Chrome、Firefox、Safari、Edgeを含むすべての主要なモダンブラウザに対応しています。快適にご利用いただくために、ブラウザの最新バージョンをご使用いただくことをお勧めします。"
         },
         "sizeLimit": {
           "question": "ファイルサイズに制限はありますか？",
@@ -1008,14 +1008,14 @@
           "answer": "すべての処理がお使いのブラウザ内で行われるため、処理のパフォーマンスはお使いのデバイスのスペックに依存します。大容量ファイルはより多くのメモリとCPU性能を必要とします。快適に処理するために、他のブラウザのタブやバックグラウンドアプリを閉じてからお試しください。"
         },
         "offline": {
-          "question": "PDFCraftはオフラインでも動作しますか？",
-          "answer": "現在、PDFCraftを読み込むためにはインターネット接続が必要です。ただし、アプリが一度完全に読み込まれれば、PDFの処理自体はローカルで行われるため、インターネット接続は必要ありません。"
+          "question": "HushPDFはオフラインでも動作しますか？",
+          "answer": "現在、HushPDFを読み込むためにはインターネット接続が必要です。ただし、アプリが一度完全に読み込まれれば、PDFの処理自体はローカルで行われるため、インターネット接続は必要ありません。"
         }
       },
       "languages": {
         "supported": {
           "question": "サポートされている言語は何ですか？",
-          "answer": "PDFCraftは9言語に対応しています：英語、日本語、韓国語、スペイン語、フランス語、ドイツ語、中国語、ポルトガル語、アラビア語（右から左へのRTL表記対応）。"
+          "answer": "HushPDFは9言語に対応しています：英語、日本語、韓国語、スペイン語、フランス語、ドイツ語、中国語、ポルトガル語、アラビア語（右から左へのRTL表記対応）。"
         },
         "change": {
           "question": "言語を変更するにはどうすればよいですか？",
@@ -1046,7 +1046,7 @@
       },
       "fast": {
         "title": "高速＆高効率",
-        "description": "最新のウェブ技術を駆使した PDFCraft は、ファイルのアップロードやダウンロードの待ち時間を発生させず、超高速なPDF処理を実現します。"
+        "description": "最新のウェブ技術を駆使した HushPDF は、ファイルのアップロードやダウンロードの待ち時間を発生させず、超高速なPDF処理を実現します。"
       },
       "accessible": {
         "title": "どこからでもアクセス可能",
@@ -1054,7 +1054,7 @@
       },
       "free": {
         "title": "永久無料",
-        "description": "PDFCraftは完全に無料でご利用いただけ、隠れた費用やユーザー登録、使用回数の制限などは一切ありません。"
+        "description": "HushPDFは完全に無料でご利用いただけ、隠れた費用やユーザー登録、使用回数の制限などは一切ありません。"
       },
       "openSource": {
         "title": "オープンソース",
@@ -1092,7 +1092,7 @@
       "email": {
         "title": "メールアドレス",
         "description": "メールをお送りください。24〜48時間以内に返信いたします。",
-        "action": "contact@pdfcraft.app"
+        "action": "contact@hushpdf.app"
       },
       "github": {
         "title": "GitHub",
@@ -1102,7 +1102,7 @@
       "twitter": {
         "title": "ツイッター",
         "description": "アップデートや告知については、こちらをフォローしてください。",
-        "action": "@pdfcraft"
+        "action": "@hushpdf"
       }
     },
     "form": {
@@ -1233,7 +1233,7 @@
   "workflow": {
     "title": "PDFワークフローエディター",
     "subtitle": "ツールを接続してカスタムPDF処理パイプラインを作成",
-    "metaTitle": "PDF ワークフロー ビルダー - PDFCraft",
+    "metaTitle": "PDF ワークフロー ビルダー - HushPDF",
     "metaDescription": "ツールを視覚的に接続してカスタムPDF処理パイプラインを作成。ワークフローを構築、保存、再利用。",
     "toolbox": "ツールボックス",
     "dragToAdd": "ワークフローにツールをドラッグして追加",

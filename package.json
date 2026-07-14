@@ -1,16 +1,23 @@
 {
-  "name": "pdfcraft",
+  "name": "hushpdf",
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "tauri": "tauri",
     "dev:tauri": "set TAURI_ENV=true&& tauri dev",
     "build:tauri": "set TAURI_ENV=true&& tauri build",
+    "brand:icons": "node scripts/generate-brand-assets.mjs && tauri icon public/images/hushpdf-icon-master.png --ios-color '#06142f'",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run lint && npm test",
+    "check:tauri": "cargo check --locked --manifest-path src-tauri/Cargo.toml",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",

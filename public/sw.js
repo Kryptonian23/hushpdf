@@ -1,8 +1,8 @@
 /**
- * Service Worker for PDFCraft
+ * Service Worker for HushPDF
  */
 
-const CACHE_NAME = 'pdfcraft-cache-v2';
+const CACHE_NAME = 'hushpdf-cache-v2';
 
 // Large assets to cache (Pyodide WASM and Python wheels)
 const PYODIDE_ASSETS = [

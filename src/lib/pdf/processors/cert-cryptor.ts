@@ -150,7 +150,7 @@ export class CertCryptorProcessor extends BasePDFProcessor {
         color: baseColor,
       });
 
-      // Draw Central Stamp Symbol (e.g. Shield + Key / PDFCraft Logo)
+      // Draw Central Stamp Symbol (e.g. Shield + Key / HushPDF Logo)
       // We will draw a crest with lines
       // Draw a crown/crest in the center
       const iconSize = radius * 0.35;
@@ -202,7 +202,7 @@ export class CertCryptorProcessor extends BasePDFProcessor {
         Filter: pdfLib.PDFName.of('Adobe.PPKLite'),
         SubFilter: pdfLib.PDFName.of('adbe.pkcs7.detached'),
         Contents: pdfLib.PDFString.of(String.fromCharCode(...placeholderBytes)), // Preallocate
-        Reason: pdfLib.PDFString.of('Signed officially using PDFCraft Wax-Seal cryptor.'),
+        Reason: pdfLib.PDFString.of('Signed officially using HushPDF Wax-Seal cryptor.'),
         M: pdfLib.PDFString.of(`D:${new Date().toISOString().replace(/[-T:]/g, '').split('.')[0]}Z`),
       });
 
@@ -247,7 +247,7 @@ export class CertCryptorProcessor extends BasePDFProcessor {
         // Enforce user password to simulate certificate lockdown
         // This provides standard enterprise encryption
         const ownerPassword = Math.random().toString(36).substring(2, 12);
-        const userPassword = cryptorOptions.pfxPassword || 'pdfcraft';
+        const userPassword = cryptorOptions.pfxPassword || 'hushpdf';
         
         (pdfDoc as any).encrypt({
           userPassword,

@@ -2948,7 +2948,7 @@ export const toolContentEn: Record<string, ToolContent> = {
     faq: [
       { question: 'Is the wax seal just an image or a real signature?', answer: 'Both. The system renders an incredibly realistic 3D wax imprint with normal-mapped depth (visual layer) and encodes an authentic, tamper-proof PKCS#7 cryptographic signature inside the PDF (data layer).' },
       { question: 'What is "Certificate-based Encryption"?', answer: 'It is a passwordless encryption technique. You encrypt the file using the recipient\'s public key. The reader automatically searches for their local private certificate to decrypt the file seamlessly, ensuring robust security.' },
-      { question: 'Can I customize the stamp design?', answer: 'Yes. We provide multiple designs like the PDFCraft watermark or a Royal crest, and you can adjust the wax melting radius and normal-map indentation depth in the panel.' },
+      { question: 'Can I customize the stamp design?', answer: 'Yes. We provide multiple designs like the HushPDF watermark or a Royal crest, and you can adjust the wax melting radius and normal-map indentation depth in the panel.' },
     ],
   },
   'passport-id-composer': {

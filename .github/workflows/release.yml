@@ -62,11 +62,11 @@ jobs:
         run: |
           # The 'out' directory contains the static export
           cd out
-          zip -r ../pdfcraft-${{ steps.version.outputs.version }}.zip .
+          zip -r ../hushpdf-${{ steps.version.outputs.version }}.zip .
           cd ..
           
-          echo "📦 Release package created: pdfcraft-${{ steps.version.outputs.version }}.zip"
-          echo "📊 Package size: $(du -h pdfcraft-${{ steps.version.outputs.version }}.zip | cut -f1)"
+          echo "📦 Release package created: hushpdf-${{ steps.version.outputs.version }}.zip"
+          echo "📊 Package size: $(du -h hushpdf-${{ steps.version.outputs.version }}.zip | cut -f1)"
 
       # Download Tauri desktop builds from the completed Tauri workflow
       - name: Download Tauri macOS build
@@ -101,9 +101,9 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.version }}
-          name: PDFCraft ${{ steps.version.outputs.version }}
+          name: HushPDF ${{ steps.version.outputs.version }}
           body: |
-            ## 🚀 PDFCraft Release ${{ steps.version.outputs.version }}
+            ## 🚀 HushPDF Release ${{ steps.version.outputs.version }}
 
             ### 📦 Download & Install
             Download the appropriate file for your platform:
@@ -117,7 +117,7 @@ jobs:
             **Commit:** `${{ github.sha }}`
             **Build Time:** ${{ steps.version.outputs.build_time }}
           files: |
-            pdfcraft-${{ steps.version.outputs.version }}.zip
+            hushpdf-${{ steps.version.outputs.version }}.zip
             tauri-bundles/**/*.dmg
             tauri-bundles/**/*.msi
             tauri-bundles/**/*.exe
