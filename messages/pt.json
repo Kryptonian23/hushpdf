@@ -2,15 +2,15 @@
   "metadata": {
     "home": {
       "title": "HushPDF - Ferramentas PDF Profissionais",
-      "description": "Grátis, privado e baseado em navegador. Mescle e edite arquivos PDF online sem enviar para servidores."
+      "description": "Ferramentas PDF profissionais e privadas no navegador. Edite, converta e proteja sem enviar documentos a servidores."
     },
     "tools": {
       "title": "Todas as Ferramentas PDF",
-      "description": "Navegue por mais de 67 ferramentas PDF profissionais. Mescle, divida, comprima, converta, edite e proteja seus arquivos PDF gratuitamente."
+      "description": "Ferramentas profissionais para unir, dividir, comprimir, converter, editar e proteger PDFs no seu dispositivo."
     },
     "about": {
       "title": "Sobre Nós",
-      "description": "Conheça o HushPDF - seu kit de ferramentas PDF gratuito, privado e poderoso. Todo o processamento acontece no seu navegador."
+      "description": "Conheça o HushPDF, um espaço PDF profissional com privacidade e processamento local."
     },
     "faq": {
       "title": "Perguntas Frequentes",
@@ -30,13 +30,13 @@
       "splitPdf": "dividir PDF",
       "compressPdf": "comprimir PDF",
       "convertPdf": "converter PDF",
-      "freePdfTools": "ferramentas PDF grátis",
+      "freePdfTools": "ferramentas PDF privadas",
       "onlinePdfEditor": "editor PDF online"
     }
   },
   "common": {
     "brand": "HushPDF",
-    "tagline": "Ferramentas PDF Profissionais - Grátis e Privadas",
+    "tagline": "Ferramentas PDF profissionais e privadas",
     "navigation": {
       "home": "Início",
       "tools": "Ferramentas",
@@ -44,7 +44,8 @@
       "about": "Sobre",
       "faq": "Perguntas Frequentes",
       "privacy": "Privacidade",
-      "contact": "Contato"
+      "contact": "Contato",
+      "pricing": "Preços"
     },
     "buttons": {
       "upload": "Enviar Arquivos",
@@ -921,7 +922,7 @@
   },
   "toolsPage": {
     "title": "Ferramentas profissionais de PDF",
-    "subtitle": "{count}+ ferramentas gratuitas, seguras e fáceis de usar para todas as suas necessidades de PDF.",
+    "subtitle": "Mais de {count} ferramentas profissionais e seguras para trabalhar com PDFs em privado.",
     "filters": "Filtros",
     "allTools": "Todas as ferramentas",
     "clearAll": "Limpar tudo",
@@ -951,15 +952,15 @@
       "general": {
         "whatIs": {
           "question": "O que é HushPDF?",
-          "answer": "O HushPDF é um conjunto de ferramentas PDF gratuito e focado na privacidade que funciona inteiramente no seu navegador. Ele oferece mais de {count} ferramentas profissionais para editar, converter, mesclar, dividir e criptografar arquivos PDF sem nunca enviá-los para um servidor."
+          "answer": "HushPDF é um espaço PDF com foco em privacidade que funciona no navegador. Oferece mais de 80 ferramentas profissionais sem enviar documentos a servidores."
         },
         "isFree": {
-          "question": "O HushPDF é realmente gratuito?",
-          "answer": "Sim, o uso do HushPDF é totalmente gratuito. Não há custos ocultos, nem níveis premium, nem necessidade de registro. Todos os recursos estão disponíveis para todos."
+          "question": "Como funcionarão os preços do HushPDF?",
+          "answer": "O HushPDF está preparando planos pagos Personal, Professional e Teams com teste privado de sete dias. O código-fonte correspondente continua disponível sob GNU AGPLv3."
         },
         "account": {
-          "question": "Preciso criar uma conta?",
-          "answer": "Não, você não precisa criar uma conta ou registrar-se para usar o HushPDF. Basta visitar o site e começar a usar qualquer ferramenta imediatamente."
+          "question": "Precisarei de uma conta?",
+          "answer": "Quando a cobrança for lançada, uma conta será necessária para iniciar um teste ou usar uma assinatura oficial. Seus PDFs continuarão processados localmente."
         }
       },
       "privacy": {
@@ -1031,10 +1032,10 @@
   },
   "aboutPage": {
     "title": "Sobre {brand}",
-    "description": "{brand} é um kit de ferramentas PDF gratuito e focado na privacidade que roda inteiramente em seu navegador. Com as ferramentas profissionais {count}+, você pode editar, converter, mesclar, dividir e proteger seus arquivos PDF sem nunca carregá-los em um servidor.",
+    "description": "{brand} é um espaço PDF profissional e privado no navegador. Com mais de {count} ferramentas, trabalhe sem enviar documentos a servidores.",
     "mission": {
       "title": "Nossa Missão",
-      "p1": "Acreditamos que todos deveriam ter acesso a ferramentas poderosas de PDF sem comprometer sua privacidade ou pagar taxas de assinatura caras. É por isso que criamos {brand} – um kit de ferramentas PDF abrangente que coloca sua privacidade em primeiro lugar.",
+      "p1": "Acreditamos que software PDF profissional deve proteger documentos sensíveis desde o projeto. Por isso, {brand} prioriza processamento local, ferramentas confiáveis e uma promessa clara de privacidade.",
       "p2": "Ao contrário dos serviços PDF tradicionais que exigem o upload de seus arquivos para servidores remotos, o {brand} processa tudo localmente em seu navegador. Seus documentos confidenciais nunca saem do seu dispositivo, proporcionando controle total sobre seus dados.",
       "p3": "Seja você um estudante, profissional ou usuário casual, {brand} fornece todas as ferramentas necessárias para trabalhar com PDFs de maneira eficiente e segura."
     },
@@ -1053,8 +1054,8 @@
         "description": "Disponível em 9 idiomas e funciona em qualquer dispositivo com navegador moderno. Nenhuma instalação necessária."
       },
       "free": {
-        "title": "Grátis para sempre",
-        "description": "HushPDF é totalmente gratuito, sem custos ocultos, sem necessidade de registro e sem limites de uso."
+        "title": "Valor profissional",
+        "description": "Ferramentas mantidas, aplicativos desktop assinados, automação e suporte confiável."
       },
       "openSource": {
         "title": "Código aberto",
@@ -1177,10 +1178,11 @@
   },
   "home": {
     "hero": {
-      "title": "Ferramentas PDF Profissionais",
-      "highlight": "Ferramentas Profissionais",
-      "subtitle": "Processamento de PDF gratuito, privado e poderoso no seu navegador",
-      "cta": "Começar"
+      "title": "Ferramentas PDF profissionais.",
+      "highlight": "Zero uploads.",
+      "subtitle": "Edite, converta, proteja e automatize PDFs sensíveis diretamente no seu dispositivo.",
+      "cta": "Explorar HushPDF",
+      "pricingCta": "Ver planos"
     },
     "features": {
       "privacy": {
@@ -1188,8 +1190,8 @@
         "description": "Todo o processamento acontece no seu navegador. Seus arquivos nunca saem do seu dispositivo."
       },
       "free": {
-        "title": "Completamente Gratuito",
-        "description": "Sem cadastro, sem limites, sem custos ocultos."
+        "title": "Feito para profissionais",
+        "description": "Ferramentas confiáveis, automação e uma experiência desktop mantida."
       },
       "powerful": {
         "title": "Ferramentas Poderosas",
@@ -1216,7 +1218,7 @@
     },
     "stats": {
       "pdfTools": "Ferramentas PDF",
-      "freeToUse": "Gratuito para usar",
+      "freeToUse": "Privado por design",
       "languages": "Idiomas",
       "filesUploaded": "Arquivos enviados"
     },

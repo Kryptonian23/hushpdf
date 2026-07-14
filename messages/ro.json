@@ -2,15 +2,15 @@
   "metadata": {
     "home": {
       "title": "HushPDF - Instrumente PDF Profesionale",
-      "description": "Gratuit, Privat și Bazat pe Browser. Combină, editează și modifică fișiere PDF online fără a le încărca pe servere."
+      "description": "Instrumente PDF profesionale și private în browser. Editează, convertește și protejează fără încărcare pe server."
     },
     "tools": {
       "title": "Toate Instrumentele PDF",
-      "description": "Răsfoiește peste 67 de instrumente PDF profesionale. Combină, divizează, comprimă, convertește, editează și securizează fișierele PDF gratuit."
+      "description": "Instrumente profesionale pentru combinarea, separarea, comprimarea, convertirea, editarea și protejarea PDF-urilor pe dispozitiv."
     },
     "about": {
       "title": "Despre",
-      "description": "Află mai multe despre HushPDF - setul tău de instrumente PDF gratuit, privat și puternic. Toată procesarea are loc în browser-ul tău."
+      "description": "Descoperă HushPDF, un spațiu PDF profesional axat pe confidențialitate și procesare locală."
     },
     "faq": {
       "title": "Întrebări Frecvente",
@@ -30,13 +30,13 @@
       "splitPdf": "divizează PDF",
       "compressPdf": "comprimă PDF",
       "convertPdf": "convertește PDF",
-      "freePdfTools": "instrumente PDF gratuite",
+      "freePdfTools": "instrumente PDF private",
       "onlinePdfEditor": "editor PDF online"
     }
   },
   "common": {
     "brand": "HushPDF",
-    "tagline": "Instrumente PDF Profesionale - Gratuite și Private",
+    "tagline": "Instrumente PDF profesionale și private",
     "navigation": {
       "home": "Acasă",
       "tools": "Instrumente",
@@ -44,7 +44,8 @@
       "about": "Despre",
       "faq": "FAQ",
       "privacy": "Confidențialitate",
-      "contact": "Contact"
+      "contact": "Contact",
+      "pricing": "Prețuri"
     },
     "buttons": {
       "upload": "Încarcă Fișiere",
@@ -921,7 +922,7 @@
   },
   "toolsPage": {
     "title": "Instrumente PDF profesionale",
-    "subtitle": "{count}+ instrumente gratuite, sigure și ușor de utilizat pentru toate nevoile dvs. PDF.",
+    "subtitle": "Peste {count} instrumente profesionale și sigure pentru lucru privat cu PDF-uri.",
     "filters": "Filtre",
     "allTools": "Toate instrumentele",
     "clearAll": "Șterge tot",
@@ -951,15 +952,15 @@
       "general": {
         "whatIs": {
           "question": "Ce este HushPDF?",
-          "answer": "HushPDF este un set de instrumente PDF gratuit, axat pe confidențialitate, care rulează în întregime în browser-ul tău. Oferă peste 80 de instrumente profesionale pentru editarea, convertirea, combinarea, divizarea și securizarea fișierelor PDF fără a le încărca pe niciun server."
+          "answer": "HushPDF este un spațiu PDF axat pe confidențialitate care rulează în browser. Oferă peste 80 de instrumente profesionale fără încărcarea documentelor pe server."
         },
         "isFree": {
-          "question": "Este HushPDF într-adevăr gratuit?",
-          "answer": "Da, HushPDF este complet gratuit. Nu există costuri ascunse, nici abonamente premium și nu este necesară înregistrarea. Toate funcționalitățile sunt disponibile pentru toată lumea."
+          "question": "Cum va funcționa tarifarea HushPDF?",
+          "answer": "HushPDF pregătește planuri plătite Personal, Professional și Teams cu o perioadă privată de testare de șapte zile. Codul sursă corespunzător rămâne disponibil sub GNU AGPLv3."
         },
         "account": {
-          "question": "Trebuie să creez un cont?",
-          "answer": "Nu, nu trebuie să vă creați un cont sau să vă înregistrați pentru a utiliza HushPDF. Pur și simplu vizitați site-ul web și începeți să utilizați orice instrument imediat."
+          "question": "Voi avea nevoie de un cont?",
+          "answer": "La lansarea facturării va fi necesar un cont pentru testare sau abonamentul oficial. PDF-urile vor continua să fie procesate local."
         }
       },
       "privacy": {
@@ -1031,10 +1032,10 @@
   },
   "aboutPage": {
     "title": "Despre {brand}",
-    "description": "{brand} este un set de instrumente PDF gratuit și axat pe confidențialitate, care rulează în întregime în browser. Cu peste {count} instrumente profesionale, puteți edita, converti, îmbina, diviza și securiza fișierele PDF fără a le încărca vreodată pe un server.",
+    "description": "{brand} este un spațiu PDF profesional și privat în browser. Cu peste {count} instrumente poți lucra fără încărcarea documentelor pe server.",
     "mission": {
       "title": "Misiunea noastră",
-      "p1": "Credem că toată lumea ar trebui să aibă acces la instrumente PDF puternice fără a-și compromite confidențialitatea sau a plăti abonamente scumpe. De aceea am creat {brand} – un set complet de instrumente PDF care pune confidențialitatea pe primul loc.",
+      "p1": "Credem că software-ul PDF profesional trebuie să protejeze documentele sensibile prin design. De aceea {brand} pune accent pe procesare locală, instrumente fiabile și o promisiune clară de confidențialitate.",
       "p2": "Spre deosebire de serviciile PDF tradiționale care vă cer să încărcați fișierele pe servere la distanță, {brand} procesează totul local în browser. Documentele dumneavoastră confidențiale nu părăsesc niciodată dispozitivul, oferindu-vă control complet asupra datelor.",
       "p3": "Indiferent dacă sunteți student, profesionist sau utilizator ocazional, {brand} oferă toate instrumentele de care aveți nevoie pentru a lucra cu PDF-uri în mod eficient și sigur."
     },
@@ -1053,8 +1054,8 @@
         "description": "Disponibil în 9 limbi și funcționează pe orice dispozitiv cu un browser modern. Nu este necesară instalarea."
       },
       "free": {
-        "title": "Gratuit pentru totdeauna",
-        "description": "HushPDF este complet gratuit, fără costuri ascunse, fără înregistrare obligatorie și fără limite de utilizare."
+        "title": "Valoare profesională",
+        "description": "Instrumente întreținute, aplicații desktop semnate, automatizare și asistență fiabilă."
       },
       "openSource": {
         "title": "Open Source",
@@ -1177,10 +1178,11 @@
   },
   "home": {
     "hero": {
-      "title": "Instrumente PDF Profesionale",
-      "highlight": "Instrumente Profesionale",
-      "subtitle": "Procesare PDF gratuită, privată și puternică în browser-ul tău",
-      "cta": "Începe Acum"
+      "title": "Instrumente PDF profesionale.",
+      "highlight": "Zero încărcări.",
+      "subtitle": "Editează, convertește, protejează și automatizează PDF-uri sensibile direct pe dispozitiv.",
+      "cta": "Explorează HushPDF",
+      "pricingCta": "Vezi planurile"
     },
     "features": {
       "privacy": {
@@ -1188,8 +1190,8 @@
         "description": "Toată procesarea are loc în browser-ul tău. Fișierele tale nu părăsesc niciodată dispozitivul."
       },
       "free": {
-        "title": "Complet Gratuit",
-        "description": "Fără înregistrare, fără limite, fără costuri ascunse."
+        "title": "Creat pentru profesioniști",
+        "description": "Instrumente fiabile, automatizare și o experiență desktop întreținută."
       },
       "powerful": {
         "title": "Instrumente Puternice",
@@ -1216,7 +1218,7 @@
     },
     "stats": {
       "pdfTools": "Instrumente PDF",
-      "freeToUse": "Gratuit de Folosit",
+      "freeToUse": "Privat prin design",
       "languages": "Limbi",
       "filesUploaded": "Fișiere Încărcate"
     },

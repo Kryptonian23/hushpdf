@@ -5,10 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Shield, Lock, FileCheck, Github, Globe } from 'lucide-react';
+import { Shield, Lock, FileCheck, Globe } from 'lucide-react';
 import { type Locale, locales, localeConfig, getLocalizedPath } from '@/lib/i18n/config';
 import { saveLanguagePreference } from './LanguageSelector';
-import { siteConfig } from '@/config/site';
 
 export interface FooterProps {
   locale: Locale;
@@ -21,11 +20,11 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
   const pathname = usePathname();
 
   const footerLinks = [
+    { href: `/${locale}/pricing`, label: t('navigation.pricing') || 'Pricing' },
     { href: `/${locale}/about`, label: t('navigation.about') },
     { href: `/${locale}/faq`, label: t('navigation.faq') },
     { href: `/${locale}/privacy`, label: t('navigation.privacy') },
     { href: `/${locale}/contact`, label: t('navigation.contact') },
-    { href: `/${locale}/source`, label: 'Source & license' },
   ];
 
   const handleLanguageChange = (newLocale: Locale) => {
@@ -58,18 +57,8 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
               <span data-testid="footer-brand-name">{t('brand')}</span>
             </Link>
             <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed max-w-xs">
-              {t('tagline') || 'Professional, secure, and free PDF tools for everyone. No installation required.'}
+              {t('tagline') || 'Professional PDF tools with zero file uploads.'}
             </p>
-
-            <div className="flex gap-4">
-              <a
-                href={siteConfig.links.source || `/${locale}/source`}
-                aria-label="HushPDF source code"
-                className="p-2 rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary))] hover:text-white transition-all"
-              >
-                <Github className="w-4 h-4" />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -176,7 +165,13 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             &copy; {currentYear} HushPDF contributors. Licensed under the GNU AGPLv3.
           </p>
           <div className="flex items-center gap-6">
-            <Link href={`/${locale}/source`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Source code</Link>
+            <Link
+              href={`/${locale}/source`}
+              data-testid="footer-source-link"
+              className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]"
+            >
+              Source code
+            </Link>
             <a href="/LICENSE.txt" className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">License</a>
             <Link href={`/${locale}/privacy`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Privacy</Link>
           </div>

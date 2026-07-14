@@ -87,7 +87,7 @@ export function generateBaseMetadata(options: PageMetadataOptions): Metadata {
   return {
     title: fullTitle,
     description: optimizedDescription,
-    keywords: [...new Set([...keywords, 'PDF', 'PDF tools', 'free', 'online', siteConfig.name])],
+    keywords: [...new Set([...keywords, 'PDF', 'PDF tools', 'private', 'online', siteConfig.name])],
     authors: [{ name: siteConfig.creator }],
     creator: siteConfig.creator,
     publisher: siteConfig.name,
@@ -152,9 +152,7 @@ export function generateToolMetadata(options: ToolMetadataOptions): Metadata {
   // Enhance keywords with common PDF-related terms
   const enhancedKeywords = [
     ...content.keywords,
-    'free',
     'online',
-    'no registration',
     'browser-based',
     'secure',
     'private',
@@ -181,7 +179,7 @@ export function generateHomeMetadata(locale: Locale, translations?: { title: str
     path: '',
     title: translations?.title || defaultTitle,
     description: translations?.description || defaultDescription,
-    keywords: ['PDF tools', 'merge PDF', 'split PDF', 'compress PDF', 'convert PDF', 'free PDF tools', 'online PDF editor'],
+    keywords: ['PDF tools', 'merge PDF', 'split PDF', 'compress PDF', 'convert PDF', 'private PDF tools', 'online PDF editor'],
   });
 }
 
@@ -193,7 +191,7 @@ export function generateToolsListMetadata(locale: Locale, translations?: { title
     locale,
     path: '/tools',
     title: translations?.title || 'All PDF Tools',
-    description: translations?.description || 'Browse all 67+ professional PDF tools. Merge, split, compress, convert, edit, and secure your PDF files for free.',
+    description: translations?.description || 'Browse professional tools to merge, split, compress, convert, edit, and secure PDFs directly on your device.',
     keywords: ['PDF tools', 'all PDF tools', 'PDF editor', 'PDF converter', 'PDF merger', 'PDF splitter'],
   });
 }
@@ -206,7 +204,7 @@ export function generateAboutMetadata(locale: Locale, translations?: { title: st
     locale,
     path: '/about',
     title: translations?.title || 'About',
-    description: translations?.description || `Learn about ${siteConfig.name} - your free, private, and powerful PDF toolkit. All processing happens in your browser.`,
+    description: translations?.description || `Learn about ${siteConfig.name}, a professional privacy-first PDF workspace that processes documents on your device.`,
     keywords: ['about', 'PDF tools', 'privacy', 'browser-based'],
   });
 }

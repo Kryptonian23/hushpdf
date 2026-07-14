@@ -41,7 +41,7 @@ export const toolContentEn: Record<string, ToolContent> = {
 
   'merge-pdf': {
     title: 'Merge PDF',
-    metaDescription: 'Combine multiple PDF files into one document. Free online PDF merger with drag-and-drop reordering.',
+    metaDescription: 'Combine multiple PDF files into one document privately with drag-and-drop reordering.',
     keywords: ['merge pdf', 'combine pdf', 'join pdf', 'pdf merger', 'concatenate pdf'],
     description: `
       <p>Merge PDF allows you to combine multiple PDF documents into a single file quickly and easily. Whether you're consolidating reports, combining scanned documents, or assembling a presentation, this tool makes the process seamless.</p>
@@ -148,7 +148,7 @@ export const toolContentEn: Record<string, ToolContent> = {
 
   'compress-pdf': {
     title: 'Compress PDF',
-    metaDescription: 'Reduce PDF file size while maintaining quality. Free online PDF compressor for smaller files.',
+    metaDescription: 'Reduce PDF file size privately while maintaining quality for smaller, easier-to-share files.',
     keywords: ['compress pdf', 'reduce pdf size', 'pdf compressor', 'shrink pdf', 'optimize pdf'],
     description: `
       <p>Compress PDF reduces the file size of your PDF documents while maintaining acceptable quality. This is essential for email attachments, web uploads, or saving storage space.</p>
@@ -2646,7 +2646,7 @@ export const toolContentEn: Record<string, ToolContent> = {
 
   'pdf-reader': {
     title: 'PDF Reader',
-    metaDescription: 'Free online PDF reader. View, navigate, zoom, rotate, and print PDF documents directly in your browser.',
+    metaDescription: 'Private PDF reader to view, navigate, zoom, rotate, and print documents directly in your browser.',
     keywords: ['pdf reader', 'pdf viewer', 'view pdf online', 'read pdf', 'pdf browser viewer'],
     description: `
       <p>PDF Reader is a full-featured PDF viewer that lets you read and navigate PDF documents directly in your browser. No software installation required - just upload your PDF and start reading.</p>
@@ -3427,7 +3427,6 @@ export const toolContentEn: Record<string, ToolContent> = {
     ],
   },
 };
-
 
 
 

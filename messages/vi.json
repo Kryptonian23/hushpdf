@@ -2,15 +2,15 @@
   "metadata": {
     "home": {
       "title": "HushPDF - Công cụ PDF Chuyên nghiệp",
-      "description": "Miễn phí, Riêng tư & Hoàn toàn trên Trình duyệt. Hợp nhất, chỉnh sửa PDF trực tuyến mà không cần tải lên máy chủ."
+      "description": "Công cụ PDF chuyên nghiệp và riêng tư trên trình duyệt. Chỉnh sửa, chuyển đổi và bảo vệ mà không tải tài liệu lên máy chủ."
     },
     "tools": {
       "title": "Tất cả Công cụ PDF",
-      "description": "Khám phá hơn 67+ công cụ PDF chuyên nghiệp. Hợp nhất, tách, nén, chuyển đổi, chỉnh sửa và bảo mật tệp PDF miễn phí."
+      "description": "Công cụ chuyên nghiệp để ghép, tách, nén, chuyển đổi, chỉnh sửa và bảo vệ PDF trên thiết bị."
     },
     "about": {
       "title": "Giới thiệu",
-      "description": "Tìm hiểu về HushPDF - bộ công cụ PDF miễn phí, riêng tư và mạnh mẽ của bạn. Toàn bộ xử lý diễn ra ngay trong trình duyệt."
+      "description": "Tìm hiểu HushPDF, không gian PDF chuyên nghiệp ưu tiên quyền riêng tư và xử lý cục bộ."
     },
     "faq": {
       "title": "Câu hỏi Thường gặp",
@@ -30,13 +30,13 @@
       "splitPdf": "tách PDF",
       "compressPdf": "nén PDF",
       "convertPdf": "chuyển đổi PDF",
-      "freePdfTools": "công cụ PDF miễn phí",
+      "freePdfTools": "công cụ PDF riêng tư",
       "onlinePdfEditor": "trình chỉnh sửa PDF trực tuyến"
     }
   },
   "common": {
     "brand": "HushPDF",
-    "tagline": "Công cụ PDF Chuyên nghiệp - Miễn phí & Riêng tư",
+    "tagline": "Công cụ PDF chuyên nghiệp, ưu tiên riêng tư",
     "navigation": {
       "home": "Trang chủ",
       "tools": "Công cụ",
@@ -44,7 +44,8 @@
       "about": "Giới thiệu",
       "faq": "FAQ",
       "privacy": "Sự riêng tư",
-      "contact": "Liên hệ"
+      "contact": "Liên hệ",
+      "pricing": "Bảng giá"
     },
     "buttons": {
       "upload": "Tải lên Tệp",
@@ -921,7 +922,7 @@
   },
   "toolsPage": {
     "title": "Công cụ PDF chuyên nghiệp",
-    "subtitle": "{count}+ công cụ miễn phí, an toàn và dễ sử dụng cho mọi nhu cầu PDF của bạn.",
+    "subtitle": "Hơn {count} công cụ chuyên nghiệp và an toàn cho công việc PDF riêng tư.",
     "filters": "Bộ lọc",
     "allTools": "Tất cả công cụ",
     "clearAll": "Xóa tất cả",
@@ -951,15 +952,15 @@
       "general": {
         "whatIs": {
           "question": "HushPDF là gì?",
-          "answer": "HushPDF là bộ công cụ PDF miễn phí, tập trung vào quyền riêng tư, chạy hoàn toàn trong trình duyệt của bạn. Nó cung cấp hơn 80 công cụ chuyên nghiệp để chỉnh sửa, chuyển đổi, hợp nhất, tách và bảo mật tệp PDF mà không cần tải lên bất kỳ máy chủ nào."
+          "answer": "HushPDF là không gian PDF ưu tiên quyền riêng tư chạy trong trình duyệt. Hơn 80 công cụ chuyên nghiệp hoạt động mà không tải tài liệu lên máy chủ."
         },
         "isFree": {
-          "question": "HushPDF có thực sự miễn phí không?",
-          "answer": "Có, HushPDF hoàn toàn miễn phí sử dụng. Không có chi phí ẩn, không có gói cao cấp và không yêu cầu đăng ký. Tất cả các tính năng đều có sẵn cho mọi người."
+          "question": "HushPDF sẽ tính phí như thế nào?",
+          "answer": "HushPDF đang chuẩn bị các gói Personal, Professional và Teams trả phí với bản dùng thử riêng tư bảy ngày. Mã nguồn tương ứng vẫn có theo GNU AGPLv3."
         },
         "account": {
-          "question": "Tôi có cần tạo tài khoản không?",
-          "answer": "Không, bạn không cần tạo tài khoản hay đăng ký để sử dụng HushPDF. Chỉ cần truy cập trang web và bắt đầu sử dụng bất kỳ công cụ nào ngay lập tức."
+          "question": "Tôi có cần tài khoản không?",
+          "answer": "Khi hệ thống thanh toán ra mắt, cần tài khoản để dùng thử hoặc sử dụng gói HushPDF chính thức. PDF vẫn được xử lý cục bộ."
         }
       },
       "privacy": {
@@ -1031,10 +1032,10 @@
   },
   "aboutPage": {
     "title": "Giới thiệu về {brand}",
-    "description": "{brand} là bộ công cụ PDF miễn phí, tập trung vào quyền riêng tư và chạy hoàn toàn trong trình duyệt của bạn. Với hơn {count} công cụ chuyên nghiệp, bạn có thể chỉnh sửa, chuyển đổi, gộp, chia nhỏ và bảo mật các tệp PDF của mình mà không cần tải chúng lên máy chủ.",
+    "description": "{brand} là không gian PDF chuyên nghiệp và riêng tư trong trình duyệt. Với hơn {count} công cụ, bạn có thể làm việc mà không tải tài liệu lên máy chủ.",
     "mission": {
       "title": "Sứ mệnh của Chúng tôi",
-      "p1": "Chúng tôi tin rằng mọi người đều có quyền tiếp cận các công cụ PDF mạnh mẽ mà không cần đánh đổi quyền riêng tư của họ hoặc trả phí đăng ký đắt đỏ. Đó là lý do tại sao chúng tôi tạo ra {brand} – một bộ công cụ PDF toàn diện đặt quyền riêng tư của bạn lên hàng đầu.",
+      "p1": "Chúng tôi tin rằng phần mềm PDF chuyên nghiệp phải bảo vệ tài liệu nhạy cảm ngay từ thiết kế. {brand} tập trung vào xử lý cục bộ, công cụ đáng tin cậy và cam kết riêng tư rõ ràng.",
       "p2": "Không giống như các dịch vụ PDF truyền thống yêu cầu bạn tải tệp lên máy chủ từ xa, {brand} xử lý mọi thứ cục bộ trong trình duyệt của bạn. Các tài liệu nhạy cảm không bao giờ rời khỏi thiết bị, giúp bạn kiểm soát hoàn toàn dữ liệu của mình.",
       "p3": "Cho dù bạn là học sinh, sinh viên, chuyên gia hay người dùng thông thường, {brand} cung cấp tất cả các công cụ bạn cần để làm việc với PDF một cách hiệu quả và an toàn."
     },
@@ -1053,8 +1054,8 @@
         "description": "Hỗ trợ 9 ngôn ngữ và hoạt động trên mọi thiết bị có trình duyệt hiện đại. Không cần cài đặt."
       },
       "free": {
-        "title": "Miễn phí Mãi mãi",
-        "description": "HushPDF hoàn toàn miễn phí sử dụng mà không có phí ẩn, không cần đăng ký và không giới hạn lượt sử dụng."
+        "title": "Giá trị chuyên nghiệp",
+        "description": "Công cụ được duy trì, ứng dụng máy tính có chữ ký, tự động hóa và hỗ trợ đáng tin cậy."
       },
       "openSource": {
         "title": "Mã nguồn Mở",
@@ -1177,10 +1178,11 @@
   },
   "home": {
     "hero": {
-      "title": "Công cụ PDF Chuyên nghiệp",
-      "highlight": "Công cụ Chuyên nghiệp",
-      "subtitle": "Xử lý PDF miễn phí, riêng tư và mạnh mẽ ngay trong trình duyệt",
-      "cta": "Bắt đầu Ngay"
+      "title": "Công cụ PDF chuyên nghiệp.",
+      "highlight": "Không tải lên.",
+      "subtitle": "Chỉnh sửa, chuyển đổi, bảo vệ và tự động hóa PDF nhạy cảm ngay trên thiết bị.",
+      "cta": "Khám phá HushPDF",
+      "pricingCta": "Xem các gói"
     },
     "features": {
       "privacy": {
@@ -1188,8 +1190,8 @@
         "description": "Mọi xử lý diễn ra trong trình duyệt. Tệp của bạn không bao giờ rời khỏi thiết bị."
       },
       "free": {
-        "title": "Hoàn toàn Miễn phí",
-        "description": "Không đăng ký, không giới hạn, không chi phí ẩn."
+        "title": "Dành cho chuyên gia",
+        "description": "Công cụ đáng tin cậy, tự động hóa và trải nghiệm máy tính được duy trì."
       },
       "powerful": {
         "title": "Công cụ Mạnh mẽ",
@@ -1216,7 +1218,7 @@
     },
     "stats": {
       "pdfTools": "Công cụ PDF",
-      "freeToUse": "Miễn phí Sử dụng",
+      "freeToUse": "Riêng tư từ thiết kế",
       "languages": "Ngôn ngữ",
       "filesUploaded": "Tệp Đã Tải lên"
     },

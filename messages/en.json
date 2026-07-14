@@ -2,15 +2,15 @@
   "metadata": {
     "home": {
       "title": "HushPDF - Professional PDF Tools",
-      "description": "Free, Private & Browser-Based. Merge, edit, and edit PDF files online without uploading to servers."
+      "description": "Professional, private, and browser-based PDF tools. Edit, convert, and secure documents without uploading them to servers."
     },
     "tools": {
       "title": "All PDF Tools",
-      "description": "Browse all 67+ professional PDF tools. Merge, split, compress, convert, edit, and secure your PDF files for free."
+      "description": "Browse professional tools to merge, split, compress, convert, edit, and secure PDFs directly on your device."
     },
     "about": {
       "title": "About",
-      "description": "Learn about HushPDF - your free, private, and powerful PDF toolkit. All processing happens in your browser."
+      "description": "Learn about HushPDF, a professional privacy-first PDF workspace that processes documents on your device."
     },
     "faq": {
       "title": "Frequently Asked Questions",
@@ -30,13 +30,13 @@
       "splitPdf": "split PDF",
       "compressPdf": "compress PDF",
       "convertPdf": "convert PDF",
-      "freePdfTools": "free PDF tools",
+      "freePdfTools": "private PDF tools",
       "onlinePdfEditor": "online PDF editor"
     }
   },
   "common": {
     "brand": "HushPDF",
-    "tagline": "Professional PDF Tools - Free & Private",
+    "tagline": "Professional PDF Tools - Private by Design",
     "navigation": {
       "home": "Home",
       "tools": "Tools",
@@ -44,7 +44,8 @@
       "about": "About",
       "faq": "FAQ",
       "privacy": "Privacy",
-      "contact": "Contact"
+      "contact": "Contact",
+      "pricing": "Pricing"
     },
     "buttons": {
       "upload": "Upload Files",
@@ -921,7 +922,7 @@
   },
   "toolsPage": {
     "title": "Professional PDF Tools",
-    "subtitle": "{count}+ free, secure, and easy-to-use tools for all your PDF needs.",
+    "subtitle": "{count}+ professional, secure, and easy-to-use tools for private PDF work.",
     "filters": "Filters",
     "allTools": "All Tools",
     "clearAll": "Clear all",
@@ -951,15 +952,15 @@
       "general": {
         "whatIs": {
           "question": "What is HushPDF?",
-          "answer": "HushPDF is a free, privacy-focused PDF toolkit that runs entirely in your browser. It offers 80+ professional tools for editing, converting, merging, splitting, and securing PDF files without uploading them to any server."
+          "answer": "HushPDF is a privacy-first PDF workspace that runs directly in your browser. It offers 80+ professional tools without uploading your documents to a server."
         },
         "isFree": {
-          "question": "Is HushPDF really free?",
-          "answer": "Yes, HushPDF is completely free to use. There are no hidden costs, no premium tiers, and no registration required. All features are available to everyone."
+          "question": "How will HushPDF pricing work?",
+          "answer": "HushPDF is preparing paid Personal, Professional, and Teams plans with a seven-day private trial. The corresponding source remains available under the GNU AGPLv3."
         },
         "account": {
-          "question": "Do I need to create an account?",
-          "answer": "No, you don't need to create an account or register to use HushPDF. Simply visit the website and start using any tool immediately."
+          "question": "Will I need an account?",
+          "answer": "An account will be required to start a trial or use an official HushPDF subscription once billing launches. Your PDF documents will still be processed locally on your device."
         }
       },
       "privacy": {
@@ -1031,10 +1032,10 @@
   },
   "aboutPage": {
     "title": "About {brand}",
-    "description": "{brand} is a free, privacy-focused PDF toolkit that runs entirely in your browser. With {count}+ professional tools, you can edit, convert, merge, split, and secure your PDF files without ever uploading them to a server.",
+    "description": "{brand} is a professional, privacy-first PDF workspace that runs in your browser. With {count}+ tools, you can edit, convert, merge, split, and secure documents without uploading them to a server.",
     "mission": {
       "title": "Our Mission",
-      "p1": "We believe that everyone should have access to powerful PDF tools without compromising their privacy or paying expensive subscription fees. That's why we created {brand} – a comprehensive PDF toolkit that puts your privacy first.",
+      "p1": "We believe professional PDF software should protect sensitive documents by design. That is why we built {brand}: a maintained PDF workspace centered on local processing, dependable tools, and a clear privacy promise.",
       "p2": "Unlike traditional PDF services that require you to upload your files to remote servers, {brand} processes everything locally in your browser. Your sensitive documents never leave your device, giving you complete control over your data.",
       "p3": "Whether you're a student, professional, or casual user, {brand} provides all the tools you need to work with PDFs efficiently and securely."
     },
@@ -1053,8 +1054,8 @@
         "description": "Available in 9 languages and works on any device with a modern browser. No installation required."
       },
       "free": {
-        "title": "Free Forever",
-        "description": "HushPDF is completely free to use with no hidden costs, no registration required, and no limits on usage."
+        "title": "Professional Value",
+        "description": "Maintained tools, signed desktop releases, workflow automation, and support for dependable PDF work."
       },
       "openSource": {
         "title": "Open Source",
@@ -1177,10 +1178,11 @@
   },
   "home": {
     "hero": {
-      "title": "Professional PDF Tools",
-      "highlight": "Professional Tools",
-      "subtitle": "Free, private, and powerful PDF processing in your browser",
-      "cta": "Get Started"
+      "title": "Professional PDF Tools.",
+      "highlight": "Zero Uploads.",
+      "subtitle": "Edit, convert, secure, and automate sensitive PDFs directly on your device.",
+      "cta": "Explore HushPDF",
+      "pricingCta": "View Plans"
     },
     "features": {
       "privacy": {
@@ -1188,8 +1190,8 @@
         "description": "All processing happens in your browser. Your files never leave your device."
       },
       "free": {
-        "title": "Completely Free",
-        "description": "No registration, no limits, no hidden costs."
+        "title": "Built for Professionals",
+        "description": "Dependable tools, workflow automation, and a maintained desktop experience."
       },
       "powerful": {
         "title": "Powerful Tools",
@@ -1216,7 +1218,7 @@
     },
     "stats": {
       "pdfTools": "PDF Tools",
-      "freeToUse": "Free to Use",
+      "freeToUse": "Private by Design",
       "languages": "Languages",
       "filesUploaded": "Files Uploaded"
     },
