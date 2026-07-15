@@ -211,7 +211,7 @@ describe('Layout Property Tests', () => {
             .filter(s => !locales.includes(s as Locale)),
           (invalidLocale) => {
             // Manually set an invalid value in localStorage
-            localStorage.setItem('pdfcraft-language-preference', invalidLocale);
+            localStorage.setItem('hushpdf-language-preference', invalidLocale);
             
             // Should return null for invalid values
             const retrieved = getLanguagePreference();

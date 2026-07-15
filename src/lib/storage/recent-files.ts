@@ -14,7 +14,7 @@ export interface RecentFile {
   toolName?: string;
 }
 
-const STORAGE_KEY = 'pdfcraft_recent_files';
+const STORAGE_KEY = 'hushpdf_recent_files';
 const MAX_RECENT_FILES = 10;
 
 /**

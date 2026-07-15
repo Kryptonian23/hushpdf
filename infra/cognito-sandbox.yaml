@@ -1,0 +1,111 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: HushPDF Cognito sandbox for browser authentication with OAuth 2.0 authorization code and PKCE.
+
+Parameters:
+  EnvironmentName:
+    Type: String
+    Default: sandbox
+    AllowedPattern: '^[a-z0-9-]+$'
+    Description: Lowercase environment label used in resource names.
+  DomainPrefix:
+    Type: String
+    AllowedPattern: '^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$'
+    MinLength: 3
+    MaxLength: 63
+    Description: Globally unique Cognito domain prefix, for example hushpdf-kryptonian23-sandbox.
+  CallbackUrl:
+    Type: String
+    Default: http://localhost:3000/en/account/
+    AllowedPattern: '^https?://.+/$'
+    Description: Exact HushPDF account callback URL, including its trailing slash.
+  LogoutUrl:
+    Type: String
+    Default: http://localhost:3000/en/account/
+    AllowedPattern: '^https?://.+/$'
+    Description: Exact HushPDF post-logout URL, including its trailing slash.
+
+Resources:
+  HushPdfUserPool:
+    Type: AWS::Cognito::UserPool
+    DeletionPolicy: Delete
+    UpdateReplacePolicy: Delete
+    Properties:
+      UserPoolName: !Sub hushpdf-${EnvironmentName}
+      UserPoolTier: LITE
+      UsernameAttributes:
+        - email
+      AutoVerifiedAttributes:
+        - email
+      MfaConfiguration: 'OFF'
+      AccountRecoverySetting:
+        RecoveryMechanisms:
+          - Name: verified_email
+            Priority: 1
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: false
+      UserAttributeUpdateSettings:
+        AttributesRequireVerificationBeforeUpdate:
+          - email
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 12
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: true
+          RequireUppercase: true
+          TemporaryPasswordValidityDays: 7
+      UserPoolTags:
+        Application: HushPDF
+        Environment: !Ref EnvironmentName
+
+  HushPdfBrowserClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: !Sub hushpdf-web-${EnvironmentName}
+      UserPoolId: !Ref HushPdfUserPool
+      GenerateSecret: false
+      PreventUserExistenceErrors: ENABLED
+      EnableTokenRevocation: true
+      AllowedOAuthFlowsUserPoolClient: true
+      AllowedOAuthFlows:
+        - code
+      AllowedOAuthScopes:
+        - email
+        - openid
+      SupportedIdentityProviders:
+        - COGNITO
+      CallbackURLs:
+        - !Ref CallbackUrl
+      LogoutURLs:
+        - !Ref LogoutUrl
+      ExplicitAuthFlows:
+        - ALLOW_REFRESH_TOKEN_AUTH
+        - ALLOW_USER_SRP_AUTH
+      AccessTokenValidity: 1
+      IdTokenValidity: 1
+      RefreshTokenValidity: 7
+      TokenValidityUnits:
+        AccessToken: hours
+        IdToken: hours
+        RefreshToken: days
+
+  HushPdfUserPoolDomain:
+    Type: AWS::Cognito::UserPoolDomain
+    Properties:
+      Domain: !Ref DomainPrefix
+      ManagedLoginVersion: 1
+      UserPoolId: !Ref HushPdfUserPool
+
+Outputs:
+  UserPoolId:
+    Description: Value for NEXT_PUBLIC_COGNITO_USER_POOL_ID.
+    Value: !Ref HushPdfUserPool
+  UserPoolClientId:
+    Description: Value for NEXT_PUBLIC_COGNITO_USER_POOL_CLIENT_ID.
+    Value: !Ref HushPdfBrowserClient
+  CognitoDomain:
+    Description: Value for NEXT_PUBLIC_COGNITO_DOMAIN.
+    Value: !Sub https://${HushPdfUserPoolDomain}.auth.${AWS::Region}.amazoncognito.com
+  AccountCallbackUrl:
+    Description: Callback URL registered with the public browser client.
+    Value: !Ref CallbackUrl

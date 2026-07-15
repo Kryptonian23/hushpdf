@@ -165,10 +165,10 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                 });
                 
                 function drawGuides(stg, sx, sy) {
-                  let container = document.getElementById('pdfcraft-alignment-guides');
+                  let container = document.getElementById('hushpdf-alignment-guides');
                   if (!container) {
                     container = document.createElement('div');
-                    container.id = 'pdfcraft-alignment-guides';
+                    container.id = 'hushpdf-alignment-guides';
                     container.style.cssText = 'position:absolute; inset:0; pointer-events:none; z-index:99999;';
                     stg.container().appendChild(container);
                   }
@@ -187,7 +187,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                 }
                 
                 function clearGuides() {
-                  const container = document.getElementById('pdfcraft-alignment-guides');
+                  const container = document.getElementById('hushpdf-alignment-guides');
                   if (container) container.innerHTML = '';
                 }
               }
@@ -283,10 +283,10 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                 // Inject picker for Highlight tool
                 const hlColorPicker = document.getElementById('editorHighlightColorPicker');
                 if (hlColorPicker) {
-                  if (!hlColorPicker.querySelector('.pdfcraft-custom-hl-picker')) {
+                  if (!hlColorPicker.querySelector('.hushpdf-custom-hl-picker')) {
                     const picker = document.createElement('input');
                     picker.type = 'color';
-                    picker.className = 'pdfcraft-custom-hl-picker';
+                    picker.className = 'hushpdf-custom-hl-picker';
                     picker.style.cssText = 'width:28px; height:28px; border:2px solid #ccc; border-radius:50%; padding:0; cursor:pointer; margin-left:8px; vertical-align:middle; background:none;';
                     
                     picker.addEventListener('input', function(e) {
@@ -317,12 +317,12 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
               }
 
               function injectCustomMenuControls(menu) {
-                if (menu.querySelector('.pdfcraft-custom-controls')) return;
+                if (menu.querySelector('.hushpdf-custom-controls')) return;
 
                 console.log('[HushPDF Patch] CustomAnnotationMenu opened, injecting custom controls...');
 
                 const container = document.createElement('div');
-                container.className = 'pdfcraft-custom-controls';
+                container.className = 'hushpdf-custom-controls';
                 container.style.cssText = 'border-top:1px solid #ccc; margin-top:8px; padding-top:8px; font-size:12px; display:flex; flex-direction:column; gap:8px; color:var(--toolbar-fg-color, #333);';
 
                 const ext = window.pdfjsAnnotationExtensionInstance;
@@ -372,12 +372,12 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                   
                   const fillCheckbox = document.createElement('input');
                   fillCheckbox.type = 'checkbox';
-                  fillCheckbox.id = 'pdfcraft-fill-enabled';
+                  fillCheckbox.id = 'hushpdf-fill-enabled';
                   fillCheckbox.style.cssText = 'cursor:pointer;';
                   fillCheckbox.checked = selected.style?.fillEnabled || false;
                   
                   const fillLabel = document.createElement('label');
-                  fillLabel.htmlFor = 'pdfcraft-fill-enabled';
+                  fillLabel.htmlFor = 'hushpdf-fill-enabled';
                   {t('editPdf.fillColorLabel')}
                   fillLabel.style.cssText = 'cursor:pointer; user-select:none;';
 
@@ -516,11 +516,11 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
               function injectUndoRedoButtons() {
                 const customToolbar = document.querySelector('.CustomToolbar');
                 if (customToolbar) {
-                  if (customToolbar.querySelector('.pdfcraft-undo-btn')) return;
+                  if (customToolbar.querySelector('.hushpdf-undo-btn')) return;
                   const btnList = customToolbar.querySelector('ul') || customToolbar;
 
                   const undoLi = document.createElement('li');
-                  undoLi.className = 'pdfcraft-undo-btn';
+                  undoLi.className = 'hushpdf-undo-btn';
                   undoLi.style.cssText = 'display:inline-block; margin-right:8px;';
 
                   const undoBtn = document.createElement('button');
@@ -533,7 +533,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                   undoLi.appendChild(undoBtn);
 
                   const redoLi = document.createElement('li');
-                  redoLi.className = 'pdfcraft-redo-btn';
+                  redoLi.className = 'hushpdf-redo-btn';
                   redoLi.style.cssText = 'display:inline-block; margin-right:8px;';
 
                   const redoBtn = document.createElement('button');
@@ -556,8 +556,8 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
               }
 
               function updateUndoRedoButtonsState() {
-                const undoBtn = document.querySelector('.pdfcraft-undo-btn button');
-                const redoBtn = document.querySelector('.pdfcraft-redo-btn button');
+                const undoBtn = document.querySelector('.hushpdf-undo-btn button');
+                const redoBtn = document.querySelector('.hushpdf-redo-btn button');
                 
                 if (undoBtn) {
                   const canUndo = undoStack.length > 1;

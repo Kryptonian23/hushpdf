@@ -25,7 +25,7 @@ export interface ProjectFileMetadata {
   lastModified: number;
 }
 
-const DB_NAME = 'pdfcraft_projects';
+const DB_NAME = 'hushpdf_projects';
 const DB_VERSION = 1;
 const STORE_NAME = 'projects';
 

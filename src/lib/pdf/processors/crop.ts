@@ -129,7 +129,7 @@ export class CropProcessor extends BasePDFProcessor {
     // If destructive is strictly required, we can implement the rasterization approach later or via a canvas step in the UI before sending here.
     // BUT wait, bentopdf implementation uses canvas to rasterize for destructive crop.
     // Since we are porting, we should probably support it if possible. But `crop.ts` is `lib/pdf` which might be used in non-browser context?
-    // Current pdfcraft architecture runs processors in main thread (client-side), so generic Logic.
+    // The current HushPDF architecture runs processors in the main thread (client-side).
 
     // For now, I will map destructive to metadata crop to ensure it works, 
     // as rasterization requires PDF.js which is heavy to use inside this class without setup.
