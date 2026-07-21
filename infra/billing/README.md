@@ -12,9 +12,12 @@ webhook events are the authority for entitlements.
 3. Give each product one monthly and one yearly recurring price:
    - Personal: $7 monthly and $49 yearly.
    - Professional: $12 monthly and $99 yearly.
-4. Copy the four test `price_...` identifiers. Do not copy secret keys into the
+4. Set each Price's tax behavior to either inclusive or exclusive. Stripe's
+   Customer Portal does not allow subscription changes while tax behavior is
+   unspecified. HushPDF's sandbox uses exclusive tax behavior.
+5. Copy the four test `price_...` identifiers. Do not copy secret keys into the
    repository or `.env.local`.
-5. Redeploy `infra/cognito-sandbox.yaml` once so existing accounts can request
+6. Redeploy `infra/cognito-sandbox.yaml` once so existing accounts can request
    the new `hushpdf-billing/access` OAuth scope. Users must sign out and back in
    after that update.
 

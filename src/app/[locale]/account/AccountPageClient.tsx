@@ -31,12 +31,25 @@ interface AccountPageClientProps {
   locale: Locale;
 }
 
+const ACTIVE_SUBSCRIPTION_STATUSES = ['active', 'trialing', 'past_due'] as const;
+const CHECKOUT_SYNC_ATTEMPTS = 6;
+const CHECKOUT_SYNC_DELAY_MS = 750;
+
+function grantsSubscriptionAccess(status: EntitlementResponse['status']): boolean {
+  return ACTIVE_SUBSCRIPTION_STATUSES.some((allowedStatus) => allowedStatus === status);
+}
+
+function delay(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
+}
+
 export default function AccountPageClient({ locale }: AccountPageClientProps) {
   const config = getPublicAccountConfig();
   const [identity, setIdentity] = useState<AccountIdentity | null>(null);
   const [loading, setLoading] = useState(config.authEnabled);
   const [billingLoading, setBillingLoading] = useState(false);
   const [entitlement, setEntitlement] = useState<EntitlementResponse | null>(null);
+  const [billingNotice, setBillingNotice] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const refreshIdentity = useCallback(async () => {
@@ -74,11 +87,48 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
       return;
     }
     let active = true;
+    const checkoutResult = new URLSearchParams(window.location.search).get('checkout');
+
+    if (checkoutResult === 'success') {
+      setBillingNotice('Confirming your subscription with Stripe…');
+    } else if (checkoutResult === 'canceled') {
+      setBillingNotice('Checkout was canceled. No subscription changes were made.');
+    } else {
+      setBillingNotice(null);
+    }
+
     setBillingLoading(true);
-    void getEntitlements()
-      .then((result) => {
-        if (active) setEntitlement(result);
-      })
+    void (async () => {
+      let result = await getEntitlements();
+
+      if (checkoutResult === 'success') {
+        for (
+          let attempt = 1;
+          attempt < CHECKOUT_SYNC_ATTEMPTS && active && !grantsSubscriptionAccess(result.status);
+          attempt += 1
+        ) {
+          await delay(CHECKOUT_SYNC_DELAY_MS);
+          result = await getEntitlements();
+        }
+      }
+
+      if (!active) return;
+      setEntitlement(result);
+
+      if (checkoutResult === 'success') {
+        setBillingNotice(
+          grantsSubscriptionAccess(result.status)
+            ? 'Your Stripe subscription is active.'
+            : 'Stripe is still confirming your subscription. Refresh shortly to check again.',
+        );
+      }
+
+      if (checkoutResult) {
+        const cleanUrl = new URL(window.location.href);
+        cleanUrl.searchParams.delete('checkout');
+        window.history.replaceState({}, '', `${cleanUrl.pathname}${cleanUrl.search}${cleanUrl.hash}`);
+      }
+    })()
       .catch(() => {
         if (active) setError('Could not load subscription status. Please try again.');
       })
@@ -199,12 +249,14 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
                       <p className="font-semibold">Subscription sandbox</p>
                       <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
                         {config.billingEnabled
-                          ? `${entitlement?.plan ?? 'No plan'} · ${entitlement?.status ?? 'not subscribed'}`
+                          ? billingLoading && !entitlement
+                            ? 'Checking subscription status…'
+                            : `${entitlement?.plan ?? 'No plan'} · ${entitlement?.status ?? 'not subscribed'}`
                           : 'Billing API configuration is still required.'}
                       </p>
                     </div>
                   </div>
-                  {config.billingEnabled && ['active', 'trialing', 'past_due'].includes(entitlement?.status ?? '') ? (
+                  {config.billingEnabled && entitlement && grantsSubscriptionAccess(entitlement.status) ? (
                     <Button onClick={handlePortal} loading={billingLoading}>
                       <CreditCard className="h-4 w-4" aria-hidden="true" />
                       Manage billing with Stripe
@@ -257,6 +309,7 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
                 </div>
               )}
 
+              {billingNotice && <p className="mt-5 text-sm text-[hsl(var(--color-muted-foreground))]" role="status">{billingNotice}</p>}
               {error && <p className="mt-5 text-sm text-red-600" role="alert">{error}</p>}
             </Card>
           </div>
