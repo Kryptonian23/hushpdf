@@ -1,8 +1,9 @@
 # HushPDF AWS sandbox
 
-The initial stack creates only the Cognito resources needed to test browser
-accounts. It does not receive or process PDF files, and it does not create any
-Stripe or billing resources.
+The authentication stack creates only the Cognito resources needed to test
+browser accounts. It does not receive or process PDF files. After authentication
+is verified, the separate [`billing`](billing/README.md) stack adds Stripe
+test-mode subscriptions and webhook-managed entitlements.
 
 ## Deploy with the AWS console
 

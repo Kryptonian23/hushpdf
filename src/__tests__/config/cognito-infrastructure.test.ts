@@ -16,6 +16,11 @@ describe('Cognito sandbox infrastructure', () => {
     expect(template).not.toMatch(/AllowedOAuthFlows:\s+[\s\S]*?\- implicit/);
   });
 
+  it('issues a custom access-token scope for the billing API', () => {
+    expect(template).toContain('AWS::Cognito::UserPoolResourceServer');
+    expect(template).toContain('${BillingScopeIdentifier}/access');
+  });
+
   it('registers exact localhost account callback and logout URLs', () => {
     const callback = 'Default: http://localhost:3000/en/account/';
     expect(template.match(new RegExp(callback.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'))).toHaveLength(2);

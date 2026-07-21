@@ -23,6 +23,11 @@ Parameters:
     Default: http://localhost:3000/en/account/
     AllowedPattern: '^https?://.+/$'
     Description: Exact HushPDF post-logout URL, including its trailing slash.
+  BillingScopeIdentifier:
+    Type: String
+    Default: hushpdf-billing
+    AllowedPattern: '^[a-zA-Z0-9._~:/?#\[\]@!$&''()*+,;=-]+$'
+    Description: OAuth resource-server identifier shared with the billing API.
 
 Resources:
   HushPdfUserPool:
@@ -60,6 +65,7 @@ Resources:
 
   HushPdfBrowserClient:
     Type: AWS::Cognito::UserPoolClient
+    DependsOn: HushPdfBillingResourceServer
     Properties:
       ClientName: !Sub hushpdf-web-${EnvironmentName}
       UserPoolId: !Ref HushPdfUserPool
@@ -72,6 +78,7 @@ Resources:
       AllowedOAuthScopes:
         - email
         - openid
+        - !Sub ${BillingScopeIdentifier}/access
       SupportedIdentityProviders:
         - COGNITO
       CallbackURLs:
@@ -88,6 +95,16 @@ Resources:
         AccessToken: hours
         IdToken: hours
         RefreshToken: days
+
+  HushPdfBillingResourceServer:
+    Type: AWS::Cognito::UserPoolResourceServer
+    Properties:
+      Identifier: !Ref BillingScopeIdentifier
+      Name: !Sub hushpdf-billing-${EnvironmentName}
+      UserPoolId: !Ref HushPdfUserPool
+      Scopes:
+        - ScopeName: access
+          ScopeDescription: Access the signed-in user's HushPDF billing resources.
 
   HushPdfUserPoolDomain:
     Type: AWS::Cognito::UserPoolDomain

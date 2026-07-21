@@ -1,0 +1,176 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: HushPDF Stripe billing sandbox with Cognito authorization and webhook-managed entitlements.
+
+Parameters:
+  EnvironmentName:
+    Type: String
+    Default: sandbox
+    AllowedPattern: '^[a-z0-9-]+$'
+  UserPoolId:
+    Type: String
+    Description: Cognito UserPoolId output from the HushPDF authentication stack.
+  UserPoolClientId:
+    Type: String
+    Description: Cognito UserPoolClientId output from the HushPDF authentication stack.
+  BillingAuthorizationScope:
+    Type: String
+    Default: hushpdf-billing/access
+    Description: Custom Cognito access-token scope required by protected billing routes.
+  AllowedOrigin:
+    Type: String
+    Default: http://localhost:3000
+    AllowedPattern: '^https?://[^/]+$'
+    Description: Exact browser origin allowed to call the billing API.
+  PersonalMonthlyPriceId:
+    Type: String
+    Default: price_replace_with_personal_monthly
+  PersonalAnnualPriceId:
+    Type: String
+    Default: price_replace_with_personal_annual
+  ProfessionalMonthlyPriceId:
+    Type: String
+    Default: price_replace_with_professional_monthly
+  ProfessionalAnnualPriceId:
+    Type: String
+    Default: price_replace_with_professional_annual
+
+Globals:
+  Function:
+    Runtime: nodejs22.x
+    Architectures:
+      - arm64
+    MemorySize: 256
+    Timeout: 15
+    Tracing: Active
+    Environment:
+      Variables:
+        ACCOUNTS_TABLE_NAME: !Ref BillingAccountsTable
+        STRIPE_SECRET_ARN: !Ref StripeSecrets
+        ALLOWED_ORIGINS: !Ref AllowedOrigin
+        PRICE_PERSONAL_MONTHLY: !Ref PersonalMonthlyPriceId
+        PRICE_PERSONAL_ANNUAL: !Ref PersonalAnnualPriceId
+        PRICE_PROFESSIONAL_MONTHLY: !Ref ProfessionalMonthlyPriceId
+        PRICE_PROFESSIONAL_ANNUAL: !Ref ProfessionalAnnualPriceId
+
+Resources:
+  BillingHttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: !Ref EnvironmentName
+      CorsConfiguration:
+        AllowOrigins:
+          - !Ref AllowedOrigin
+        AllowHeaders:
+          - Authorization
+          - Content-Type
+        AllowMethods:
+          - GET
+          - POST
+          - OPTIONS
+        MaxAge: 600
+      Auth:
+        DefaultAuthorizer: CognitoJwt
+        Authorizers:
+          CognitoJwt:
+            IdentitySource: $request.header.Authorization
+            JwtConfiguration:
+              issuer: !Sub https://cognito-idp.${AWS::Region}.amazonaws.com/${UserPoolId}
+              audience:
+                - !Ref UserPoolClientId
+
+  BillingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub hushpdf-billing-${EnvironmentName}
+      CodeUri: .
+      Handler: src/index.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref BillingAccountsTable
+        - AWSSecretsManagerGetSecretValuePolicy:
+            SecretArn: !Ref StripeSecrets
+      Events:
+        Entitlements:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref BillingHttpApi
+            Path: /me/entitlements
+            Method: GET
+            Auth:
+              AuthorizationScopes:
+                - !Ref BillingAuthorizationScope
+        Checkout:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref BillingHttpApi
+            Path: /billing/checkout
+            Method: POST
+            Auth:
+              AuthorizationScopes:
+                - !Ref BillingAuthorizationScope
+        Portal:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref BillingHttpApi
+            Path: /billing/portal
+            Method: POST
+            Auth:
+              AuthorizationScopes:
+                - !Ref BillingAuthorizationScope
+        StripeWebhook:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref BillingHttpApi
+            Path: /billing/webhook
+            Method: POST
+            Auth:
+              Authorizer: NONE
+
+  BillingAccountsTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Delete
+    UpdateReplacePolicy: Delete
+    Properties:
+      TableName: !Sub hushpdf-billing-accounts-${EnvironmentName}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: accountId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: accountId
+          KeyType: HASH
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      SSESpecification:
+        SSEEnabled: true
+      Tags:
+        - Key: Application
+          Value: HushPDF
+        - Key: Environment
+          Value: !Ref EnvironmentName
+
+  StripeSecrets:
+    Type: AWS::SecretsManager::Secret
+    DeletionPolicy: Delete
+    UpdateReplacePolicy: Delete
+    Properties:
+      Name: !Sub hushpdf/stripe/${EnvironmentName}
+      Description: Stripe test-mode API key and webhook signing secret for HushPDF.
+      SecretString: '{"secretKey":"replace-with-sk-test","webhookSecret":"replace-with-whsec"}'
+      Tags:
+        - Key: Application
+          Value: HushPDF
+        - Key: Environment
+          Value: !Ref EnvironmentName
+
+Outputs:
+  BillingApiUrl:
+    Description: Value for NEXT_PUBLIC_BILLING_API_URL.
+    Value: !Sub https://${BillingHttpApi}.execute-api.${AWS::Region}.amazonaws.com/${EnvironmentName}
+  StripeWebhookUrl:
+    Description: Register this URL as a Stripe test-mode webhook destination.
+    Value: !Sub https://${BillingHttpApi}.execute-api.${AWS::Region}.amazonaws.com/${EnvironmentName}/billing/webhook
+  StripeSecretArn:
+    Description: Update this secret after creating the Stripe webhook destination.
+    Value: !Ref StripeSecrets

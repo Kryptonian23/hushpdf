@@ -42,7 +42,7 @@ export function configureCognito(locale: Locale): boolean {
         loginWith: {
           oauth: {
             domain: config.cognitoDomain,
-            scopes: ['openid', 'email'],
+            scopes: ['openid', 'email', 'hushpdf-billing/access'],
             redirectSignIn: [redirectUrl],
             redirectSignOut: [redirectUrl],
             responseType: 'code',

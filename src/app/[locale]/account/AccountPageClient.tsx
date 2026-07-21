@@ -16,6 +16,15 @@ import {
   getAccountIdentity,
   type AccountIdentity,
 } from '@/lib/auth/cognito';
+import {
+  createCheckoutSession,
+  createPortalSession,
+  getEntitlements,
+} from '@/lib/billing/client';
+import type {
+  BillingInterval,
+  EntitlementResponse,
+} from '@/lib/billing/types';
 import type { Locale } from '@/lib/i18n/config';
 
 interface AccountPageClientProps {
@@ -26,6 +35,8 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
   const config = getPublicAccountConfig();
   const [identity, setIdentity] = useState<AccountIdentity | null>(null);
   const [loading, setLoading] = useState(config.authEnabled);
+  const [billingLoading, setBillingLoading] = useState(false);
+  const [entitlement, setEntitlement] = useState<EntitlementResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const refreshIdentity = useCallback(async () => {
@@ -57,6 +68,28 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
     return cancelAuthListener;
   }, [refreshIdentity]);
 
+  useEffect(() => {
+    if (!identity || !config.billingEnabled) {
+      setEntitlement(null);
+      return;
+    }
+    let active = true;
+    setBillingLoading(true);
+    void getEntitlements()
+      .then((result) => {
+        if (active) setEntitlement(result);
+      })
+      .catch(() => {
+        if (active) setError('Could not load subscription status. Please try again.');
+      })
+      .finally(() => {
+        if (active) setBillingLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [config.billingEnabled, identity]);
+
   const handleSignIn = async () => {
     setError(null);
     setLoading(true);
@@ -83,6 +116,39 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
     } catch {
       setError('Could not complete sign-out. Please try again.');
       setLoading(false);
+    }
+  };
+
+  const accountReturnUrl = () => window.location.href.split('?')[0];
+
+  const handleCheckout = async (
+    plan: 'personal' | 'professional',
+    interval: BillingInterval,
+  ) => {
+    setError(null);
+    setBillingLoading(true);
+    try {
+      const session = await createCheckoutSession({
+        plan,
+        interval,
+        returnUrl: accountReturnUrl(),
+      });
+      window.location.assign(session.url);
+    } catch {
+      setError('Could not start Stripe Checkout. Please try again.');
+      setBillingLoading(false);
+    }
+  };
+
+  const handlePortal = async () => {
+    setError(null);
+    setBillingLoading(true);
+    try {
+      const session = await createPortalSession(accountReturnUrl());
+      window.location.assign(session.url);
+    } catch {
+      setError('Could not open the Stripe billing portal. Please try again.');
+      setBillingLoading(false);
     }
   };
 
@@ -132,10 +198,47 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
                     <div>
                       <p className="font-semibold">Subscription sandbox</p>
                       <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
-                        {config.billingEnabled ? 'Ready for Stripe test-mode sessions.' : 'Billing API configuration is still required.'}
+                        {config.billingEnabled
+                          ? `${entitlement?.plan ?? 'No plan'} · ${entitlement?.status ?? 'not subscribed'}`
+                          : 'Billing API configuration is still required.'}
                       </p>
                     </div>
                   </div>
+                  {config.billingEnabled && ['active', 'trialing', 'past_due'].includes(entitlement?.status ?? '') ? (
+                    <Button onClick={handlePortal} loading={billingLoading}>
+                      <CreditCard className="h-4 w-4" aria-hidden="true" />
+                      Manage billing with Stripe
+                    </Button>
+                  ) : config.billingEnabled ? (
+                    <div className="space-y-4">
+                      <p className="text-sm font-semibold">Choose a Stripe test-mode subscription</p>
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <div className="rounded-xl border border-[hsl(var(--color-border))] p-4 space-y-3">
+                          <div>
+                            <p className="font-bold">Personal</p>
+                            <p className="text-sm text-[hsl(var(--color-muted-foreground))]">$7 monthly · $49 annually</p>
+                          </div>
+                          <div className="flex gap-2">
+                            <Button size="sm" onClick={() => handleCheckout('personal', 'monthly')} loading={billingLoading}>Monthly</Button>
+                            <Button size="sm" variant="outline" onClick={() => handleCheckout('personal', 'annual')} disabled={billingLoading}>Annual</Button>
+                          </div>
+                        </div>
+                        <div className="rounded-xl border border-[hsl(var(--color-primary)/0.5)] p-4 space-y-3">
+                          <div>
+                            <p className="font-bold">Professional</p>
+                            <p className="text-sm text-[hsl(var(--color-muted-foreground))]">$12 monthly · $99 annually</p>
+                          </div>
+                          <div className="flex gap-2">
+                            <Button size="sm" onClick={() => handleCheckout('professional', 'monthly')} loading={billingLoading}>Monthly</Button>
+                            <Button size="sm" variant="outline" onClick={() => handleCheckout('professional', 'annual')} disabled={billingLoading}>Annual</Button>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-xs text-[hsl(var(--color-muted-foreground))]">
+                        Sandbox only. Stripe test mode cannot create real charges.
+                      </p>
+                    </div>
+                  ) : null}
                   <Button variant="outline" onClick={handleSignOut} loading={loading}>
                     <LogOut className="h-4 w-4" aria-hidden="true" />
                     Sign out
