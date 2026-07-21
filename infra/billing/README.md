@@ -63,8 +63,13 @@ Reveal that destination's `whsec_...` signing secret and replace the remaining
 placeholder in Secrets Manager. The Lambda caches secrets in warm execution
 environments, so redeploy or wait for a fresh environment after changing them.
 
-Configure the Stripe Customer Portal in test mode, then copy the
-`BillingApiUrl` stack output into the web app:
+Configure the Stripe Customer Portal in test mode. Enable subscription updates
+for the Personal and Professional monthly and annual Prices, allow Price
+changes, and select the desired proration behavior. HushPDF's sandbox uses
+Stripe-created prorations. This makes the account page's billing portal the
+upgrade and downgrade path.
+
+Then copy the `BillingApiUrl` stack output into the web app:
 
 ```dotenv
 NEXT_PUBLIC_BILLING_API_URL=https://example.execute-api.us-east-1.amazonaws.com/sandbox

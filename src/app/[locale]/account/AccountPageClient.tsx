@@ -259,7 +259,7 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
                   {config.billingEnabled && entitlement && grantsSubscriptionAccess(entitlement.status) ? (
                     <Button onClick={handlePortal} loading={billingLoading}>
                       <CreditCard className="h-4 w-4" aria-hidden="true" />
-                      Manage billing with Stripe
+                      Manage or change plan with Stripe
                     </Button>
                   ) : config.billingEnabled ? (
                     <div className="space-y-4">

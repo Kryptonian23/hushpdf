@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { Home, Wrench, HelpCircle, FileText, GitBranch } from 'lucide-react';
 import { type Locale } from '@/lib/i18n/config';
+import { SubscriptionGate } from '@/components/billing/SubscriptionGate';
 
 // 动态导入 WorkflowEditor 以避免 SSR 问题（ReactFlow 需要 window 对象）
 const WorkflowEditor = dynamic(
@@ -102,7 +103,13 @@ export default function WorkflowPageClient({ locale }: WorkflowPageClientProps) 
 
             {/* Workflow Editor - fills remaining height */}
             <main id="main-content" className="flex-1 overflow-hidden" tabIndex={-1}>
-                <WorkflowEditor />
+                <SubscriptionGate
+                    locale={locale}
+                    requiredPlan="professional"
+                    resourceName="Workflow Builder"
+                >
+                    <WorkflowEditor />
+                </SubscriptionGate>
             </main>
         </div>
     );

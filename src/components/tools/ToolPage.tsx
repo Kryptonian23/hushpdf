@@ -14,6 +14,8 @@ import { Home, ChevronRight } from 'lucide-react';
 import { FavoriteButton } from '@/components/ui/FavoriteButton';
 import { useMemo } from 'react';
 import { sanitizeHtml } from '@/lib/utils/html-sanitizer';
+import { SubscriptionGate } from '@/components/billing/SubscriptionGate';
+import { requiredPlanForTool } from '@/lib/billing/access';
 
 export interface ToolPageProps {
   /** Tool data */
@@ -100,7 +102,13 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
               data-testid="tool-page-interface"
               aria-label="Tool interface"
             >
-              {children}
+              <SubscriptionGate
+                locale={locale as Locale}
+                requiredPlan={requiredPlanForTool(tool.id)}
+                resourceName={toolDisplayName}
+              >
+                {children}
+              </SubscriptionGate>
             </section>
 
             {/* Description Section */}
