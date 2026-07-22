@@ -33,7 +33,9 @@ sam deploy --guided
 Use stack name `hushpdf-billing-sandbox`, the same AWS Region as Cognito, and
 enter the Cognito stack's `UserPoolId` and `UserPoolClientId` outputs. Enter the
 four Stripe test price IDs when prompted. Keep `AllowedOrigin` set to
-`http://localhost:3000` for local testing.
+`http://localhost:3000` for local-only testing. For staging, use a
+comma-separated value such as
+`http://localhost:3000,https://example.cloudfront.net`.
 
 SAM packages the Lambda dependencies and deploys API Gateway, Lambda,
 DynamoDB, and Secrets Manager. No PDF-processing infrastructure is created.
