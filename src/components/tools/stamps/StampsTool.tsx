@@ -118,7 +118,7 @@ export function StampsTool({ className = '' }: StampsToolProps) {
           } catch (e) {
             console.warn('[stamps] anchor.click hook error:', e);
           }
-          return originalClick.apply(this, arguments as any);
+          return originalClick.call(this);
         };
       }
 
