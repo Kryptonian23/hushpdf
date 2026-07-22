@@ -12,7 +12,7 @@ const nextConfig = {
   // Enable static export for deployment flexibility
   output: 'export',
   
-  // Support deployment under a subpath (e.g., /pdfcraft/)
+  // Support deployment under a subpath (e.g., /hushpdf/)
   // Use BASE_PATH or NEXT_PUBLIC_BASE_PATH environment variable
   basePath: process.env.BASE_PATH || process.env.NEXT_PUBLIC_BASE_PATH || '',
   
@@ -32,6 +32,19 @@ const nextConfig = {
         worker_threads: false,
         canvas: false,  // Required for pdfjs-dist-legacy
       };
+
+      // Browser bundles cannot load Node's module builtin. Keep this scoped to
+      // the client: aliasing/ignoring it in the server bundle breaks Next's
+      // development SSR when client-only packages such as Amplify are present.
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        module: false,
+      };
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /^module$/,
+        }),
+      );
     } else {
       // Mark canvas as external for server-side builds
       config.externals = config.externals || [];
@@ -40,17 +53,8 @@ const nextConfig = {
       });
     }
 
-    // Also add module and canvas to alias for some packages that use it
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'module': false,
-    };
-
     // Ignore problematic modules that are not needed in browser
     config.plugins.push(
-      new webpack.IgnorePlugin({
-        resourceRegExp: /^module$/
-      }),
       new webpack.IgnorePlugin({
         resourceRegExp: /^canvas$/,
         contextRegExp: /pdfjs-dist-legacy/

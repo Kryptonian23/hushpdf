@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Search, Menu, X, Command } from 'lucide-react';
+import { Search, Menu, X, Command, UserRound } from 'lucide-react';
 import { type Locale } from '@/lib/i18n/config';
 import { Button } from '@/components/ui/Button';
 import { RecentFilesDropdown } from '@/components/common/RecentFilesDropdown';
@@ -312,6 +312,14 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
               }}
             />
 
+            <Link
+              href={`/${locale}/account`}
+              className="hidden sm:flex items-center justify-center h-9 w-9 rounded-lg text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))/0.5] transition-all"
+              aria-label="HushPDF account"
+            >
+              <UserRound className="h-5 w-5" aria-hidden="true" />
+            </Link>
+
             {/* Theme Toggle */}
             <ThemeToggle />
 
@@ -357,6 +365,16 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href={`/${locale}/account`}
+                  className="flex items-center gap-3 px-4 py-3 text-base font-medium text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))] rounded-lg transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <UserRound className="h-5 w-5" aria-hidden="true" />
+                  Account
+                </Link>
+              </li>
             </ul>
           </nav>
         )}

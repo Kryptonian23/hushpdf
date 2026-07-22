@@ -12,7 +12,7 @@ export interface LanguageSelectorProps {
 }
 
 // Storage key for language preference
-const LANGUAGE_PREFERENCE_KEY = 'pdfcraft-language-preference';
+const LANGUAGE_PREFERENCE_KEY = 'hushpdf-language-preference';
 
 /**
  * Save language preference to localStorage

@@ -6,7 +6,7 @@
 import { SavedWorkflow, WorkflowNode, WorkflowEdge } from '@/types/workflow';
 import { logger } from '@/lib/utils/logger';
 
-const STORAGE_KEY = 'pdfcraft_workflows';
+const STORAGE_KEY = 'hushpdf_workflows';
 const MAX_WORKFLOWS = 50;
 
 /**

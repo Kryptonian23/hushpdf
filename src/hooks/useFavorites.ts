@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 
-const FAVORITES_STORAGE_KEY = 'pdfcraft-favorite-tools';
+const FAVORITES_STORAGE_KEY = 'hushpdf-favorite-tools';
 
 /**
  * Custom hook to manage favorite tools
