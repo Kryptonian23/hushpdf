@@ -20,8 +20,8 @@ Parameters:
   AllowedOrigin:
     Type: String
     Default: http://localhost:3000
-    AllowedPattern: '^https?://[^/]+$'
-    Description: Exact browser origin allowed to call the billing API.
+    AllowedPattern: '^https?://[^/,]+(?:,https?://[^/,]+)*$'
+    Description: Comma-separated browser origins allowed to call the billing API.
   PersonalMonthlyPriceId:
     Type: String
     Default: price_replace_with_personal_monthly
@@ -59,8 +59,7 @@ Resources:
     Properties:
       StageName: !Ref EnvironmentName
       CorsConfiguration:
-        AllowOrigins:
-          - !Ref AllowedOrigin
+        AllowOrigins: !Split [',', !Ref AllowedOrigin]
         AllowHeaders:
           - Authorization
           - Content-Type

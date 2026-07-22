@@ -23,11 +23,25 @@ Parameters:
     Default: http://localhost:3000/en/account/
     AllowedPattern: '^https?://.+/$'
     Description: Exact HushPDF post-logout URL, including its trailing slash.
+  AdditionalCallbackUrl:
+    Type: String
+    Default: ''
+    AllowedPattern: '^$|^https?://.+/$'
+    Description: Optional second callback URL, such as the CloudFront staging account page.
+  AdditionalLogoutUrl:
+    Type: String
+    Default: ''
+    AllowedPattern: '^$|^https?://.+/$'
+    Description: Optional second post-logout URL, such as the CloudFront staging account page.
   BillingScopeIdentifier:
     Type: String
     Default: hushpdf-billing
     AllowedPattern: '^[a-zA-Z0-9._~:/?#\[\]@!$&''()*+,;=-]+$'
     Description: OAuth resource-server identifier shared with the billing API.
+
+Conditions:
+  HasAdditionalCallbackUrl: !Not [!Equals [!Ref AdditionalCallbackUrl, '']]
+  HasAdditionalLogoutUrl: !Not [!Equals [!Ref AdditionalLogoutUrl, '']]
 
 Resources:
   HushPdfUserPool:
@@ -83,8 +97,10 @@ Resources:
         - COGNITO
       CallbackURLs:
         - !Ref CallbackUrl
+        - !If [HasAdditionalCallbackUrl, !Ref AdditionalCallbackUrl, !Ref AWS::NoValue]
       LogoutURLs:
         - !Ref LogoutUrl
+        - !If [HasAdditionalLogoutUrl, !Ref AdditionalLogoutUrl, !Ref AWS::NoValue]
       ExplicitAuthFlows:
         - ALLOW_REFRESH_TOKEN_AUTH
         - ALLOW_USER_SRP_AUTH

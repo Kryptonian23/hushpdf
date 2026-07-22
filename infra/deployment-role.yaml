@@ -1,0 +1,213 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Least-privilege HushPDF staging deployment role for S3 and CloudFront hosting.
+
+Parameters:
+  RoleName:
+    Type: String
+    Default: HushPdfStagingDeploymentRole
+    AllowedPattern: '^[A-Za-z0-9+=,.@_-]{1,64}$'
+  DeploymentUserName:
+    Type: String
+    Default: HushPdfStagingDeployer
+    AllowedPattern: '^[A-Za-z0-9+=,.@_-]{1,64}$'
+
+Resources:
+  HushPdfStagingDeploymentRole:
+    Type: AWS::IAM::Role
+    DependsOn: HushPdfStagingDeploymentUser
+    Properties:
+      RoleName: !Ref RoleName
+      Description: Deploys and updates HushPDF staging hosting resources without routine root use.
+      MaxSessionDuration: 14400
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:user/${DeploymentUserName}
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: HushPdfStagingHosting
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: ManageHushPdfCloudFormation
+                Effect: Allow
+                Action:
+                  - cloudformation:CreateStack
+                  - cloudformation:CreateChangeSet
+                  - cloudformation:DeleteChangeSet
+                  - cloudformation:DeleteStack
+                  - cloudformation:DescribeChangeSet
+                  - cloudformation:DescribeStackEvents
+                  - cloudformation:DescribeStackResource
+                  - cloudformation:DescribeStackResources
+                  - cloudformation:DescribeStacks
+                  - cloudformation:GetTemplate
+                  - cloudformation:GetTemplateSummary
+                  - cloudformation:ExecuteChangeSet
+                  - cloudformation:ListChangeSets
+                  - cloudformation:ListStackResources
+                  - cloudformation:UpdateStack
+                Resource: !Sub arn:${AWS::Partition}:cloudformation:*:${AWS::AccountId}:stack/hushpdf-*/*
+              - Sid: DiscoverStacks
+                Effect: Allow
+                Action:
+                  - cloudformation:DescribeEvents
+                  - cloudformation:ListStacks
+                  - cloudformation:ValidateTemplate
+                Resource: '*'
+              - Sid: UseServerlessTransform
+                Effect: Allow
+                Action:
+                  - cloudformation:CreateChangeSet
+                Resource: !Sub arn:${AWS::Partition}:cloudformation:*:aws:transform/Serverless-2016-10-31
+              - Sid: CreateHushPdfBuckets
+                Effect: Allow
+                Action:
+                  - s3:CreateBucket
+                  - s3:ListAllMyBuckets
+                Resource: '*'
+              - Sid: ManageHushPdfBuckets
+                Effect: Allow
+                Action:
+                  - s3:DeleteBucket
+                  - s3:GetBucketLocation
+                  - s3:GetBucketOwnershipControls
+                  - s3:GetBucketPolicy
+                  - s3:GetBucketPolicyStatus
+                  - s3:GetBucketPublicAccessBlock
+                  - s3:GetBucketTagging
+                  - s3:GetBucketVersioning
+                  - s3:GetEncryptionConfiguration
+                  - s3:GetLifecycleConfiguration
+                  - s3:ListBucket
+                  - s3:PutBucketCORS
+                  - s3:PutLifecycleConfiguration
+                  - s3:PutBucketOwnershipControls
+                  - s3:PutBucketPolicy
+                  - s3:PutBucketPublicAccessBlock
+                  - s3:PutBucketTagging
+                  - s3:PutBucketVersioning
+                  - s3:PutEncryptionConfiguration
+                Resource: !Sub arn:${AWS::Partition}:s3:::hushpdf-*
+              - Sid: ManageHushPdfObjects
+                Effect: Allow
+                Action:
+                  - s3:DeleteObject
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:PutObjectTagging
+                Resource: !Sub arn:${AWS::Partition}:s3:::hushpdf-*/*
+              - Sid: UseSamArtifactBucket
+                Effect: Allow
+                Action:
+                  - s3:GetBucketLocation
+                  - s3:ListBucket
+                Resource: !Sub arn:${AWS::Partition}:s3:::aws-sam-cli-managed-default-*
+              - Sid: UseSamArtifactObjects
+                Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                Resource: !Sub arn:${AWS::Partition}:s3:::aws-sam-cli-managed-default-*/*
+              - Sid: ManageCloudFrontHosting
+                Effect: Allow
+                Action:
+                  - cloudfront:CreateCachePolicy
+                  - cloudfront:CreateDistribution
+                  - cloudfront:CreateFunction
+                  - cloudfront:CreateInvalidation
+                  - cloudfront:CreateOriginAccessControl
+                  - cloudfront:CreateResponseHeadersPolicy
+                  - cloudfront:DeleteCachePolicy
+                  - cloudfront:DeleteDistribution
+                  - cloudfront:DeleteFunction
+                  - cloudfront:DeleteOriginAccessControl
+                  - cloudfront:DeleteResponseHeadersPolicy
+                  - cloudfront:DescribeFunction
+                  - cloudfront:GetCachePolicy
+                  - cloudfront:GetDistribution
+                  - cloudfront:GetDistributionConfig
+                  - cloudfront:GetFunction
+                  - cloudfront:GetInvalidation
+                  - cloudfront:GetOriginAccessControl
+                  - cloudfront:GetResponseHeadersPolicy
+                  - cloudfront:ListCachePolicies
+                  - cloudfront:ListDistributions
+                  - cloudfront:ListFunctions
+                  - cloudfront:ListOriginAccessControls
+                  - cloudfront:ListResponseHeadersPolicies
+                  - cloudfront:ListTagsForResource
+                  - cloudfront:PublishFunction
+                  - cloudfront:TagResource
+                  - cloudfront:TestFunction
+                  - cloudfront:UntagResource
+                  - cloudfront:UpdateCachePolicy
+                  - cloudfront:UpdateDistribution
+                  - cloudfront:UpdateFunction
+                  - cloudfront:UpdateOriginAccessControl
+                  - cloudfront:UpdateResponseHeadersPolicy
+                Resource: '*'
+              - Sid: ManageHushPdfCognitoClients
+                Effect: Allow
+                Action:
+                  - cognito-idp:DescribeUserPool
+                  - cognito-idp:DescribeUserPoolClient
+                  - cognito-idp:ListTagsForResource
+                  - cognito-idp:UpdateUserPoolClient
+                Resource: !Sub arn:${AWS::Partition}:cognito-idp:*:${AWS::AccountId}:userpool/*
+              - Sid: ManageHushPdfBillingFunctions
+                Effect: Allow
+                Action:
+                  - lambda:GetFunction
+                  - lambda:GetFunctionConfiguration
+                  - lambda:ListTags
+                  - lambda:UpdateFunctionCode
+                  - lambda:UpdateFunctionConfiguration
+                Resource: !Sub arn:${AWS::Partition}:lambda:*:${AWS::AccountId}:function:hushpdf-*
+              - Sid: PassHushPdfBillingExecutionRole
+                Effect: Allow
+                Action:
+                  - iam:GetRole
+                  - iam:PassRole
+                Resource: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/hushpdf-billing-sandbox-*
+              - Sid: ManageHushPdfApiGatewayConfiguration
+                Effect: Allow
+                Action:
+                  - apigateway:GET
+                  - apigateway:PATCH
+                  - apigateway:POST
+                  - apigateway:PUT
+                Resource: !Sub arn:${AWS::Partition}:apigateway:*::/apis/*
+      Tags:
+        - Key: Application
+          Value: HushPDF
+        - Key: Environment
+          Value: staging
+
+  HushPdfStagingDeploymentUser:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: !Ref DeploymentUserName
+      Policies:
+        - PolicyName: AssumeHushPdfStagingDeploymentRole
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: sts:AssumeRole
+                Resource: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/${RoleName}
+      Tags:
+        - Key: Application
+          Value: HushPDF
+        - Key: Environment
+          Value: staging
+
+Outputs:
+  DeploymentRoleArn:
+    Description: Configure this ARN as the role_arn for the hushpdf-deployer AWS CLI profile.
+    Value: !GetAtt HushPdfStagingDeploymentRole.Arn
+  DeploymentUserName:
+    Description: Bootstrap IAM user that may only assume the staging deployment role.
+    Value: !Ref HushPdfStagingDeploymentUser

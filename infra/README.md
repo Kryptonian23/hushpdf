@@ -51,6 +51,39 @@ aws cloudformation describe-stacks \
   --output table
 ```
 
+## Staging hosting
+
+`hosting-staging.yaml` creates a private, encrypted S3 bucket behind a
+CloudFront distribution. The bucket blocks all public access; CloudFront uses
+origin access control to read the static export. The response-headers policy
+also supplies the cross-origin isolation headers required by the browser PDF
+and LibreOffice engines.
+
+Deploy the stack, build with its `SiteUrl` output as
+`NEXT_PUBLIC_SITE_URL`, and sync the export:
+
+```bash
+aws cloudformation deploy \
+  --template-file infra/hosting-staging.yaml \
+  --stack-name hushpdf-web-staging \
+  --parameter-overrides EnvironmentName=staging
+
+npm run build
+aws s3 sync out/ s3://<BucketName output> --delete
+aws cloudfront create-invalidation \
+  --distribution-id <DistributionId output> \
+  --paths '/*'
+```
+
+Add `<SiteUrl>/en/account/` to the Cognito stack through
+`AdditionalCallbackUrl` and `AdditionalLogoutUrl`. The billing stack's
+`AllowedOrigin` parameter accepts a comma-separated list, so localhost and the
+CloudFront staging origin can remain enabled together.
+
+`deployment-role.yaml` is the least-privilege deployer used for staging. Its
+bootstrap user can only assume the deployment role; routine deployments should
+use the role rather than the AWS root identity.
+
 The browser client deliberately has `GenerateSecret: false` and uses only the
 OAuth authorization-code grant. Amplify supplies PKCE for the redirect flow.
 The classic hosted UI is used for this sandbox so the user pool can remain on
