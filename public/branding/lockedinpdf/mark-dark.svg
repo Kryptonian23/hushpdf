@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">LockedInPDF</title>
+  <desc id="desc">A PDF document and lock centered by focus brackets inside a browser window.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="8" y="8" width="112" height="112" rx="18" stroke="#F7FAFF" stroke-width="6"/>
+    <path d="M8 32h112" stroke="#F7FAFF" stroke-width="6"/>
+    <circle cx="21" cy="20" r="3" fill="#F7FAFF" stroke="none"/>
+    <circle cx="31" cy="20" r="3" fill="#F7FAFF" stroke="none"/>
+
+    <path d="M45 43H34v11M83 43h11v11M34 82v11h11M94 82v11H83" stroke="#4D86FF" stroke-width="5"/>
+    <path d="M64 37v7M64 92v7M27 68h7M94 68h7" stroke="#24C47E" stroke-width="4"/>
+
+    <path d="M54 61v-9a11 11 0 0 1 22 0v17" stroke="#F7FAFF" stroke-width="6"/>
+    <path d="M48 61h27l9 9v22a7 7 0 0 1-7 7H48a7 7 0 0 1-7-7V68a7 7 0 0 1 7-7Z" stroke="#F7FAFF" stroke-width="6"/>
+    <path d="M75 61v9h9" stroke="#F7FAFF" stroke-width="6"/>
+  </g>
+</svg>

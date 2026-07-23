@@ -24,7 +24,7 @@ import {
   validateSoftwareApplicationSchema,
   validateFAQPageSchema,
 } from '@/lib/seo/structured-data';
-import { locales, type Locale } from '@/lib/i18n/config';
+import { indexableLocales, locales, type Locale } from '@/lib/i18n/config';
 import { tools, getAllTools } from '@/config/tools';
 import type { Tool, ToolContent, FAQ } from '@/types/tool';
 
@@ -152,18 +152,22 @@ describe('SEO Property Tests', () => {
             expect(metadata.alternates?.canonical).toBeTruthy();
             expect(metadata.alternates?.canonical).toContain(locale);
             
-            // Check alternate language URLs
-            expect(metadata.alternates?.languages).toBeDefined();
-            const languages = metadata.alternates?.languages as Record<string, string>;
-            
-            // All locales should be present
-            for (const loc of locales) {
-              expect(languages[loc]).toBeTruthy();
-              expect(languages[loc]).toContain(loc);
+            if (locale === 'ro') {
+              expect(metadata.alternates?.languages).toBeUndefined();
+            } else {
+              expect(metadata.alternates?.languages).toBeDefined();
+              const languages = metadata.alternates?.languages as Record<string, string>;
+
+              // Only genuinely translated locales should be advertised.
+              for (const loc of indexableLocales) {
+                expect(languages[loc]).toBeTruthy();
+                expect(languages[loc]).toContain(loc);
+              }
+              expect(languages.ro).toBeUndefined();
+
+              // x-default should be present
+              expect(languages['x-default']).toBeTruthy();
             }
-            
-            // x-default should be present
-            expect(languages['x-default']).toBeTruthy();
             
             return true;
           }
@@ -225,7 +229,9 @@ describe('SEO Property Tests', () => {
             expect(schema.applicationCategory).toBe('UtilitiesApplication');
             expect(schema.operatingSystem).toBe('Windows, macOS, Linux, iOS, Android, Chrome OS');
             expect(schema.offers).toBeDefined();
-            expect(schema.offers.price).toBe('0');
+            expect(['7.00', '12.00']).toContain(schema.offers.price);
+            expect(schema.isAccessibleForFree).toBe(false);
+            expect('aggregateRating' in schema).toBe(false);
             
             return true;
           }
@@ -349,6 +355,7 @@ describe('SEO Property Tests', () => {
             
             expect(url).toContain(locale);
             expect(url).toMatch(/^https?:\/\//);
+            expect(url.endsWith('/')).toBe(true);
             
             if (path) {
               expect(url).toContain(path);
@@ -361,20 +368,32 @@ describe('SEO Property Tests', () => {
       );
     });
 
-    it('getAlternateUrls includes all locales', () => {
+    it('getAlternateUrls includes only indexable locales', () => {
       const path = '/tools/merge-pdf';
       const alternates = getAlternateUrls(path);
       
-      // All locales should be present
-      for (const locale of locales) {
+      for (const locale of indexableLocales) {
         expect(alternates[locale]).toBeTruthy();
         expect(alternates[locale]).toContain(locale);
         expect(alternates[locale]).toContain(path);
+        expect(alternates[locale].endsWith('/')).toBe(true);
       }
+      expect(alternates.ro).toBeUndefined();
       
       // x-default should be present
       expect(alternates['x-default']).toBeTruthy();
       expect(alternates['x-default']).toContain('en');
+    });
+
+    it('marks incomplete language content noindex without blocking link discovery', () => {
+      const metadata = generateBaseMetadata({
+        locale: 'ro',
+        title: 'Test',
+        description: 'Test description',
+      });
+
+      expect(metadata.robots).toMatchObject({ index: false, follow: true });
+      expect(metadata.alternates?.languages).toBeUndefined();
     });
   });
 });

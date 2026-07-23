@@ -5,15 +5,27 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { locales, type Locale } from '@/lib/i18n/config';
 import { siteConfig } from '@/config/site';
+import { generateBaseMetadata } from '@/lib/seo/metadata';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: 'Source Code & License | HushPDF',
-  description: 'HushPDF source code, license, and upstream project attribution.',
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return generateBaseMetadata({
+    locale: locale as Locale,
+    path: '/source',
+    title: 'Source Code & License',
+    description: 'HushPDF source code, license, and upstream project attribution.',
+    keywords: ['HushPDF source code', 'GNU AGPLv3', 'open source PDF tools'],
+    noIndex: true,
+  });
+}
 
 export default async function SourcePage({
   params,

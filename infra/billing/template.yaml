@@ -68,6 +68,9 @@ Resources:
           - POST
           - OPTIONS
         MaxAge: 600
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 20
+        ThrottlingRateLimit: 10
       Auth:
         DefaultAuthorizer: CognitoJwt
         Authorizers:
@@ -141,6 +144,9 @@ Resources:
           KeyType: HASH
       PointInTimeRecoverySpecification:
         PointInTimeRecoveryEnabled: true
+      TimeToLiveSpecification:
+        AttributeName: expiresAt
+        Enabled: true
       SSESpecification:
         SSEEnabled: true
       Tags:

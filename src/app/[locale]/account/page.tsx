@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: AccountPageProps): Promise<Me
     title: 'HushPDF Account',
     description: 'Manage your private HushPDF account, trial, and subscription.',
     keywords: ['HushPDF account', 'HushPDF subscription', 'private PDF software'],
+    noIndex: true,
   });
 }
 

@@ -26,6 +26,22 @@ describe('billing sandbox infrastructure', () => {
 
   it('uses webhook subscription state as the entitlement authority', () => {
     expect(handler).toContain("stripeEvent.type === 'customer.subscription.updated'");
-    expect(handler).toContain('await syncSubscription(stripeEvent.data.object)');
+    expect(handler).toContain('stripe.subscriptions.retrieve(stripeEvent.data.object.id)');
+    expect(handler).toContain('await syncSubscription(currentSubscription)');
+  });
+
+  it('rate limits the API and bounds untrusted request bodies', () => {
+    expect(template).toContain('ThrottlingBurstLimit: 20');
+    expect(template).toContain('ThrottlingRateLimit: 10');
+    expect(handler).toContain('MAX_JSON_BODY_BYTES');
+    expect(handler).toContain('MAX_WEBHOOK_BODY_BYTES');
+    expect(handler).toContain("'cache-control': 'no-store'");
+  });
+
+  it('deduplicates signed Stripe webhook events with expiring records', () => {
+    expect(handler).toContain('ConditionExpression: \'attribute_not_exists(accountId)\'');
+    expect(handler).toContain('stripe-event#${stripeEvent.id}');
+    expect(template).toContain('AttributeName: expiresAt');
+    expect(template).toContain('Enabled: true');
   });
 });

@@ -69,11 +69,30 @@ export default async function LocaleLayout({
   const direction = localeConfig[locale as Locale]?.direction || 'ltr';
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      <div lang={locale} dir={direction} className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
-        <SkipLink targetId="main-content">Skip to main content</SkipLink>
-        {children}
-      </div>
-    </NextIntlClientProvider>
+    <html lang={locale} dir={direction} suppressHydrationWarning>
+      <head>
+        <meta name="color-scheme" content="light dark" />
+        <style dangerouslySetInnerHTML={{ __html: 'html{scrollbar-gutter:stable}' }} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark')
+                } else {
+                  document.documentElement.classList.remove('dark')
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
+      <body className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
+        <NextIntlClientProvider messages={messages}>
+          <SkipLink targetId="main-content">Skip to main content</SkipLink>
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

@@ -24,6 +24,10 @@ Resources:
             Status: Enabled
             AbortIncompleteMultipartUpload:
               DaysAfterInitiation: 1
+            NoncurrentVersionExpiration:
+              NoncurrentDays: 30
+      VersioningConfiguration:
+        Status: Enabled
       OwnershipControls:
         Rules:
           - ObjectOwnership: BucketOwnerEnforced
@@ -109,6 +113,25 @@ Resources:
             ModeBlock: true
             Override: true
             Protection: true
+          ContentSecurityPolicy:
+            ContentSecurityPolicy: !Sub >-
+              default-src 'self';
+              base-uri 'self';
+              object-src 'none';
+              frame-ancestors 'none';
+              form-action 'self';
+              script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:;
+              style-src 'self' 'unsafe-inline';
+              img-src 'self' data: blob:;
+              font-src 'self' data:;
+              connect-src 'self' https://*.${AWS::Region}.amazonaws.com https://*.amazoncognito.com;
+              worker-src 'self' blob:;
+              child-src 'self' blob:;
+              frame-src 'self' https://*.stripe.com https://*.amazoncognito.com;
+              media-src 'self' blob:;
+              manifest-src 'self';
+              upgrade-insecure-requests
+            Override: true
         CustomHeadersConfig:
           Items:
             - Header: Cross-Origin-Opener-Policy
@@ -122,7 +145,13 @@ Resources:
               Value: cross-origin
             - Header: Permissions-Policy
               Override: true
-              Value: camera=(), microphone=(), geolocation=()
+              Value: camera=(), microphone=(), geolocation=(), usb=(), serial=(), browsing-topics=()
+            - Header: X-Permitted-Cross-Domain-Policies
+              Override: true
+              Value: none
+            - Header: X-Download-Options
+              Override: true
+              Value: noopen
 
   RouteRewriteFunction:
     Type: AWS::CloudFront::Function
@@ -136,7 +165,14 @@ Resources:
           if (uri.endsWith('/')) {
             request.uri = uri + 'index.html';
           } else if (!uri.substring(uri.lastIndexOf('/') + 1).includes('.')) {
-            request.uri = uri + '/index.html';
+            return {
+              statusCode: 308,
+              statusDescription: 'Permanent Redirect',
+              headers: {
+                location: { value: uri + '/' },
+                'cache-control': { value: 'public, max-age=3600' }
+              }
+            };
           }
 
           return request;

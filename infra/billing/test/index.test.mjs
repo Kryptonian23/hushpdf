@@ -27,6 +27,14 @@ test('return URLs must be an allowed account page', () => {
     () => validateReturnUrl('http://localhost:3000/en/tools/', ['http://localhost:3000']),
     /allowed HushPDF account page/,
   );
+  assert.throws(
+    () => validateReturnUrl('http://localhost:3000/not-a-locale/account/', ['http://localhost:3000']),
+    /allowed HushPDF account page/,
+  );
+  assert.throws(
+    () => validateReturnUrl('http://localhost:3000/en/account/?next=evil', ['http://localhost:3000']),
+    /allowed HushPDF account page/,
+  );
 });
 
 test('Stripe price IDs map only to supported self-serve plans', () => {

@@ -16,7 +16,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: siteConfig.name,
     short_name: 'HushPDF',
     description: siteConfig.description,
-    start_url: '/',
+    start_url: '/en/',
     display: 'standalone',
     background_color: '#ffffff',
     theme_color: '#3b82f6',
@@ -42,34 +42,24 @@ export default function manifest(): MetadataRoute.Manifest {
         purpose: 'maskable',
       },
     ],
-    screenshots: [
-      {
-        src: '/screenshots/home.png',
-        sizes: '1280x720',
-        type: 'image/png',
-      },
-    ],
     shortcuts: [
       {
         name: 'Merge PDF',
         short_name: 'Merge',
         description: 'Combine multiple PDF files',
-        url: '/en/tools/merge-pdf',
-        icons: [{ src: '/icons/merge.png', sizes: '96x96' }],
+        url: '/en/tools/merge-pdf/',
       },
       {
         name: 'Split PDF',
         short_name: 'Split',
         description: 'Split PDF into multiple files',
-        url: '/en/tools/split-pdf',
-        icons: [{ src: '/icons/split.png', sizes: '96x96' }],
+        url: '/en/tools/split-pdf/',
       },
       {
         name: 'Compress PDF',
         short_name: 'Compress',
         description: 'Reduce PDF file size',
-        url: '/en/tools/compress-pdf',
-        icons: [{ src: '/icons/compress.png', sizes: '96x96' }],
+        url: '/en/tools/compress-pdf/',
       },
     ],
   };

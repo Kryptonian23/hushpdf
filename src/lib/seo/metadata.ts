@@ -7,7 +7,7 @@
 
 import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
-import { type Locale, localeConfig, locales } from '@/lib/i18n/config';
+import { type Locale, indexableLocales } from '@/lib/i18n/config';
 import type { Tool, ToolContent } from '@/types/tool';
 import { getBasePath } from '@/lib/utils/path';
 
@@ -42,25 +42,25 @@ export interface ToolMetadataOptions extends BaseMetadataOptions {
  * Generate the canonical URL for a page
  */
 export function getCanonicalUrl(locale: Locale, path: string = ''): string {
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  const cleanPath = path ? (path.startsWith('/') ? path : `/${path}`) : '';
   const basePath = getBasePath().replace(/\/$/, '');
-  return `${siteConfig.url}${basePath}/${locale}${cleanPath}`;
+  return `${siteConfig.url}${basePath}/${locale}${cleanPath}/`.replace(/\/{2,}$/, '/');
 }
 
 /**
  * Generate alternate language URLs for hreflang tags
  */
 export function getAlternateUrls(path: string = ''): Record<string, string> {
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  const cleanPath = path ? (path.startsWith('/') ? path : `/${path}`) : '';
   const alternates: Record<string, string> = {};
   const basePath = getBasePath().replace(/\/$/, '');
 
-  for (const locale of locales) {
-    alternates[locale] = `${siteConfig.url}${basePath}/${locale}${cleanPath}`;
+  for (const locale of indexableLocales) {
+    alternates[locale] = `${siteConfig.url}${basePath}/${locale}${cleanPath}/`.replace(/\/{2,}$/, '/');
   }
 
   // Add x-default pointing to English
-  alternates['x-default'] = `${siteConfig.url}${basePath}/en${cleanPath}`;
+  alternates['x-default'] = `${siteConfig.url}${basePath}/en${cleanPath}/`.replace(/\/{2,}$/, '/');
 
   return alternates;
 }
@@ -70,6 +70,7 @@ export function getAlternateUrls(path: string = ''): Record<string, string> {
  */
 export function generateBaseMetadata(options: PageMetadataOptions): Metadata {
   const { locale, path = '', title, description, keywords = [], image, noIndex = false } = options;
+  const shouldIndex = !noIndex && indexableLocales.includes(locale as (typeof indexableLocales)[number]);
 
   const fullTitle = title.includes(siteConfig.name)
     ? title
@@ -91,8 +92,8 @@ export function generateBaseMetadata(options: PageMetadataOptions): Metadata {
     authors: [{ name: siteConfig.creator }],
     creator: siteConfig.creator,
     publisher: siteConfig.name,
-    robots: noIndex
-      ? { index: false, follow: false }
+    robots: !shouldIndex
+      ? { index: false, follow: true }
       : {
         index: true,
         follow: true,
@@ -107,7 +108,7 @@ export function generateBaseMetadata(options: PageMetadataOptions): Metadata {
     },
     alternates: {
       canonical: canonicalUrl,
-      languages: getAlternateUrls(path),
+      languages: shouldIndex ? getAlternateUrls(path) : undefined,
     },
     openGraph: {
       type: 'website',

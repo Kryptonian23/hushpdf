@@ -8,6 +8,8 @@
 import { siteConfig } from '@/config/site';
 import type { Tool, ToolContent, FAQ, HowToStep } from '@/types/tool';
 import type { Locale } from '@/lib/i18n/config';
+import { requiredPlanForTool } from '@/lib/billing/access';
+import { getCanonicalUrl } from '@/lib/seo/metadata';
 
 /**
  * SoftwareApplication schema for tool pages
@@ -25,12 +27,18 @@ export interface SoftwareApplicationSchema {
     '@type': 'Offer';
     price: string;
     priceCurrency: string;
+    url: string;
+    availability: string;
+    category: string;
   };
-  aggregateRating?: {
-    '@type': 'AggregateRating';
-    ratingValue: string;
-    ratingCount: string;
+  publisher: {
+    '@type': 'Organization';
+    name: string;
+    url: string;
   };
+  isAccessibleForFree: boolean;
+  browserRequirements: string;
+  privacyPolicy: string;
   featureList?: string[];
   screenshot?: string;
   softwareVersion?: string;
@@ -159,30 +167,43 @@ export function generateSoftwareApplicationSchema(
   content: ToolContent,
   locale: Locale
 ): SoftwareApplicationSchema {
+  const requiredPlan = requiredPlanForTool(tool.id);
+  const monthlyPrice = requiredPlan === 'professional' ? '12.00' : '7.00';
+
   const schema: SoftwareApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: content.title,
     description: content.metaDescription,
-    url: `${siteConfig.url}/${locale}/tools/${tool.slug}`,
+    url: getCanonicalUrl(locale, `/tools/${tool.slug}`),
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Windows, macOS, Linux, iOS, Android, Chrome OS',
     offers: {
       '@type': 'Offer',
-      price: '0',
+      price: monthlyPrice,
       priceCurrency: 'USD',
+      url: getCanonicalUrl(locale, '/pricing'),
+      availability: 'https://schema.org/PreOrder',
+      category: `${requiredPlan} subscription`,
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '1250',
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
     },
+    isAccessibleForFree: false,
+    browserRequirements: 'A modern web browser with JavaScript and WebAssembly enabled',
+    privacyPolicy: getCanonicalUrl(locale, '/privacy'),
     keywords: content.keywords ? content.keywords.join(', ') : undefined,
   };
 
   // Add feature list if available
   if (tool.features && tool.features.length > 0) {
-    schema.featureList = tool.features;
+    schema.featureList = [
+      ...tool.features,
+      'PDF processing runs locally in the browser',
+      'PDF files are not uploaded to the application server',
+    ];
   }
 
   return schema;
@@ -217,7 +238,7 @@ export function generateHowToSchema(
       position: step.step,
       name: step.title,
       text: step.description,
-      url: `${siteConfig.url}/${locale}/tools/${tool.slug}#step-${step.step}`,
+      url: `${getCanonicalUrl(locale, `/tools/${tool.slug}`)}#step-${step.step}`,
     })),
   };
 }
@@ -252,7 +273,7 @@ export function generateWebPageSchema(
     '@type': 'WebPage',
     name: content.title,
     description: content.metaDescription,
-    url: `${siteConfig.url}/${locale}/tools/${tool.slug}`,
+    url: getCanonicalUrl(locale, `/tools/${tool.slug}`),
     inLanguage: languageMap[locale] || 'en-US',
     isPartOf: {
       '@type': 'WebSite',
@@ -296,13 +317,13 @@ export function generateWebSiteSchema(locale: Locale): WebSiteSchema {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: siteConfig.name,
-    url: `${siteConfig.url}/${locale}`,
+    url: getCanonicalUrl(locale),
     description: siteConfig.description,
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${siteConfig.url}/${locale}/tools?q={search_term_string}`,
+        urlTemplate: `${getCanonicalUrl(locale, '/tools')}?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
@@ -337,7 +358,7 @@ export function generateBreadcrumbSchema(
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `${siteConfig.url}/${locale}${item.path}`,
+      item: getCanonicalUrl(locale, item.path),
     })),
   };
 }

@@ -1,11 +1,21 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { SecretsManagerClient, GetSecretValueCommand } from '@aws-sdk/client-secrets-manager';
-import { DynamoDBDocumentClient, GetCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
+import {
+  DeleteCommand,
+  DynamoDBDocumentClient,
+  GetCommand,
+  PutCommand,
+  UpdateCommand,
+} from '@aws-sdk/lib-dynamodb';
 import Stripe from 'stripe';
 
 const dynamo = DynamoDBDocumentClient.from(new DynamoDBClient({}));
 const secretsManager = new SecretsManagerClient({});
 const tableName = process.env.ACCOUNTS_TABLE_NAME;
+const MAX_JSON_BODY_BYTES = 8 * 1024;
+const MAX_WEBHOOK_BODY_BYTES = 256 * 1024;
+const WEBHOOK_EVENT_TTL_SECONDS = 7 * 24 * 60 * 60;
+const ACCOUNT_PATH = /^\/(?:en|ja|ko|es|fr|de|zh|zh-TW|pt|ar|it|id|vi|ro)\/account\/$/;
 
 const FEATURES = Object.freeze({
   personal: Object.freeze(['core-tools', 'desktop-app', 'product-updates', 'local-history']),
@@ -27,7 +37,11 @@ let cachedStripe;
 function response(statusCode, body) {
   return {
     statusCode,
-    headers: { 'content-type': 'application/json' },
+    headers: {
+      'cache-control': 'no-store',
+      'content-type': 'application/json; charset=utf-8',
+      'x-content-type-options': 'nosniff',
+    },
     body: JSON.stringify(body),
   };
 }
@@ -37,11 +51,28 @@ function requestBody(event) {
   return event.isBase64Encoded ? Buffer.from(raw, 'base64').toString('utf8') : raw;
 }
 
+function assertBodySize(event, maximumBytes) {
+  if (Buffer.byteLength(requestBody(event), 'utf8') > maximumBytes) {
+    throw Object.assign(new Error('The request body is too large.'), { statusCode: 413 });
+  }
+}
+
+function requireJsonContentType(event) {
+  const contentType = event.headers?.['content-type'] ?? event.headers?.['Content-Type'] ?? '';
+  if (!contentType.toLowerCase().startsWith('application/json')) {
+    throw Object.assign(new Error('Content-Type must be application/json.'), { statusCode: 415 });
+  }
+}
+
 function parseJsonBody(event) {
+  assertBodySize(event, MAX_JSON_BODY_BYTES);
+  requireJsonContentType(event);
   try {
-    return JSON.parse(requestBody(event));
+    const body = JSON.parse(requestBody(event));
+    if (!body || Array.isArray(body) || typeof body !== 'object') throw new Error('Invalid body');
+    return body;
   } catch {
-    throw Object.assign(new Error('The request body must be valid JSON.'), { statusCode: 400 });
+    throw Object.assign(new Error('The request body must be a valid JSON object.'), { statusCode: 400 });
   }
 }
 
@@ -67,7 +98,14 @@ export function validateReturnUrl(value, origins = allowedOrigins()) {
   } catch {
     throw Object.assign(new Error('A valid returnUrl is required.'), { statusCode: 400 });
   }
-  if (!origins.includes(url.origin) || !url.pathname.endsWith('/account/')) {
+  if (
+    !origins.includes(url.origin)
+    || !ACCOUNT_PATH.test(url.pathname)
+    || url.username
+    || url.password
+    || url.search
+    || url.hash
+  ) {
     throw Object.assign(new Error('returnUrl must be an allowed HushPDF account page.'), { statusCode: 400 });
   }
   return url;
@@ -247,7 +285,35 @@ async function syncSubscription(subscription) {
   });
 }
 
+async function claimWebhookEvent(stripeEvent) {
+  const accountId = `stripe-event#${stripeEvent.id}`;
+  try {
+    await dynamo.send(new PutCommand({
+      TableName: tableName,
+      Item: {
+        accountId,
+        kind: 'stripe-webhook-event',
+        stripeCreatedAt: stripeEvent.created,
+        expiresAt: Math.floor(Date.now() / 1000) + WEBHOOK_EVENT_TTL_SECONDS,
+      },
+      ConditionExpression: 'attribute_not_exists(accountId)',
+    }));
+    return true;
+  } catch (error) {
+    if (error?.name === 'ConditionalCheckFailedException') return false;
+    throw error;
+  }
+}
+
+async function releaseWebhookEvent(stripeEvent) {
+  await dynamo.send(new DeleteCommand({
+    TableName: tableName,
+    Key: { accountId: `stripe-event#${stripeEvent.id}` },
+  }));
+}
+
 async function webhook(event) {
+  assertBodySize(event, MAX_WEBHOOK_BODY_BYTES);
   const signature = event.headers?.['stripe-signature'] ?? event.headers?.['Stripe-Signature'];
   if (!signature) return response(400, { error: 'Missing Stripe signature.' });
   const secrets = await stripeSecrets();
@@ -259,20 +325,34 @@ async function webhook(event) {
     return response(400, { error: 'Invalid Stripe signature.' });
   }
 
-  if (stripeEvent.type === 'checkout.session.completed') {
-    const session = stripeEvent.data.object;
-    if (session.client_reference_id && session.customer) {
-      await updateAccount(session.client_reference_id, {
-        stripeCustomerId: typeof session.customer === 'string' ? session.customer : session.customer.id,
-      });
-    }
+  if (!(await claimWebhookEvent(stripeEvent))) {
+    return response(200, { received: true, duplicate: true });
   }
-  if (
-    stripeEvent.type === 'customer.subscription.created'
-    || stripeEvent.type === 'customer.subscription.updated'
-    || stripeEvent.type === 'customer.subscription.deleted'
-  ) {
-    await syncSubscription(stripeEvent.data.object);
+
+  try {
+    if (stripeEvent.type === 'checkout.session.completed') {
+      const session = stripeEvent.data.object;
+      if (session.client_reference_id && session.customer) {
+        await updateAccount(session.client_reference_id, {
+          stripeCustomerId: typeof session.customer === 'string' ? session.customer : session.customer.id,
+        });
+      }
+    }
+    if (
+      stripeEvent.type === 'customer.subscription.created'
+      || stripeEvent.type === 'customer.subscription.updated'
+      || stripeEvent.type === 'customer.subscription.deleted'
+    ) {
+      // Stripe does not guarantee webhook delivery order. Read the current
+      // subscription instead of allowing an older event payload to restore
+      // stale access after a cancellation or downgrade.
+      const currentSubscription = await stripe.subscriptions.retrieve(stripeEvent.data.object.id);
+      await syncSubscription(currentSubscription);
+    }
+  } catch (error) {
+    // Let Stripe retry a legitimately signed event after transient failures.
+    await releaseWebhookEvent(stripeEvent);
+    throw error;
   }
   return response(200, { received: true });
 }

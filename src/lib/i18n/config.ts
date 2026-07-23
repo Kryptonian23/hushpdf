@@ -6,6 +6,13 @@
 export const locales = ['en', 'ja', 'ko', 'es', 'fr', 'de', 'zh', 'zh-TW', 'pt', 'ar', 'it', 'id', 'vi', 'ro'] as const;
 export type Locale = (typeof locales)[number];
 
+/**
+ * Locales whose tool content is complete enough to be indexed as a distinct
+ * language version. Romanian remains available in the UI while its tool copy
+ * is completed, but is deliberately excluded from search discovery for now.
+ */
+export const indexableLocales = locales.filter((locale) => locale !== 'ro') as Exclude<Locale, 'ro'>[];
+
 export const defaultLocale: Locale = 'en';
 
 export const localeConfig: Record<Locale, {

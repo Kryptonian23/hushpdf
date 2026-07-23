@@ -1,8 +1,19 @@
-import { setRequestLocale } from 'next-intl/server';
+import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
 import { TOOL_CATEGORIES, type ToolCategory } from '@/types/tool';
 import CategoryPageClient from './CategoryPageClient';
 import { notFound } from 'next/navigation';
+import { generateBaseMetadata } from '@/lib/seo/metadata';
+
+const categoryTranslationKeys: Record<ToolCategory, string> = {
+    'edit-annotate': 'editAnnotate',
+    'convert-to-pdf': 'convertToPdf',
+    'convert-from-pdf': 'convertFromPdf',
+    'organize-manage': 'organizeManage',
+    'optimize-repair': 'optimizeRepair',
+    'secure-pdf': 'securePdf',
+};
 
 export function generateStaticParams() {
     return locales.flatMap((locale) =>
@@ -13,18 +24,24 @@ export function generateStaticParams() {
     );
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string; category: string }> }) {
-    const { category } = await params;
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; category: string }> }): Promise<Metadata> {
+    const { locale, category } = await params;
+    if (!TOOL_CATEGORIES.includes(category as ToolCategory)) {
+        notFound();
+    }
 
-    const formattedCategory = category
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
+    const validLocale = locale as Locale;
+    const translationKey = categoryTranslationKeys[category as ToolCategory];
+    const t = await getTranslations({ locale: validLocale, namespace: 'home' });
+    const categoryName = t(`categories.${translationKey}`);
 
-    return {
-        title: `${formattedCategory} Tools - HushPDF`,
-        description: `Professional ${formattedCategory} tools with private, on-device processing.`,
-    };
+    return generateBaseMetadata({
+        locale: validLocale,
+        path: `/tools/category/${category}`,
+        title: `${categoryName} PDF Tools`,
+        description: t(`categoriesDescription.${translationKey}`),
+        keywords: [categoryName, 'PDF tools', 'private PDF processing'],
+    });
 }
 
 export default async function CategoryPage({ params }: { params: Promise<{ locale: string; category: string }> }) {
